@@ -1,0 +1,15 @@
+[user]
+	email = phrudloff@gmail.com
+	name = kleinfreund
+[push]
+	default = simple
+[core]
+	editor = subl
+	excludesfile = /home/philipp/.gitignore_global
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
