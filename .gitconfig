@@ -5,7 +5,7 @@
 	default = simple
 [core]
 	editor = subl
-	excludesfile = /home/philipp/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
 	co = checkout
 	br = branch
