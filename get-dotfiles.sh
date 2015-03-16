@@ -41,8 +41,6 @@ mkdir -p $ST_DEST
 
 
 
-### Copying the files to the repository
-
 # Bash
 cp $HOME/.bashrc "$BASH_DEST"
 cp $HOME/.bash_aliases "$BASH_DEST"
