@@ -1,0 +1,5 @@
+[
+    { "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } },
+    { "keys": ["ctrl+shift+alt+7"], "command": "insert_snippet", "args": {"contents": "/**\n * ${0:$SELECTION}\n */" } }
+]

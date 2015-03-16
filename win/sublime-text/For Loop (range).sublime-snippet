@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+for ${1:i} in ${2:range(1,10)}:
+    ${3:pass}
+]]></content>
+    <tabTrigger>for</tabTrigger>
+    <scope>source.python</scope>
+</snippet>
