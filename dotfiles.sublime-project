@@ -1,0 +1,14 @@
+{
+    "folders":
+    [
+        {
+            "path": "/",
+            "name": "dotfiles",
+            "folder_exclude_patterns": []
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 4
+    }
+}
