@@ -16,7 +16,7 @@
 		".git",
 		".sass-cache"
 	],
-	"font_size": 12.0,
+	"font_size": 13.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -38,5 +38,5 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": true,
-	"wrap_width": 80
+	"wrap_width": 81
 }
