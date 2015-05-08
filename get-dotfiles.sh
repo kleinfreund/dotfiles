@@ -60,6 +60,7 @@ cp "$HOME/.gemrc" "$RUBY_DEST"
 
 # Sublime Text (Windows)
 cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"
+cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
 cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"
 cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"
