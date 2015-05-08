@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Shell script to copy important configuration files on my Ubuntu environment
 # to this repository.
 
@@ -7,19 +9,19 @@ REPO_PATH="$HOME/dev/repos/dotfiles/"
 
 
 # Detect OS (OS X, Linux or Windows)
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     echo "System: OS X"
 
     OS_PATH="osx/"
 
     ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
     echo "System: Linux"
 
     OS_PATH="linux/"
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User/"
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
     echo "System: Windows"
 
     OS_PATH="win/"
