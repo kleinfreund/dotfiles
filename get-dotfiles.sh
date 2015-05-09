@@ -3,6 +3,14 @@
 # Shell script to copy important configuration files from the current
 # environment to this repository.
 
+# Exit as soon as a command fails
+set -e
+
+# Accessing an empty variable will yield an error
+set -u
+
+
+
 # Local location of the repository
 REPO_PATH="$HOME/dev/repos/dotfiles/"
 
@@ -43,12 +51,11 @@ NPM_DEST="${REPO_PATH}${OS_PATH}npm/"
 RUBY_DEST="${REPO_PATH}${OS_PATH}ruby/"
 ST_DEST="${REPO_PATH}${OS_PATH}sublime-text/"
 
-# Create necessary directories if they don't exist
-mkdir -p $BASH_DEST
-mkdir -p $GIT_DEST
-mkdir -p $NPM_DEST
-mkdir -p $RUBY_DEST
-mkdir -p $ST_DEST
+declare -a destinations=($BASH_DEST $GIT_DEST $NPM_DEST $RUBY_DEST $ST_DEST)
+
+for dest in "${destinations[@]}"; do
+    mkdir -p "$dest"
+done
 
 
 
