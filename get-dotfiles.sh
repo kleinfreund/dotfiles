@@ -1,10 +1,16 @@
 #!/bin/sh
 
-# Shell script to copy important configuration files on my Ubuntu environment
-# to this repository.
+# Shell script to copy important configuration files from the current
+# environment to this repository.
 
 # Local location of the repository
 REPO_PATH="$HOME/dev/repos/dotfiles/"
+
+# Exit when $REPO_PATH is not a git repository
+if [ ! -d "$REPO_PATH/.git" ]; then
+  echo "${REPO_PATH} is not a git repository."
+  exit 1
+fi
 
 
 
@@ -60,12 +66,21 @@ cp "${NPM_DIR}.npmrc" "$NPM_DEST"
 # Ruby/RubyGems
 cp "$HOME/.gemrc" "$RUBY_DEST"
 
-# Sublime Text (Windows)
+# Sublime Text
 cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"
-cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
-cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"
 cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"
 cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"
+
+
+
+# OS specific copy operations
+if [ "$OS_PATH" = "osx/" ]; then
+    echo "Nothing here."
+elif [ "$OS_PATH" = "linux/" ]; then
+    cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
+elif [ "$OS_PATH" = "windows/" ]; then
+    cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
+fi
 
 echo "Completed."
