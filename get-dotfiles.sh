@@ -66,5 +66,6 @@ cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
 cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"
 cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"
+cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"
 
 echo "Completed."

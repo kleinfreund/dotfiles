@@ -9,6 +9,13 @@ fi
 # Jekyll environment
 export JEKYLL_ENV=local
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin"
 
-export PATH="$PATH:/opt/cmake/bin" # Add Cmake to PATH
+# Add Cmake to PATH
+export PATH="$PATH:/opt/cmake/bin"
+
+# cd into repo directory
+wd() { cd ~/dev/repos; }
+
+wd
