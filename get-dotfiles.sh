@@ -1,7 +1,11 @@
 #!/bin/sh
 
+################################################################################
+#
 # Shell script to copy important configuration files from the current
 # environment to this repository.
+#
+################################################################################
 
 # Exit as soon as a command fails
 set -e
@@ -9,47 +13,45 @@ set -e
 # Accessing an empty variable will yield an error
 set -u
 
+# Assume the working directory is the path to the dotfiles repository
+REPO_PATH="$PWD/"
 
-
-# Local location of the repository
-REPO_PATH="$HOME/dev/repos/dotfiles/"
-
-# Exit when $REPO_PATH is not a git repository
-if [ ! -d "$REPO_PATH/.git" ]; then
-  echo "${REPO_PATH} is not a git repository."
-  exit 1
+# Abort mission when we’re not in a git repository
+if [[ ! -d .git ]] || ! git rev-parse --git-dir > /dev/null 2>&1; then
+    echo "Not a git repository."
+    exit 1
 fi
 
 
 
 # Detect OS (OS X, Linux or Windows)
 if [ "$(uname)" = "Darwin" ]; then
-    echo "System: OS X"
+    echo "Detected system: OS X"
 
-    OS_PATH="osx/"
+    OS="osx/"
 
     ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
-    echo "System: Linux"
+    echo "Detected system: Linux"
 
-    OS_PATH="linux/"
+    OS="linux/"
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User/"
 elif [ "$(expr substr $(uname -s) 1 10)" = "MINGW32_NT" ]; then
-    echo "System: Windows"
+    echo "Detected system: Windows"
 
-    OS_PATH="win/"
+    OS="win/"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User/"
     NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm/"
 fi
 
 # Adjust destination paths so the files are separated by OS
-BASH_DEST="${REPO_PATH}${OS_PATH}bash/"
-GIT_DEST="${REPO_PATH}${OS_PATH}git/"
-NPM_DEST="${REPO_PATH}${OS_PATH}npm/"
-RUBY_DEST="${REPO_PATH}${OS_PATH}ruby/"
-ST_DEST="${REPO_PATH}${OS_PATH}sublime-text/"
+BASH_DEST="${REPO_PATH}${OS}bash/"
+GIT_DEST="${REPO_PATH}${OS}git/"
+NPM_DEST="${REPO_PATH}${OS}npm/"
+RUBY_DEST="${REPO_PATH}${OS}ruby/"
+ST_DEST="${REPO_PATH}${OS}sublime-text/"
 
 declare -a destinations=($BASH_DEST $GIT_DEST $NPM_DEST $RUBY_DEST $ST_DEST)
 
@@ -82,11 +84,11 @@ cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"
 
 
 # OS specific copy operations
-if [ "$OS_PATH" = "osx/" ]; then
+if [ "$OS" = "osx/" ]; then
     echo "Nothing here."
-elif [ "$OS_PATH" = "linux/" ]; then
+elif [ "$OS" = "linux/" ]; then
     cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
-elif [ "$OS_PATH" = "windows/" ]; then
+elif [ "$OS" = "windows/" ]; then
     cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 fi
 
