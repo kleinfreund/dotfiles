@@ -77,6 +77,8 @@ cp "$HOME/.gemrc" "$RUBY_DEST"
 
 # Sublime Text
 cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"
+cp "${ST_DIR}Markdown.sublime-settings" "$ST_DEST"
+cp "${ST_DIR}YAML.sublime-settings" "$ST_DEST"
 cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"
 cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"
 cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"
