@@ -1,42 +1,91 @@
 {
+	/**
+	 * Theme settings
+	 */
+	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"theme": "Spacegray Eighties.sublime-theme",
+
+	/**
+	 * Editor appearance
+	 */
+	// Only works with certain themes
+	"bold_folder_labels": true,
+	// Disable blinking of the cursor
+	"caret_style": "solid",
+	// Slightly increase the width of the cursor
+	"wide_caret": true,
+	// Disables the fold buttons that let you collapse code blocks
+	"fold_buttons": false,
+	"font_size": 13.0,
+	// Add a little space to lines for better distinctability
+	"line_padding_top": 1,
+	"line_padding_bottom": 1,
+	"highlight_line": true,
+	// Only works with certain themes
+	"highlight_modified_tabs": true,
+
+	/**
+	 * Behavior
+	 */
+	"word_wrap": true,
+	// Adds vertical rulers (even multiple ones with [80, 120, …])
+	"rulers": [80],
+	// For Sublime Text to wrap at the ruler column
+	// you need ruler column+1 for some reason
+	"wrap_width": 81,
+	"scroll_past_end": false,
+	"find_selected_text": true,
+
+	/**
+	 * Whitespace behavior
+	 */
+	"tab_size": 4,
+	// Highlight whitespace where spaces are dots and tabs are lines
+	"draw_white_space": "all",
+	// Disable indentation detection of newly opened files
+	"detect_indentation": false,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	// Adds a newline to the end of a file on save if there is none
+	"ensure_newline_at_eof_on_save": true,
+
+	/**
+	 * Auto Completion
+	 */
 	"auto_complete": true,
+	// Delays the Auto Complete window by n milliseconds
+	"auto_complete_delay": 500,
 	"auto_complete_commit_on_tab": true,
 	"auto_complete_selector": "source, text",
 	"auto_complete_with_fields": true,
-	"bold_folder_labels": true,
-	"caret_style": "phase",
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
-	"detect_indentation": true,
-	"draw_white_space": "all",
-	"ensure_newline_at_eof_on_save": true,
-	"fade_fold_buttons": true,
-	"fold_buttons": false,
+
+	/**
+	 * Sidebar exclude patterns
+	 * Check the default preferences to see whether something is already ignored
+	 */
+	// Hide folders and …
 	"folder_exclude_patterns":
 	[
-		".git",
 		".sass-cache"
 	],
-	"font_size": 13.0,
-	"highlight_line": true,
-	"highlight_modified_tabs": true,
+	// … files from Goto Anything and the sidebar
+	"file_exclude_patterns": [],
+
+	/**
+	 * Sublime Text internals
+	 */
+	// Hide folders and files from Goto Anything, but not from the sidebar
+	"binary_file_patterns":
+	[
+		"node_modules/",
+		".gitignore"
+	],
 	"ignored_packages":
 	[
-		"SHS-Bourbon-Neat",
 		"Vintage",
-		"SHS-Compass-Mixins",
 		"SHS-Bourbon",
+		"SHS-Bourbon-Neat",
+		"SHS-Compass-Mixins",
 		"SHS-Compass-Variables"
-	],
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
-	"rulers":
-	[
-		80
-	],
-	"tab_size": 4,
-	"theme": "Spacegray Eighties.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"word_wrap": true,
-	"wrap_width": 81
+	]
 }
