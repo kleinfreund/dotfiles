@@ -96,11 +96,11 @@ fi
 
 
 # OS specific copy operations
-if [ "$OS" = "osx/" ]; then
+if [ "$OS" = "osx" ]; then
     echo "Nothing here."
-elif [ "$OS" = "linux/" ]; then
+elif [ "$OS" = "linux" ]; then
     cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
-elif [ "$OS" = "windows/" ]; then
+elif [ "$OS" = "windows" ]; then
     cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 fi
 
