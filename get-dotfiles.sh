@@ -24,33 +24,33 @@ fi
 
 
 
-uname=$(uname -s)
-
 # Detect OS (OS X, Linux or Windows)
+printf "Detecting system: "
+uname=$(uname -s)
 if [[ $uname = Darwin ]]; then
-    echo "Detected system: OS X"
+    printf "OS X"
 
     OS="osx"
 
     ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
 elif [[ $uname = *Linux* ]]; then
-    echo "Detected system: Linux"
+    printf "Linux"
 
     OS="linux"
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User/"
-    NPM_DIR=""
 elif [[ $uname = *MINGW32_NT* ]]; then
-    echo "Detected system: Windows"
+    printf "Windows"
 
     OS="win"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User/"
     NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm/"
 else
-    echo "Could not detect system. Aborting."
+    printf "Could not detect system. Aborting."
     exit 2
 fi
+printf "\n"
 
 # Adjust destination paths so the files are separated by OS
 BASH_DEST="${REPO_PATH}/${OS}/bash/"
@@ -67,31 +67,33 @@ done
 
 
 
+echo "Copying files"
 # Bash
-cp "$HOME/.bashrc" "$BASH_DEST"
-cp "$HOME/.bash_aliases" "$BASH_DEST"
+printf "Bash "
+cp "$HOME/.bashrc" "$BASH_DEST"; printf "."
+cp "$HOME/.bash_aliases" "$BASH_DEST"; printf "."
+printf "\n"
 
 # Git
-cp "$HOME/.gitignore_global" "$GIT_DEST"
-cp "$HOME/.gitconfig" "$GIT_DEST"
-
-# Node.js/npm
-if [[ -d "$NPM_DIR" ]]; then
-    cp "${NPM_DIR}.npmrc" "$NPM_DEST"
-fi
+printf "Git "
+cp "$HOME/.gitignore_global" "$GIT_DEST"; printf "."
+cp "$HOME/.gitconfig" "$GIT_DEST"; printf "."
+printf "\n"
 
 # Ruby/RubyGems
-cp "$HOME/.gemrc" "$RUBY_DEST"
+printf "Ruby "
+cp "$HOME/.gemrc" "$RUBY_DEST"; printf "."
+printf "\n"
 
 # Sublime Text
-if [[ -d "$ST_DIR" ]]; then
-    cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"
-    cp "${ST_DIR}Markdown.sublime-settings" "$ST_DEST"
-    cp "${ST_DIR}YAML.sublime-settings" "$ST_DEST"
-    cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"
-    cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"
-    cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"
-fi
+printf "Sublime Text "
+cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"; printf "."
+cp "${ST_DIR}Markdown.sublime-settings" "$ST_DEST"; printf "."
+cp "${ST_DIR}YAML.sublime-settings" "$ST_DEST"; printf "."
+cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"; printf "."
+cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"; printf "."
+cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"; printf "."
+printf "\n"
 
 
 
@@ -101,6 +103,7 @@ if [ "$OS" = "osx" ]; then
 elif [ "$OS" = "linux" ]; then
     cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
 elif [ "$OS" = "windows" ]; then
+    cp "${NPM_DIR}.npmrc" "$NPM_DEST"
     cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
 fi
 
