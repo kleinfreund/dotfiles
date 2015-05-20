@@ -32,20 +32,20 @@ if [[ $uname = Darwin ]]; then
 
     OS="osx"
 
-    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
+    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
 elif [[ $uname = *Linux* ]]; then
     printf "Linux"
 
     OS="linux"
 
-    ST_DIR="$HOME/.config/sublime-text-3/Packages/User/"
+    ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
 elif [[ $uname = *MINGW32_NT* ]]; then
     printf "Windows"
 
     OS="win"
 
-    ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User/"
-    NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm/"
+    ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
+    NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
 else
     printf "Could not detect system. Aborting."
     exit 2
@@ -67,33 +67,22 @@ done
 
 
 
-echo "Copying files"
+echo "Copying files ..."
 # Bash
-printf "Bash "
-cp "$HOME/.bashrc" "$BASH_DEST"; printf "."
-cp "$HOME/.bash_aliases" "$BASH_DEST"; printf "."
-printf "\n"
+cp "$HOME/".bashrc "$BASH_DEST"
+cp "$HOME/".bash_aliases "$BASH_DEST"
 
 # Git
-printf "Git "
-cp "$HOME/.gitignore_global" "$GIT_DEST"; printf "."
-cp "$HOME/.gitconfig" "$GIT_DEST"; printf "."
-printf "\n"
+cp "$HOME/".gitignore_global "$GIT_DEST"
+cp "$HOME/".gitconfig "$GIT_DEST"
 
 # Ruby/RubyGems
-printf "Ruby "
-cp "$HOME/.gemrc" "$RUBY_DEST"; printf "."
-printf "\n"
+cp "$HOME/".gemrc "$RUBY_DEST"
 
 # Sublime Text
-printf "Sublime Text "
-cp "${ST_DIR}Preferences.sublime-settings" "$ST_DEST"; printf "."
-cp "${ST_DIR}Markdown.sublime-settings" "$ST_DEST"; printf "."
-cp "${ST_DIR}YAML.sublime-settings" "$ST_DEST"; printf "."
-cp "${ST_DIR}Package Control.sublime-settings" "$ST_DEST"; printf "."
-cp "${ST_DIR}For Loop (range).sublime-snippet" "$ST_DEST"; printf "."
-cp "${ST_DIR}Fraction (TeX).sublime-snippet" "$ST_DEST"; printf "."
-printf "\n"
+cp "${ST_DIR}/"*.sublime-settings "$ST_DEST"
+cp "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
+
 
 
 
@@ -101,10 +90,10 @@ printf "\n"
 if [ "$OS" = "osx" ]; then
     echo "Nothing here."
 elif [ "$OS" = "linux" ]; then
-    cp "${ST_DIR}Default (Linux).sublime-keymap" "$ST_DEST"
+    cp "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
 elif [ "$OS" = "windows" ]; then
-    cp "${NPM_DIR}.npmrc" "$NPM_DEST"
-    cp "${ST_DIR}Default (Windows).sublime-keymap" "$ST_DEST"
+    cp "${NPM_DIR}/".npmrc "$NPM_DEST"
+    cp "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
 fi
 
 echo "Completed."
