@@ -5,8 +5,10 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"Color Highlighter",
 		"Package Control",
 		"Syntax Highlighting for Sass",
+		"Theme - Cobalt2",
 		"Theme - Spacegray"
 	]
 }

@@ -1,114 +1,115 @@
 {
-	/**
-	 * Theme settings
-	 */
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
-	"theme": "Spacegray Eighties.sublime-theme",
+    /**
+     * Theme settings
+     */
+    "color_scheme": "Packages/Theme - Cobalt2/Cobalt2.tmTheme",
+    "theme": "Cobalt2.sublime-theme",
+    "indent_guide_options": ["draw_normal", "draw_active"],
 
 
 
-	/**
-	 * Editor appearance
-	 */
-	// Only works with certain themes
-	"bold_folder_labels": true,
-	// Disable blinking of the cursor
-	"caret_style": "solid",
-	// Slightly increase the width of the cursor
-	"wide_caret": true,
-	// Disables the fold buttons that let you collapse code blocks
-	"fold_buttons": false,
-	// Sets the OS font size (no, it doesn’t)
-	"font_size": 13.0,
-	// Add a little space to lines for better distinctability
-	"line_padding_top": 1,
-	"line_padding_bottom": 1,
-	// Highlights the line where the cursors are
-	"highlight_line": true,
-	// Only works with certain themes
-	"highlight_modified_tabs": true,
+    /**
+     * Editor appearance
+     */
+    // Only works with certain themes
+    "bold_folder_labels": true,
+    // Disable blinking of the cursor
+    "caret_style": "solid",
+    // Slightly increase the width of the cursor
+    "wide_caret": true,
+    // Disables the fold buttons that let you collapse code blocks
+    "fold_buttons": false,
+    // Sets the OS font size (no, it doesn’t)
+    "font_size": 13.0,
+    // Add a little space to lines for better distinctability
+    "line_padding_top": 1,
+    "line_padding_bottom": 1,
+    // Highlights the line where the cursors are
+    "highlight_line": true,
+    // Only works with certain themes
+    "highlight_modified_tabs": true,
 
 
 
-	/**
-	 * Behavior
-	 */
-	// Adds vertical rulers (even multiple ones with [80, 120, …])
-	"rulers": [80],
-	// For Sublime Text to wrap at the ruler column
-	// you need ruler column+1 for some reason
-	"wrap_width": 81,
-	// Wraps line content at `wrap_width` instead of overflowing your window
-	"word_wrap": true,
-	// Prevents to scroll past the last line
-	"scroll_past_end": false,
-	// When using `Find`, the selection is copied to the search field
-	"find_selected_text": true,
+    /**
+     * Behavior
+     */
+    // Adds vertical rulers (even multiple ones with [80, 120, …])
+    "rulers": [80],
+    // For Sublime Text to wrap at the ruler column
+    // you need ruler column+1 for some reason
+    "wrap_width": 81,
+    // Wraps line content at `wrap_width` instead of overflowing your window
+    "word_wrap": true,
+    // Prevents to scroll past the last line
+    "scroll_past_end": false,
+    // When using `Find`, the selection is copied to the search field
+    "find_selected_text": true,
 
 
 
-	/**
-	 * Whitespace & indentation behavior
-	 */
-	// Indents by 4 tabs (yes, it really does that)
-	"tab_size": 4,
-	// Allows shift tabbing single lines
-	"shift_tab_unindent": true,
-	// Disable indentation detection of newly opened files
-	"detect_indentation": false,
-	// Inserts spaces instead of a tab character then pressing tab
-	"translate_tabs_to_spaces": true,
-	// Highlight whitespace where spaces are dots and tabs are lines
-	"draw_white_space": "all",
-	// When saving, this removes all trailing whitespace
-	"trim_trailing_white_space_on_save": true,
-	// Adds a newline to the end of a file on save if there is none
-	"ensure_newline_at_eof_on_save": true,
+    /**
+     * Whitespace & indentation behavior
+     */
+    // Indents by 4 tabs (yes, it really does that)
+    "tab_size": 4,
+    // Allows shift tabbing single lines
+    "shift_tab_unindent": true,
+    // Disable indentation detection of newly opened files
+    "detect_indentation": false,
+    // Inserts spaces instead of a tab character then pressing tab
+    "translate_tabs_to_spaces": true,
+    // Highlight whitespace where spaces are dots and tabs are lines
+    "draw_white_space": "all",
+    // When saving, this removes all trailing whitespace
+    "trim_trailing_white_space_on_save": true,
+    // Adds a newline to the end of a file on save if there is none
+    "ensure_newline_at_eof_on_save": true,
 
 
 
-	/**
-	 * Auto Completion
-	 */
-	// Delays the auto complete window by n milliseconds
-	"auto_complete_delay": 200,
-	// Auto completion commits on tab instead of enter
-	"auto_complete_commit_on_tab": true,
-	// Adjust auto complete to also trigger on regular text (might annoy you)
-	"auto_complete_selector": "source, text",
-	"auto_complete_with_fields": true,
+    /**
+     * Auto Completion
+     */
+    // Delays the auto complete window by n milliseconds
+    "auto_complete_delay": 200,
+    // Auto completion commits on tab instead of enter
+    "auto_complete_commit_on_tab": true,
+    // Adjust auto complete to also trigger on regular text (might annoy you)
+    "auto_complete_selector": "source, text",
+    "auto_complete_with_fields": true,
 
 
 
-	/**
-	 * Sidebar exclude patterns
-	 * Check the default preferences to see whether something is already ignored
-	 */
-	// Hide folders and …
-	"folder_exclude_patterns":
-	[
-		".sass-cache"
-	],
-	// … files from Goto Anything and the sidebar
-	"file_exclude_patterns": [],
+    /**
+     * Sidebar exclude patterns
+     * Check the default preferences to see whether something is already ignored
+     */
+    // Hide folders and …
+    "folder_exclude_patterns":
+    [
+        ".sass-cache"
+    ],
+    // … files from Goto Anything and the sidebar
+    "file_exclude_patterns": [],
 
 
 
-	/**
-	 * Sublime Text internals
-	 */
-	// Hide folders and files from Goto Anything, but not from the sidebar
-	"binary_file_patterns":
-	[
-		"node_modules/",
-		".gitignore"
-	],
-	"ignored_packages":
-	[
-		"Vintage",
-		"SHS-Bourbon",
-		"SHS-Bourbon-Neat",
-		"SHS-Compass-Mixins",
-		"SHS-Compass-Variables"
-	]
+    /**
+     * Sublime Text internals
+     */
+    // Hide folders and files from Goto Anything, but not from the sidebar
+    "binary_file_patterns":
+    [
+        "node_modules/",
+        ".gitignore"
+    ],
+    "ignored_packages":
+    [
+        "Vintage",
+        "SHS-Bourbon",
+        "SHS-Bourbon-Neat",
+        "SHS-Compass-Mixins",
+        "SHS-Compass-Variables"
+    ]
 }
