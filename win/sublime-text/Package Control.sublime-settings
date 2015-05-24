@@ -5,10 +5,20 @@
 	"installed_packages":
 	[
 		"All Autocomplete",
+		"AutoFileName",
 		"Color Highlighter",
 		"Package Control",
+		"sublime-expand-selection-to-quotes",
+		"SublimeLinter",
+		"SublimeLinter-cpplint",
+		"SublimeLinter-csslint",
+		"SublimeLinter-pylint",
 		"Syntax Highlighting for Sass",
 		"Theme - Cobalt2",
 		"Theme - Spacegray"
+	],
+	"repositories":
+	[
+		"https://github.com/kek/sublime-expand-selection-to-quotes.git"
 	]
 }
