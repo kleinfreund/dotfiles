@@ -18,7 +18,8 @@ REPO_PATH="$PWD"
 
 # Abort mission when we’re not in a git repository
 if [[ ! -d .git ]] || ! git rev-parse --git-dir > /dev/null 2>&1; then
-    echo "Not a git repository."
+    echo "${REPO_PATH} is not a git repository."
+    echo "Please run the script from the root of the repository you want to store your files in."
     exit 1
 fi
 
@@ -27,29 +28,28 @@ fi
 # Detect OS (OS X, Linux or Windows)
 printf "Detecting system: "
 uname=$(uname -s)
-if [[ $uname = Darwin ]]; then
-    printf "OS X"
-
-    OS="osx"
-
-    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
-elif [[ $uname = *Linux* ]]; then
-    printf "Linux"
-
-    OS="linux"
-
-    ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
-elif [[ $uname = *MINGW32_NT* ]]; then
-    printf "Windows"
-
-    OS="win"
-
-    ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
-    NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
-else
-    printf "Could not detect system. Aborting."
-    exit 2
-fi
+case "$uname" in
+    Darwin )
+        printf "OS X"
+        OS="osx"
+        ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+        ;;
+    *Linux* )
+        printf "Linux"
+        OS="linux"
+        ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
+        ;;
+    *MINGW32_NT* )
+        printf "Windows"
+        OS="win"
+        ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
+        NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
+        ;;
+    * )
+        printf "Could not detect operating system. Aborting."
+        exit 2
+        ;;
+esac
 printf "\n"
 
 # Adjust destination paths so the files are separated by OS
@@ -59,8 +59,16 @@ NPM_DEST="${REPO_PATH}/${OS}/npm/"
 RUBY_DEST="${REPO_PATH}/${OS}/ruby/"
 ST_DEST="${REPO_PATH}/${OS}/sublime-text/"
 
-declare -a destinations=("$BASH_DEST" "$GIT_DEST" "$NPM_DEST" "$RUBY_DEST" "$ST_DEST")
+# Put the destination paths inside an array …
+declare -a destinations=(
+    "$BASH_DEST"
+    "$GIT_DEST"
+    "$NPM_DEST"
+    "$RUBY_DEST"
+    "$ST_DEST"
+)
 
+# … and create the necessary destination directories if they don’t exist already
 for dest in "${destinations[@]}"; do
     mkdir -p "$dest"
 done
@@ -87,13 +95,17 @@ cp -u "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
 
 
 # OS specific copy operations
-if [ "$OS" = "osx" ]; then
-    echo "Nothing here."
-elif [ "$OS" = "linux" ]; then
-    cp -u "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
-elif [ "$OS" = "windows" ]; then
-    cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
-    cp -u "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
-fi
+case "$OS" in
+    # "osx")
+    #     echo "Nothing here."
+    #     ;;
+    "linux")
+        cp -u "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
+        ;;
+    "windows")
+        cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
+        cp -u "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
+        ;;
+esac
 
 echo "Completed."
