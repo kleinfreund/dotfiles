@@ -69,19 +69,19 @@ done
 
 echo "Copying files ..."
 # Bash
-cp "$HOME/".bashrc "$BASH_DEST"
-cp "$HOME/".bash_aliases "$BASH_DEST"
+cp -u "$HOME/".bashrc "$BASH_DEST"
+cp -u "$HOME/".bash_aliases "$BASH_DEST"
 
 # Git
-cp "$HOME/".gitignore_global "$GIT_DEST"
-cp "$HOME/".gitconfig "$GIT_DEST"
+cp -u "$HOME/".gitignore_global "$GIT_DEST"
+cp -u "$HOME/".gitconfig "$GIT_DEST"
 
 # Ruby/RubyGems
-cp "$HOME/".gemrc "$RUBY_DEST"
+cp -u "$HOME/".gemrc "$RUBY_DEST"
 
 # Sublime Text
-cp "${ST_DIR}/"*.sublime-settings "$ST_DEST"
-cp "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
+cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
+cp -u "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
 
 
 
@@ -90,10 +90,10 @@ cp "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
 if [ "$OS" = "osx" ]; then
     echo "Nothing here."
 elif [ "$OS" = "linux" ]; then
-    cp "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
+    cp -u "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
 elif [ "$OS" = "windows" ]; then
-    cp "${NPM_DIR}/".npmrc "$NPM_DEST"
-    cp "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
+    cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
+    cp -u "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
 fi
 
 echo "Completed."
