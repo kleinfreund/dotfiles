@@ -10,11 +10,12 @@ bash ./get-dotfiles.sh
 
 ## Compatibility
 
-Windows does not natively support shell scripts. Running this script inside the native command line (cmd, PowerShell, etc.) will not work. I am currently using Git Bash as my command line interface which runs Bash 3.1.20. I’d prefer to run version 4, since I could use associative arrays in the script then. Currently I am worried about basic compatibility when moving to new systems, so I leave it at that.
+Windows does not natively support shell scripts. Running this script inside the native command line (cmd.exe, PowerShell, etc.) will not work. I am currently using Git Bash as my command line interface which runs Bash 3.1.20. I’d prefer to run version 4, since I could use associative arrays in the script then. Currently I am worried about basic compatibility when moving to new systems, so I leave it at that.
 
 ## To Do
 
 - Add `$NPM_DIR` for OS X/Linux
-- Consider not separating files by operating system – would that work?
+- (Consideration) Store actual config files in `~/.config` and symlink them
+- (Consideration) Don’t separate files by operating system – would that work?
 
   The dotfiles for Bash might look different (for example when using RVM on Ubuntu)
