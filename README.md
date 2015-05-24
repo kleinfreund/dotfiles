@@ -1,8 +1,8 @@
-# dotfiles
+# config & dotfiles
 
-Better have them somewhere in case the hard drive dies again. These are not only dotfiles. I also backup my text editor configuration, etc. with this.
+This repository serves as a backup tool for my configuration and dotfiles. Everything inside here is opinionated but you should be able to run it on your system as well. In its current state, the script does not modify anything outside of the repository it’s meant to be run from.
 
-Remember to close Sublime Text before running the script, otherwise it seems to mess with the `sublime-workspace` files and makes the file tree in the sidebar unusable.
+Getting started should be as easy as setting up a new Git repository, placing the script inside the root and running it like so:
 
 ```bash
 bash ./get-dotfiles.sh
@@ -10,8 +10,11 @@ bash ./get-dotfiles.sh
 
 ## Compatibility
 
-Windows does not natively support shell scripts. Running this script inside `cmd.exe` will not work. I am currently using Git Bash as my command line interface which runs Bash 3.1.20. I’d prefer to run version 4, since I could use associative arrays in the script then. Currently I am worried about basic compatibility when moving to new systems, so I leave it at that.
+Windows does not natively support shell scripts. Running this script inside the native command line (cmd, PowerShell, etc.) will not work. I am currently using Git Bash as my command line interface which runs Bash 3.1.20. I’d prefer to run version 4, since I could use associative arrays in the script then. Currently I am worried about basic compatibility when moving to new systems, so I leave it at that.
 
 ## To Do
 
 - Add `$NPM_DIR` for OS X/Linux
+- Consider not separating files by operating system – would that work?
+
+  The dotfiles for Bash might look different (for example when using RVM on Ubuntu)
