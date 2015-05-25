@@ -88,20 +88,18 @@ cp -u "$HOME/".gitconfig "$GIT_DEST"
 cp -u "$HOME/".gemrc "$RUBY_DEST"
 
 # Sublime Text
-cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
+cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
 cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
+cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
+cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 
 
 
 # OS specific copy operations
 case "$OS" in
-    "linux")
-        cp -u "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
-        ;;
     "win")
         cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
-        cp -u "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
         ;;
 esac
 
