@@ -1,5 +1,18 @@
 [
-    { "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
-    { "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } },
-    { "keys": ["ctrl+shift+alt+7"], "command": "insert_snippet", "args": {"contents": "/**\n * ${0:$SELECTION}\n */" } }
+    // Add big blocky CSS/Java/C++ comment with Ctrl+Shift+Alt+# (German layout)
+    {
+        "keys": ["ctrl+shift+alt+/"],
+        "command": "insert_snippet",
+        "args": {"contents": "/**\n * ${0:$SELECTION}\n */" }
+    },
+    // Reverse `paste` and `paste_and_indent` keybindings
+    { "keys": ["ctrl+v"], "command": "paste_and_indent" },
+    { "keys": ["ctrl+shift+v"], "command": "paste" },
+    // Reverse `ctrl+tab` and `ctrl+pagedown` behavior
+    { "keys": ["ctrl+tab"], "command": "next_view" },
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+    { "keys": ["ctrl+pagedown"], "command": "next_view_in_stack" },
+    { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
+    // Adjust "Expand Selection to Quotes" shortcut
+    { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" }
 ]

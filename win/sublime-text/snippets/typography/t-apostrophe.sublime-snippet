@@ -2,6 +2,6 @@
     <content><![CDATA[
 ’
 ]]></content>
-    <tabTrigger>tapostrophe</tabTrigger>
+    <tabTrigger>'''</tabTrigger>
     <description>’ (Apostrophe)</description>
 </snippet>
