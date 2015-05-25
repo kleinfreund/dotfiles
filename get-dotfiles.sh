@@ -96,13 +96,10 @@ cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
 
 # OS specific copy operations
 case "$OS" in
-    # "osx")
-    #     echo "Nothing here."
-    #     ;;
     "linux")
         cp -u "${ST_DIR}/Default (Linux).sublime-keymap" "$ST_DEST"
         ;;
-    "windows")
+    "win")
         cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
         cp -u "${ST_DIR}/Default (Windows).sublime-keymap" "$ST_DEST"
         ;;
