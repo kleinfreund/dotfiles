@@ -89,7 +89,7 @@ cp -u "$HOME/".gemrc "$RUBY_DEST"
 
 # Sublime Text
 cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
-cp -u "${ST_DIR}/"*.sublime-snippet "$ST_DEST"
+cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
 
 
 
