@@ -16,6 +16,4 @@ Windows does not natively support shell scripts. Running this script inside the 
 
 - Add `$NPM_DIR` for OS X/Linux
 - (Consideration) Store actual config files in `~/.config` and symlink them
-- (Consideration) Don’t separate files by operating system – would that work?
-
-  The dotfiles for Bash might look different (for example when using RVM on Ubuntu)
+- (Consideration) Don’t separate files by operating system – would that work? The dotfiles for Bash might look different (for example when using RVM on Ubuntu)
