@@ -14,5 +14,11 @@
     { "keys": ["ctrl+pagedown"], "command": "next_view_in_stack" },
     { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
     // Adjust "Expand Selection to Quotes" shortcut
-    { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" }
+    { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" },
+    // Opens localhost in the default browser
+    {
+        "keys" : ["ctrl+shift+alt+o"],
+        "command" : "open_url",
+        "args" : { "url" : "http://localhost/" }
+    }
 ]
