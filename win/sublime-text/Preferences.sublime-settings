@@ -23,6 +23,7 @@
 	"fold_buttons": false,
 	"folder_exclude_patterns":
 	[
+		".git",
 		".sass-cache"
 	],
 	"font_size": 13.0,
@@ -30,11 +31,11 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SHS-Compass-Mixins",
+		"SHS-Compass-Variables",
 		"SHS-Bourbon",
-		"Vintage",
 		"SHS-Bourbon-Neat",
-		"SHS-Compass-Variables"
+		"Vintage",
+		"SHS-Compass-Mixins"
 	],
 	"indent_guide_options":
 	[
