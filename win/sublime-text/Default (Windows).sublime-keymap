@@ -5,6 +5,20 @@
         "command": "insert_snippet",
         "args": {"contents": "/**\n * ${0:$SELECTION}\n */" }
     },
+    // Modify blocky comment for Python: """\n${0}\n"""
+    {
+        "keys": ["ctrl+shift+alt+/"],
+        "command": "insert_snippet",
+        "context":
+        [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "source.python"
+            }
+        ],
+        "args": {"contents": "\"\"\"\n${0:$SELECTION}\n\"\"\"" }
+    },
     // Reverse `paste` and `paste_and_indent` keybindings
     { "keys": ["ctrl+v"], "command": "paste_and_indent" },
     { "keys": ["ctrl+shift+v"], "command": "paste" },
@@ -15,10 +29,10 @@
     { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
     // Adjust "Expand Selection to Quotes" shortcut
     { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" },
-    // Opens localhost in the default browser
+    // Opens localhost on post 4000 in the default browser
     {
         "keys" : ["ctrl+shift+alt+o"],
         "command" : "open_url",
-        "args" : { "url" : "http://localhost/" }
+        "args" : { "url" : "http://127.0.0.1:4000/" }
     }
 ]

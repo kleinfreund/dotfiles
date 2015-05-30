@@ -18,7 +18,8 @@
 		"SublimeLinter-pylint",
 		"Syntax Highlighting for Sass",
 		"Theme - Cobalt2",
-		"Theme - Spacegray"
+		"Theme - Spacegray",
+		"type-snippets"
 	],
 	"repositories":
 	[

@@ -1,6 +1,5 @@
 {
 	"auto_complete_commit_on_tab": true,
-	"auto_complete_delay": 200,
 	"auto_complete_selector": "source, text",
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
@@ -13,7 +12,7 @@
 	"bold_folder_labels": true,
 	"caret_style": "solid",
 	"color_scheme": "Packages/User/SublimeLinter/cobalt2 (SL).tmTheme",
-	"detect_indentation": true,
+	"detect_indentation": false,
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
@@ -31,11 +30,11 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SHS-Compass-Variables",
-		"SHS-Bourbon",
-		"SHS-Bourbon-Neat",
+		"SHS-Compass-Mixins",
 		"Vintage",
-		"SHS-Compass-Mixins"
+		"SHS-Bourbon-Neat",
+		"SHS-Bourbon",
+		"SHS-Compass-Variables"
 	],
 	"indent_guide_options":
 	[
