@@ -7,6 +7,7 @@
 		"All Autocomplete",
 		"AutoFileName",
 		"C++ Snippets",
+		"ChannelRepositoryTools",
 		"Color Highlighter",
 		"Git",
 		"Keymaps",
@@ -19,7 +20,7 @@
 		"Syntax Highlighting for Sass",
 		"Theme - Cobalt2",
 		"Theme - Spacegray",
-		"type-snippets"
+		"TypeSnippets"
 	],
 	"repositories":
 	[

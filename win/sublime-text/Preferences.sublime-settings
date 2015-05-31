@@ -30,11 +30,11 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"SHS-Compass-Mixins",
-		"Vintage",
 		"SHS-Bourbon-Neat",
-		"SHS-Bourbon",
-		"SHS-Compass-Variables"
+		"Vintage",
+		"SHS-Compass-Mixins",
+		"SHS-Compass-Variables",
+		"SHS-Bourbon"
 	],
 	"indent_guide_options":
 	[
