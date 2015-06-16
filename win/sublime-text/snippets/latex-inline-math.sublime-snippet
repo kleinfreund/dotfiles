@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+\[
+    ${1}
+\]
+]]></content>
+    <tabTrigger>blockmath</tabTrigger>
+    <scope>text.html</scope>
+    <description>Block Math (LaTeX)</description>
+</snippet>

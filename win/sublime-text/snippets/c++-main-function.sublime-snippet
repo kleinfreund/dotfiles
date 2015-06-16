@@ -1,7 +1,7 @@
 <snippet>
 	<description>main(…)</description>
 	<content><![CDATA[
-int main(int argc, char const *argv[]) {
+int main(int argc, char *argv[]) {
 	${1:/* code */}
 	return 0;
 }

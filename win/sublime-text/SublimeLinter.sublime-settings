@@ -14,7 +14,9 @@
                 "filter": "",
                 "ignore_match": [
                     "Closing \\) should be moved to the previous line",
-                    "No copyright message found"
+                    "No copyright message found",
+                    "Single-parameter constructors should be marked explicit.",
+                    "RValue references are an unapproved C\\+\\+ feature."
                 ]
             },
             "csslint": {
