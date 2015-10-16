@@ -13,3 +13,7 @@
 	st = status
 	unstage = reset HEAD --
 	last = log -1 HEAD
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

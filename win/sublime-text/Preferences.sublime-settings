@@ -11,12 +11,13 @@
 	],
 	"bold_folder_labels": true,
 	"caret_style": "solid",
-	"color_scheme": "Packages/User/SublimeLinter/cobalt2 (SL).tmTheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 	"detect_indentation": false,
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
+		"Thumbs.db"
 	],
 	"find_selected_text": true,
 	"fold_buttons": false,
@@ -25,16 +26,17 @@
 		".git",
 		".sass-cache"
 	],
-	"font_size": 13.0,
+	"font_size": 12.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
+		"Color Highlighter",
 		"SHS-Bourbon",
-		"SHS-Compass-Variables",
+		"SHS-Bourbon-Neat",
 		"SHS-Compass-Mixins",
-		"Vintage",
-		"SHS-Bourbon-Neat"
+		"SHS-Compass-Variables",
+		"Vintage"
 	],
 	"indent_guide_options":
 	[
@@ -50,7 +52,7 @@
 	"scroll_past_end": false,
 	"shift_tab_unindent": true,
 	"tab_size": 4,
-	"theme": "Cobalt2.sublime-theme",
+	"theme": "Material-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"wide_caret": true,

@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -11,6 +12,7 @@
 		"Color Highlighter",
 		"Git",
 		"Keymaps",
+		"Material Theme",
 		"Package Control",
 		"sublime-expand-selection-to-quotes",
 		"SublimeLinter",
@@ -20,7 +22,8 @@
 		"Syntax Highlighting for Sass",
 		"Theme - Cobalt2",
 		"Theme - Spacegray",
-		"TypeSnippets"
+		"TypeSnippets",
+		"WordCount"
 	],
 	"repositories":
 	[

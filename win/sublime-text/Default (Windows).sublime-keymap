@@ -34,5 +34,18 @@
         "keys" : ["ctrl+shift+alt+o"],
         "command" : "open_url",
         "args" : { "url" : "http://127.0.0.1:4000/" }
-    }
+    },
+    // Oben current HTML file in browser
+    {
+        "keys": ["alt+b"], "command": "open_in_browser",
+        "context":
+        [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "text.html"
+            }
+        ],
+    },
+    { "keys": ["ctrl+alt+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} }
 ]
