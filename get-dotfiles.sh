@@ -39,7 +39,7 @@ case "$uname" in
         OS="linux"
         ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
         ;;
-    *MINGW32_NT* )
+    *MINGW32_NT*|*MINGW64_NT* )
         printf "Windows"
         OS="win"
         ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
@@ -97,10 +97,10 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 
 # OS specific copy operations
-case "$OS" in
-    "win")
-        cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
-        ;;
-esac
+# case "$OS" in
+#     "win")
+#         cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
+#         ;;
+# esac
 
 echo "Completed."
