@@ -44,6 +44,7 @@ case "$uname" in
         OS="win"
         ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
         NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
+        CMDER_DIR="/c/Cmder/config"
         ;;
     * )
         printf "Could not detect operating system. Aborting."
@@ -58,6 +59,7 @@ GIT_DEST="${REPO_PATH}/${OS}/git/"
 NPM_DEST="${REPO_PATH}/${OS}/npm/"
 RUBY_DEST="${REPO_PATH}/${OS}/ruby/"
 ST_DEST="${REPO_PATH}/${OS}/sublime-text/"
+CMDER_DEST="${REPO_PATH}/win/cmder/"
 
 # Put the destination paths inside an array …
 declare -a destinations=(
@@ -66,6 +68,7 @@ declare -a destinations=(
     "$NPM_DEST"
     "$RUBY_DEST"
     "$ST_DEST"
+    "$CMDER_DEST"
 )
 
 # … and create the necessary destination directories if they don’t exist already
@@ -97,10 +100,12 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 
 # OS specific copy operations
-# case "$OS" in
-#     "win")
-#         cp -u "${NPM_DIR}/".npmrc "$NPM_DEST"
-#         ;;
-# esac
+case "$OS" in
+    "win")
+        cp -u "${CMDER_DIR}/"aliases "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/"settings "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/"user-startup.cmd "$CMDER_DEST"
+        ;;
+esac
 
 echo "Completed."
