@@ -18,6 +18,7 @@
 		"SublimeLinter",
 		"SublimeLinter-cpplint",
 		"SublimeLinter-csslint",
+		"SublimeLinter-jshint",
 		"SublimeLinter-pylint",
 		"Syntax Highlighting for Sass",
 		"Theme - Cobalt2",

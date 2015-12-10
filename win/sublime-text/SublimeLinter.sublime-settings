@@ -1,6 +1,6 @@
 {
     "user": {
-        "debug": false,
+        "debug": true,
         "delay": 0.25,
         "error_color": "D02000",
         "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
@@ -16,7 +16,8 @@
                     "Closing \\) should be moved to the previous line",
                     "No copyright message found",
                     "Single-parameter constructors should be marked explicit.",
-                    "RValue references are an unapproved C\\+\\+ feature."
+                    "RValue references are an unapproved C\\+\\+ feature.",
+                    "Line contains invalid UTF-8"
                 ]
             },
             "csslint": {
@@ -33,6 +34,14 @@
                     "Heading \\(h[1-6]\\) has already been defined"
                 ],
                 "warnings": ""
+            },
+            "jshint": {
+                "@disable": false,
+                "args": [],
+                "excludes": [
+                    "*/*.min.js",
+                    "*/*.html"
+                ]
             },
             "pylint": {
                 "@disable": false,
