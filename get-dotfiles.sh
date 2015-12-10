@@ -44,7 +44,7 @@ case "$uname" in
         OS="win"
         ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
         NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
-        CMDER_DIR="/c/Cmder/config"
+        CMDER_DIR="/c/Cmder"
         ;;
     * )
         printf "Could not detect operating system. Aborting."
@@ -102,9 +102,11 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 # OS specific copy operations
 case "$OS" in
     "win")
-        cp -u "${CMDER_DIR}/"aliases "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/"settings "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/"user-startup.cmd "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/config/"aliases "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/config/"user-startup.cmd "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/config/"user-startup.cmd "$CMDER_DEST"
+        cp -u "${CMDER_DIR}/vendor/conemu-maximus5/"ConEmu.xml "$CMDER_DEST"
         ;;
 esac
 
