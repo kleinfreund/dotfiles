@@ -16,7 +16,8 @@
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
-		"Thumbs.db"
+		"Thumbs.db",
+		"*.o"
 	],
 	"find_selected_text": true,
 	"fold_buttons": false,

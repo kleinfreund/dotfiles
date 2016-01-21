@@ -10,8 +10,7 @@
 		"C++ Snippets",
 		"ChannelRepositoryTools",
 		"Color Highlighter",
-		"Git",
-		"Keymaps",
+		"JavaScript & NodeJS Snippets",
 		"Material Theme",
 		"Package Control",
 		"sublime-expand-selection-to-quotes",
@@ -21,8 +20,6 @@
 		"SublimeLinter-jshint",
 		"SublimeLinter-pylint",
 		"Syntax Highlighting for Sass",
-		"Theme - Cobalt2",
-		"Theme - Spacegray",
 		"TypeSnippets",
 		"WordCount"
 	],
