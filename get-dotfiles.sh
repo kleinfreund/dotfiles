@@ -81,7 +81,7 @@ done
 echo "Copying files ..."
 # Bash
 cp -u "$HOME/".bashrc "$BASH_DEST"
-cp -u "$HOME/".bash_aliases "$BASH_DEST"
+cp -u "$HOME/".aliases "$BASH_DEST"
 
 # Git
 cp -u "$HOME/".gitignore_global "$GIT_DEST"

@@ -47,5 +47,6 @@
             }
         ],
     },
-    { "keys": ["ctrl+alt+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} }
+    { "keys": ["ctrl+alt+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" }
 ]

@@ -1,0 +1,51 @@
+# Quickly navigate up the *great hollow*
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Shortcuts
+alias dp='cd $HOME/Dropbox'
+alias dl='cd $HOME/Downloads'
+alias dt='cd $HOME/Desktop'
+alias rp='cd $HOME/dev/repos'
+
+# Enable colored output and sort output by directory first, files second, symlinks third
+alias ls='ls -la --color | grep "^d" && ls -la --color | grep "^-" && ls -la --color | grep "^l"'
+
+# SSH into my Uberspace
+alias uber='ssh phl@markab.uberspace.de'
+
+# cd into exercise directory and show directories
+alias ray='cd $HOME/Dropbox/mi/15-ss/prog/uebungen/08/raytracer; ls -1p'
+alias km='cd $HOME/Dropbox/mi/16-ss/km/exercises; ls -1p'
+alias web='cd $HOME/Dropbox/mi/16-ss/web/exercises; ls -1p'
+alias prog='cd $HOME/Dropbox/mi/16-ss/pr/exercises; ls -1p'
+
+# Opening files with Sublime Text
+alias o=subl
+
+# Make sure specific python aliases are set for 2.x and 3.x
+alias python2='/c/Python27/python'
+alias pip2='/c/Python27/Scripts/pip'
+
+alias python3='$HOME/AppData/Local/Programs/Python/Python35-32/python'
+alias pip3='$HOME/AppData/Local/Programs/Python/Python35-32/Scripts/pip3.5'
+
+# Replace one character in all file and directory names with another one
+# Usage: replace_all _ -
+# Issue: Only replaces characters, could be used to replace string sequences
+replace_all() {
+    if [ "$#" -ne 2 ] || [ ${#1} -gt 1 ] || [ ${#2} -gt 1 ]; then
+        echo "Usage:   ${FUNCNAME[0]} CHAR_TO_REPLACE NEW_CHAR" >&2
+        echo "Example: ${FUNCNAME[0]} _ -" >&2
+        return 1
+    fi
+
+    old_char=$1
+    new_char=$2
+
+    for filename in *"${old_char}"*; do
+        mv -- "$filename" "${filename//${old_char}/${new_char}}"
+    done
+}

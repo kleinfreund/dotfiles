@@ -17,3 +17,9 @@
 	required = true
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
