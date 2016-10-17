@@ -5,15 +5,16 @@ This repository serves as a backup tool for my configuration and dotfiles. Every
 Getting started should be as easy as setting up a new Git repository, placing the script inside the root and running it like so:
 
 ```bash
-bash ./get-dotfiles.sh
+./get-dotfiles.sh
 ```
 
 ## Compatibility
 
 Windows does not natively support shell scripts. Running this script inside the native command line (cmd.exe, PowerShell, etc.) will not work. I am currently using Git Bash as my command line interface which runs Bash 3.1.20. I’d prefer to run version 4, since I could use associative arrays in the script then. Currently I am worried about basic compatibility when moving to new systems, so I leave it at that.
 
+**Update** Current Git Bash should have Bash version 4, but I moved to using Cmder together with the Linux subsystem for windows.
+
 ## To Do
 
 - Add `$NPM_DIR` for OS X/Linux
 - (Consideration) Store actual config files in `~/.config` and symlink them
-- (Consideration) Don’t separate files by operating system – would that work? The dotfiles for Bash might look different (for example when using RVM on Ubuntu)
