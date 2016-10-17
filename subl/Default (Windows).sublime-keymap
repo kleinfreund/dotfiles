@@ -1,0 +1,53 @@
+[
+    // Add big blocky CSS/Java/C++ comment with Ctrl+Shift+Alt+# (German layout)
+    {
+        "keys": ["ctrl+shift+alt+/"],
+        "command": "insert_snippet",
+        "args": {"contents": "/*\n* ${0:$SELECTION}\n*/" }
+    },
+    // Modify blocky comment for Python: """\n${0}\n"""
+    {
+        "keys": ["ctrl+shift+alt+/"],
+        "command": "insert_snippet",
+        "context":
+        [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "source.python"
+            }
+        ],
+        "args": {"contents": "\"\"\"\n${0:$SELECTION}\n\"\"\"" }
+    },
+    // Reverse `paste` and `paste_and_indent` keybindings
+    { "keys": ["ctrl+v"], "command": "paste_and_indent" },
+    { "keys": ["ctrl+shift+v"], "command": "paste" },
+    // Reverse `ctrl+tab` and `ctrl+pagedown` behavior
+    { "keys": ["ctrl+tab"], "command": "next_view" },
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+    { "keys": ["ctrl+pagedown"], "command": "next_view_in_stack" },
+    { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
+    // Adjust "Expand Selection to Quotes" shortcut
+    { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" },
+    // Opens localhost on post 4000 in the default browser
+    {
+        "keys" : ["ctrl+shift+alt+o"],
+        "command" : "open_url",
+        "args" : { "url" : "http://127.0.0.1:4000/" }
+    },
+    // Oben current HTML file in browser
+    {
+        "keys": ["alt+b"], "command": "open_in_browser",
+        "context":
+        [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "text.html"
+            }
+        ],
+    },
+    { "keys": ["ctrl+alt+x"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
+    { "keys": ["ctrl+alt+p"], "command": "prompt_select_workspace" },
+    { "keys": ["ctrl+shift+2"], "command": "change_quotes" }
+]

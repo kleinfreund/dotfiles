@@ -1,0 +1,76 @@
+# If an argument was passed, assume it to be the actual home directory of the
+# system. This is necessary for the Linux subsystem for Windows, because HOME
+# will be set to `/home/user`. I do not want to this because my dot files are on
+# Windows in `/c/Users/Philipp`.
+REAL_HOME=$HOME
+if [[ $1 ]]; then
+    REAL_HOME=$1
+fi
+
+# Quickly navigate up the *great hollow*
+alias ~='cd ${REAL_HOME}'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# Shortcuts
+alias dp='cd ${REAL_HOME}/Dropbox'
+alias dl='cd ${REAL_HOME}/Downloads'
+alias dt='cd ${REAL_HOME}/Desktop'
+alias rp='cd ${REAL_HOME}/dev/repos'
+
+# SSH into my Uberspace
+alias uber='ssh phl@markab.uberspace.de'
+# SSH into Webis server
+alias sshwebis='ssh ranu2619@webisnetwork.uni-weimar.de'
+
+# cd into exercise directory and show directories
+alias km='cd ${REAL_HOME}/Dropbox/mi/16-ss/km/exercises'
+alias web='cd ${REAL_HOME}/Dropbox/mi/16-ss/web/exercises'
+alias prog='cd ${REAL_HOME}/Dropbox/mi/16-ss/pr/exercises'
+alias cv='cd ${REAL_HOME}/Dropbox/mi/16-ws/cv/exercises'
+alias cg='cd ${REAL_HOME}/Dropbox/mi/16-ws/cg/exercises'
+
+alias tracer='cd ${REAL_HOME}/dev/repos/tracer'
+
+alias webis='cd ${REAL_HOME}/dev/cvs/web-technology-lab'
+
+# Enable colored output and sort output by directory first, files second,
+# symlinks third
+lsx() {
+    ls $1 -la --color | grep "^d" && ls $1 -la --color | grep "^-" && ls $1 -la --color | grep "^l" $1
+}
+
+alias ls=lsx
+
+# Make sure specific python aliases are set for 2.x and 3.x on Windows
+uname=$(uname -s)
+case "$uname" in
+    *MINGW32_NT*|*MINGW64_NT* )
+        printf "Setting Python environment for Windows."
+        alias python2='/c/Python27/python'
+        alias pip2='/c/Python27/Scripts/pip'
+
+        alias python3='${REAL_HOME}/AppData/Local/Programs/Python/Python35-32/python'
+        alias pip3='${REAL_HOME}/AppData/Local/Programs/Python/Python35-32/Scripts/pip3.5'
+        ;;
+esac
+
+# Replace one character in all file and directory names with another one
+# Usage: replace_all _ -
+# Issue: Only replaces characters, could be used to replace string sequences
+replace_all() {
+    if [ "$#" -ne 2 ] || [ ${#1} -gt 1 ] || [ ${#2} -gt 1 ]; then
+        echo "Usage:   ${FUNCNAME[0]} CHAR_TO_REPLACE NEW_CHAR" >&2
+        echo "Example: ${FUNCNAME[0]} _ -" >&2
+        return 1
+    fi
+
+    old_char=$1
+    new_char=$2
+
+    for filename in *"${old_char}"*; do
+        mv -- "$filename" "${filename//${old_char}/${new_char}}"
+    done
+}
