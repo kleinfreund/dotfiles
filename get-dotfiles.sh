@@ -26,19 +26,13 @@ fi
 
 
 # Adjust destination paths so the files are separated by OS
-BASH_DEST="${REPO_PATH}/bash/"
-GIT_DEST="${REPO_PATH}/git/"
-NPM_DEST="${REPO_PATH}/npm/"
-RUBY_DEST="${REPO_PATH}/ruby/"
+HOME_DEST="${REPO_PATH}/home/"
 ST_DEST="${REPO_PATH}/subl/"
 CMDER_DEST="${REPO_PATH}/cmder/"
 
 # Put the destination paths inside an array …
 declare -a destinations=(
-    "$BASH_DEST"
-    "$GIT_DEST"
-    "$NPM_DEST"
-    "$RUBY_DEST"
+    "$HOME_DEST"
     "$ST_DEST"
     "$CMDER_DEST"
 )
@@ -48,61 +42,54 @@ for dest in "${destinations[@]}"; do
     mkdir -p "$dest"
 done
 
-ROOT_DIR=""
-REAL_HOME=$HOME
+# Usually, `$HOME` has the correct path to the users home directory.
+# However on the Linux subsystem for Windows, this is the Linux home
+# (`/home/user`) not the Windows home (`/mnt/c/users/user`).
+HOME_PATH=$HOME
+
+# Store kernel name in variable:
+unamestr=$(uname -s)
 
 # Detect OS (OS X, Linux or Windows)
-printf "Detecting system: "
-uname=$(uname -s)
-case "$uname" in
-Darwin)
-    printf "OS X"
-    OS="osx"
-    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
-    ;;
-*Linux*)
+printf "Detecting OS: "
+if [[ "$unamestr" == "Linux" ]]; then
     printf "Linux"
     OS="linux"
 
-    # Super ugly check for whether this is the Linux subsystem for Windows
-    case "$PWD" in
-    /mnt*)
-        ROOT_DIR="/mnt"
-        REAL_HOME="$ROOT_DIR/c/Users/Philipp"
-        ST_DIR="$REAL_HOME/AppData/Roaming/Sublime Text 3/Packages/User"
-        NPM_DIR="$REAL_HOME/AppData/Roaming/npm/node_modules/npm"
-        CMDER_DIR="$ROOT_DIR/c/cmder"
-        ;;
-    *)
-        ST_DIR="$REAL_HOME/.config/sublime-text-3/Packages/User"
-    esac
-    ;;
-*MINGW32_NT*|*MINGW64_NT*)
+    ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
+
+    # Weak check if we’re on the Linux subsystem for Windows
+    if [[ "$PWD" == "/mnt"* ]]; then
+        printf " (subsystem for Windows)"
+        HOME_PATH="/mnt/c/Users/Philipp"
+        ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
+        CMDER_DIR="/mnt/c/cmder"
+    fi
+elif [[ "$unamestr" == "MINGW32_NT" || "$unamestr" == "MINGW64_NT" ]]; then
     printf "Windows"
     OS="win"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
-    NPM_DIR="$HOME/AppData/Roaming/npm/node_modules/npm"
     CMDER_DIR="/c/cmder"
-    ;;
-*)
+elif [[ "$unamestr" == "Darwin" ]]; then
+    printf "macOS"
+    OS="macOS"
+
+    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+else
     printf "Could not detect operating system. Aborting."
     exit 2
-    ;;
-esac
+fi
 printf "\n"
 
 echo "Copying files ..."
-# Bash
-cp -u "$REAL_HOME/".bashrc "$BASH_DEST"
-cp -u "$REAL_HOME/".aliases "$BASH_DEST"
-
-# Git
-cp -u "$REAL_HOME/".gitignore_global "$GIT_DEST"
-cp -u "$REAL_HOME/".gitconfig "$GIT_DEST"
-
-# Ruby/RubyGems
-cp -u "$REAL_HOME/".gemrc "$RUBY_DEST"
+# Copy files from the home directory (Bash, Git, Ruby, Hyper, …)
+cp -u "$HOME_PATH/".bashrc "$HOME_DEST"
+cp -u "$HOME_PATH/".aliases "$HOME_DEST"
+cp -u "$HOME_PATH/".gitignore_global "$HOME_DEST"
+cp -u "$HOME_PATH/".gitconfig "$HOME_DEST"
+cp -u "$HOME_PATH/".gemrc "$HOME_DEST"
+cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
 
 # Sublime Text
 cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
@@ -112,16 +99,13 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 
 
-
 # OS specific copy operations
-case "$OS" in
-    "win"|"linux" )
-        cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/config/"user-startup.cmd "$CMDER_DEST"
-        cp -u "${CMDER_DIR}/vendor/conemu-maximus5/"ConEmu.xml "$CMDER_DEST"
-        ;;
-esac
+if [[ "$unamestr" == "MINGW32_NT" || "$unamestr" == "MINGW64_NT" ]]; then
+    cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
+    cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
+    cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
+    cp -u "${CMDER_DIR}/config/"user-startup.cmd "$CMDER_DEST"
+    cp -u "${CMDER_DIR}/vendor/conemu-maximus5/"ConEmu.xml "$CMDER_DEST"
+fi
 
 echo "Completed."
