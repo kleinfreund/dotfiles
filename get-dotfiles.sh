@@ -53,26 +53,23 @@ unamestr=$(uname -s)
 # Detect OS (OS X, Linux or Windows)
 printf "Detecting OS: "
 if [[ "$unamestr" == "Linux" ]]; then
-    printf "Linux"
-    OS="linux"
+    OS="Linux"
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
 
     # Weak check if we’re on the Linux subsystem for Windows
     if [[ "$PWD" == "/mnt"* ]]; then
-        printf " (subsystem for Windows)"
+        OS="Linux Subsystem"
         HOME_PATH="/mnt/c/Users/Philipp"
         ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
         CMDER_DIR="/mnt/c/cmder"
     fi
-elif [[ "$unamestr" == "MINGW32_NT" || "$unamestr" == "MINGW64_NT" ]]; then
-    printf "Windows"
-    OS="win"
+elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
+    OS="Windows"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
     CMDER_DIR="/c/cmder"
 elif [[ "$unamestr" == "Darwin" ]]; then
-    printf "macOS"
     OS="macOS"
 
     ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
@@ -80,7 +77,7 @@ else
     printf "Could not detect operating system. Aborting."
     exit 2
 fi
-printf "\n"
+printf "$OS\n"
 
 echo "Copying files ..."
 # Copy files from the home directory (Bash, Git, Ruby, Hyper, …)
@@ -89,7 +86,7 @@ cp -u "$HOME_PATH/".aliases "$HOME_DEST"
 cp -u "$HOME_PATH/".gitignore_global "$HOME_DEST"
 cp -u "$HOME_PATH/".gitconfig "$HOME_DEST"
 cp -u "$HOME_PATH/".gemrc "$HOME_DEST"
-cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
+cp -u "$HOME_PATH/".npmrc "$HOME_DEST"
 
 # Sublime Text
 cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
@@ -100,7 +97,9 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 
 # OS specific copy operations
-if [[ "$unamestr" == "MINGW32_NT" || "$unamestr" == "MINGW64_NT" ]]; then
+if [[ "$OS" == "Linux" ]]; then
+    cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
+elif [[ "$OS" == "Linux Subsystem" || "$OS" == "Windows" ]]; then
     cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
