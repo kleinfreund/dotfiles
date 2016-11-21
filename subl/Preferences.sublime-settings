@@ -5,10 +5,6 @@
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
 	[
-		"external/glm*",
-		"external/glfw*",
-		"external/GL*",
-		"external/catch*",
 		".gitignore",
 		".jekyll-metadata",
 		"*.exe",
@@ -31,14 +27,13 @@
 		"*.o"
 	],
 	"find_selected_text": true,
-	"fold_buttons": true,
+	"fold_buttons": false,
 	"folder_exclude_patterns":
 	[
 		"node_modules",
 		".git",
 		".sass-cache"
 	],
-	"font_face": "mononoki",
 	"font_options":
 	[
 		"gray_antialias",
@@ -49,7 +44,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"All Autocomplete",
 		"SHS-Bourbon",
 		"SHS-Bourbon-Neat",
 		"SHS-Compass-Mixins",
@@ -71,6 +65,7 @@
 	],
 	"scroll_past_end": false,
 	"shift_tab_unindent": true,
+	"show_encoding": true,
 	"tab_size": 4,
 	"theme": "Cobalt2.sublime-theme",
 	"translate_tabs_to_spaces": true,
