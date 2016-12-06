@@ -1,0 +1,36 @@
+{
+    "editor.rulers": [],
+    "editor.wrappingColumn": 81,
+    "editor.scrollBeyondLastLine": true,
+    "editor.cursorBlinking": "solid",
+    "editor.mouseWheelZoom": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.renderControlCharacters": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.sass-cache": true,
+        "**/node_modules": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/_site/**": true // Ignore Jekyll output
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/site": true,
+        "**/externals": true
+    },
+    "window.restoreFullscreen": true,
+    "extensions.autoUpdate": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "html.format.wrapLineLength": 120,
+    "html.format.extraLiners": "main",
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": true
+}
