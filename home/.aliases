@@ -35,6 +35,7 @@ alias cg='cd ${REAL_HOME}/Dropbox/mi/16-ws/cg/exercises'
 alias tracer='cd ${REAL_HOME}/dev/repos/tracer'
 
 alias webis='cd ${REAL_HOME}/dev/cvs/web-technology-lab'
+alias webispdflatex='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
 
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
