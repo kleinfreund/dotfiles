@@ -28,12 +28,14 @@ fi
 # Adjust destination paths so the files are separated by OS
 HOME_DEST="${REPO_PATH}/home/"
 ST_DEST="${REPO_PATH}/subl/"
+VSC_DEST="${REPO_PATH}/code/"
 CMDER_DEST="${REPO_PATH}/cmder/"
 
 # Put the destination paths inside an array …
 declare -a destinations=(
     "$HOME_DEST"
     "$ST_DEST"
+    "$VSC_DEST"
     "$CMDER_DEST"
 )
 
@@ -56,23 +58,27 @@ if [[ "$unamestr" == "Linux" ]]; then
     OS="Linux"
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
+    VSC_DIR="$HOME/.config/Code/User"
 
     # Weak check if we’re on the Linux subsystem for Windows
     if [[ "$PWD" == "/mnt"* ]]; then
         OS="Linux Subsystem"
         HOME_PATH="/mnt/c/Users/Philipp"
         ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
+        VSC_DIR="$HOME_PATH/AppData/Roaming/Code/User"
         CMDER_DIR="/mnt/c/cmder"
     fi
 elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
     OS="Windows"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
+    VSC_DIR="$HOME/AppData/Roaming/Code/User"
     CMDER_DIR="/c/cmder"
 elif [[ "$unamestr" == "Darwin" ]]; then
     OS="macOS"
 
     ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+    VSC_DIR="$HOME/Library/Application Support/Code/User"
 else
     printf "Could not detect operating system. Aborting."
     exit 2
@@ -93,6 +99,12 @@ cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
 cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
+
+# Visual Studio Code
+cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
+cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
+cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
+cp -u "${VSC_DIR}/"locale.json "$VSC_DEST"
 
 
 
