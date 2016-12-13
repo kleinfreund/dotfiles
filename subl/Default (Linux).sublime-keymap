@@ -29,6 +29,20 @@
         ],
         "args": {"contents": "\"\"\"\n${0:$SELECTION}\n\"\"\"" }
     },
+    // Modify blocky comment for Python: """\n${0}\n"""
+    {
+        "keys": ["ctrl+shift+alt+#"],
+        "command": "insert_snippet",
+        "context":
+        [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "text.html"
+            }
+        ],
+        "args": {"contents": "<!--| ${0:$SELECTION}\n    |-->" }
+    },
     // Reverse `paste` and `paste_and_indent` keybindings
     { "keys": ["ctrl+v"], "command": "paste_and_indent" },
     { "keys": ["ctrl+shift+v"], "command": "paste" },

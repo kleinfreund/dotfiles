@@ -82,7 +82,8 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-blink'
+    'hyper-blink',
+    'hypercwd'
   ],
 
   // in development, you can create a directory under
