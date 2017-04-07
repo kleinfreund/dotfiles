@@ -93,6 +93,7 @@ cp -u "$HOME_PATH/".gitignore_global "$HOME_DEST"
 cp -u "$HOME_PATH/".gitconfig "$HOME_DEST"
 cp -u "$HOME_PATH/".gemrc "$HOME_DEST"
 cp -u "$HOME_PATH/".npmrc "$HOME_DEST"
+cp -u "$HOME_PATH/"ubuntu-tips.md "$HOME_DEST"
 
 # Sublime Text
 cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
