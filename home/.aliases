@@ -21,19 +21,23 @@ alias dt='cd ${REAL_HOME}/Desktop'
 alias rp='cd ${REAL_HOME}/dev/repos'
 
 # SSH into my Uberspace
-alias uber='ssh phl@markab.uberspace.de'
-# SSH into Webis server
-alias sshwebis='ssh ranu2619@webisnetwork.uni-weimar.de'
+alias uberphl='ssh phl@markab.uberspace.de'
+alias uberlz='ssh lz@mirfac.uberspace.de'
+alias uber=uberphl
 
+### University-related
 # cd into exercise directory and show directories
-alias km='cd ${REAL_HOME}/Dropbox/mi/16-ss/km/exercises'
+alias mi='cd ${REAL_HOME}/Dropbox/mi'
 alias web='cd ${REAL_HOME}/Dropbox/mi/16-ss/web/exercises'
-alias prog='cd ${REAL_HOME}/Dropbox/mi/16-ss/pr/exercises'
-alias cv='cd ${REAL_HOME}/Dropbox/mi/16-ws/cv/exercises'
-alias cg='cd ${REAL_HOME}/Dropbox/mi/16-ws/cg/exercises'
+alias ana='cd ${REAL_HOME}/Dropbox/mi/17-ss/ana/exercises'
+alias km='cd ${REAL_HOME}/Dropbox/mi/17-ss/km/exercises'
+alias at='cd ${REAL_HOME}/Dropbox/mi/17-ss/at/exercises'
+alias vis='cd ${REAL_HOME}/Dropbox/mi/17-ss/vis/exercises'
 
 alias tracer='cd ${REAL_HOME}/dev/repos/tracer'
 
+# Webis
+alias sshwebis='ssh ranu2619@webisnetwork.uni-weimar.de'
 alias webis='cd ${REAL_HOME}/dev/cvs/web-technology-lab'
 alias webispdflatex='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
 

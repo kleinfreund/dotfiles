@@ -1,8 +1,8 @@
 <snippet>
-	<content><![CDATA[
+    <content><![CDATA[
 \frac\{ ${1} \}\{ ${2} \}
 ]]></content>
-	<tabTrigger>frac</tabTrigger>
-	<scope>text.html</scope>
-	<description>Fraction (LaTeX)</description>
+    <tabTrigger>frac</tabTrigger>
+    <scope>text.tex.latex</scope>
+    <description>Fraction (LaTeX)</description>
 </snippet>

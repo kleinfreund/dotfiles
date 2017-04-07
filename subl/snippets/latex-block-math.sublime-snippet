@@ -1,8 +1,10 @@
 <snippet>
     <content><![CDATA[
-\( ${1} \)
+\[
+    ${1}
+\]
 ]]></content>
-    <tabTrigger>inlinemath</tabTrigger>
-    <scope>text.html</scope>
-    <description>Inline (LaTeX)</description>
+    <tabTrigger>blockmath</tabTrigger>
+    <scope>text.tex.latex</scope>
+    <description>Block Math (LaTeX)</description>
 </snippet>

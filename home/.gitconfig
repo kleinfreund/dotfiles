@@ -4,7 +4,7 @@
 [push]
 	default = simple
 [core]
-	editor = subl
+	editor = vim
 	excludesfile = ~/.gitignore_global
 [alias]
 	co = checkout
@@ -14,12 +14,6 @@
 	unstage = reset HEAD --
 	last = log -1 HEAD
 [filter "lfs"]
+	required = true
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
-	required = true
-[transfer]
-	fsckobjects = true
-[fetch]
-	fsckobjects = true
-[receive]
-	fsckobjects = true

@@ -129,6 +129,8 @@ export EDITOR=subl
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 
+export JAVE_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:/opt/openmpi/bin"
