@@ -103,16 +103,17 @@ cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
 # Visual Studio Code
-cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
-cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
-cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
-cp -u "${VSC_DIR}/"locale.json "$VSC_DEST"
-
+echo "Skipping VSCode"
+# cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
+# cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
+# cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
+# cp -u "${VSC_DIR}/"locale.json "$VSC_DEST"
 
 
 # OS specific copy operations
 if [[ "$OS" == "Linux" ]]; then
-    cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
+    echo "Skipping Hyper"
+    # cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
 elif [[ "$OS" == "Linux Subsystem" || "$OS" == "Windows" ]]; then
     cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
