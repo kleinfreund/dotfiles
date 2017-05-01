@@ -2,7 +2,7 @@
     <content><![CDATA[
 \{\small\tt ${1}\}
 ]]></content>
-    <tabTrigger>latex-code</tabTrigger>
+    <tabTrigger>code</tabTrigger>
     <scope>text.tex.latex</scope>
     <description>{\small \tt ${1}}</description>
 </snippet>

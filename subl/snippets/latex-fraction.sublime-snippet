@@ -3,6 +3,6 @@
 \frac\{ ${1} \}\{ ${2} \}
 ]]></content>
     <tabTrigger>frac</tabTrigger>
-    <scope>text.tex.latex</scope>
+    <scope>text.tex.latex, text.html</scope>
     <description>Fraction (LaTeX)</description>
 </snippet>

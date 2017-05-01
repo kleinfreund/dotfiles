@@ -1,53 +1,42 @@
-# If an argument was passed, assume it to be the actual home directory of the
-# system. This is necessary for the Linux subsystem for Windows, because HOME
-# will be set to `/home/user`. I do not want to this because my dot files are on
-# Windows in `/c/Users/Philipp`.
-REAL_HOME=$HOME
-if [[ $1 ]]; then
-    REAL_HOME=$1
-fi
-
 # Quickly navigate up the *great hollow*
-alias ~='cd ${REAL_HOME}'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # Shortcuts
-alias dp='cd ${REAL_HOME}/Dropbox'
-alias dl='cd ${REAL_HOME}/Downloads'
-alias dt='cd ${REAL_HOME}/Desktop'
-alias rp='cd ${REAL_HOME}/dev/repos'
+alias dp='cd ${HOME}/Dropbox'
+alias dl='cd ${HOME}/Downloads'
+alias dt='cd ${HOME}/Desktop'
+alias rp='cd ${HOME}/dev/repos'
 
 # SSH into my Uberspace
-alias uberphl='ssh phl@markab.uberspace.de'
-alias uberlz='ssh lz@mirfac.uberspace.de'
-alias uber=uberphl
+alias uber-phl='ssh phl@markab.uberspace.de'
+alias uber-lz='ssh lz@mirfac.uberspace.de'
+alias uber=uber-phl
 
 ### University-related
 # cd into exercise directory and show directories
-alias mi='cd ${REAL_HOME}/Dropbox/mi'
-alias web='cd ${REAL_HOME}/Dropbox/mi/16-ss/web/exercises'
-alias ana='cd ${REAL_HOME}/Dropbox/mi/17-ss/ana/exercises'
-alias km='cd ${REAL_HOME}/Dropbox/mi/17-ss/km/exercises'
-alias at='cd ${REAL_HOME}/Dropbox/mi/17-ss/at/exercises'
-alias vis='cd ${REAL_HOME}/Dropbox/mi/17-ss/vis/exercises'
-
-alias tracer='cd ${REAL_HOME}/dev/repos/tracer'
+alias mi='cd ${HOME}/Dropbox/mi'
+alias web='cd ${HOME}/Dropbox/mi/16-ss/web/exercises'
+alias ana='cd ${HOME}/Dropbox/mi/17-ss/ana/exercises'
+alias km='cd ${HOME}/Dropbox/mi/17-ss/km/exercises'
+alias at='cd ${HOME}/Dropbox/mi/17-ss/at/exercises'
+alias vis='cd ${HOME}/Dropbox/mi/17-ss/vis/exercises'
 
 # Webis
-alias sshwebis='ssh ranu2619@webisnetwork.uni-weimar.de'
-alias webis='cd ${REAL_HOME}/dev/cvs/web-technology-lab'
-alias webispdflatex='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
+alias ssh-webis='ssh ranu2619@webisnetwork.uni-weimar.de'
+alias webis='cd ${HOME}/dev/cvs/web-technology-lab'
+alias pdflatex-webis='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
+alias reader='cd ${HOME}/dev/cvs/web-technology-lab/part-client-technologies-new/code/feed-reader-ajax-final'
 
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
 lsx() {
-    ls $1 -la --color | grep "^d" && ls $1 -la --color | grep "^-" && ls $1 -la --color | grep "^l" $1
+    ls $1 -lhF --color | grep "^d" && ls $1 -lhF --color | grep "^-" && ls $1 -lhF --color | grep "^l" $1
 }
 
-alias ls=lsx
+alias ll=lsx
 
 # Make sure specific python aliases are set for 2.x and 3.x on Windows
 uname=$(uname -s)
@@ -57,8 +46,8 @@ case "$uname" in
         alias python2='/c/Python27/python'
         alias pip2='/c/Python27/Scripts/pip'
 
-        alias python3='${REAL_HOME}/AppData/Local/Programs/Python/Python35-32/python'
-        alias pip3='${REAL_HOME}/AppData/Local/Programs/Python/Python35-32/Scripts/pip3.5'
+        alias python3='${HOME}/AppData/Local/Programs/Python/Python35-32/python'
+        alias pip3='${HOME}/AppData/Local/Programs/Python/Python35-32/Scripts/pip3.5'
         ;;
 esac
 

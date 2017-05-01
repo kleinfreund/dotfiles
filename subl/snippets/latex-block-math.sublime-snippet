@@ -5,6 +5,6 @@
 \]
 ]]></content>
     <tabTrigger>blockmath</tabTrigger>
-    <scope>text.tex.latex</scope>
+    <scope>text.tex.latex, text.html</scope>
     <description>Block Math (LaTeX)</description>
 </snippet>
