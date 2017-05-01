@@ -47,7 +47,7 @@ done
 # Usually, `$HOME` has the correct path to the users home directory.
 # However on the Linux subsystem for Windows, this is the Linux home
 # (`/home/user`) not the Windows home (`/mnt/c/users/user`).
-HOME_PATH=$HOME
+# HOME_PATH=$HOME
 
 # Store kernel name in variable:
 unamestr=$(uname -s)
@@ -61,13 +61,13 @@ if [[ "$unamestr" == "Linux" ]]; then
     VSC_DIR="$HOME/.config/Code/User"
 
     # Weak check if we’re on the Linux subsystem for Windows
-    if [[ "$PWD" == "/mnt"* ]]; then
-        OS="Linux Subsystem"
-        HOME_PATH="/mnt/c/Users/Philipp"
-        ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
-        VSC_DIR="$HOME_PATH/AppData/Roaming/Code/User"
-        CMDER_DIR="/mnt/c/cmder"
-    fi
+    #if [[ "$PWD" == "/mnt"* ]]; then
+    #    OS="Linux Subsystem"
+    #    HOME_PATH="/mnt/c/Users/Philipp"
+    #    ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
+    #    VSC_DIR="$HOME_PATH/AppData/Roaming/Code/User"
+    #    CMDER_DIR="/mnt/c/cmder"
+    #fi
 elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
     OS="Windows"
 
@@ -87,28 +87,21 @@ printf "$OS\n"
 
 echo "Copying files ..."
 # Copy files from the home directory (Bash, Git, Ruby, Hyper, …)
-cp -u "$HOME_PATH/".bashrc "$HOME_DEST"
-cp -u "$HOME_PATH/".aliases "$HOME_DEST"
-cp -u "$HOME_PATH/".gitignore_global "$HOME_DEST"
-cp -u "$HOME_PATH/".gitconfig "$HOME_DEST"
-cp -u "$HOME_PATH/".gemrc "$HOME_DEST"
-cp -u "$HOME_PATH/".npmrc "$HOME_DEST"
-cp -u "$HOME_PATH/"ubuntu-tips.md "$HOME_DEST"
-cp -u "$HOME_PATH/".zshrc "$HOME_DEST"
+cp -u "$HOME/".bashrc "$HOME_DEST"
+cp -u "$HOME/".aliases "$HOME_DEST"
+cp -u "$HOME/".gitignore_global "$HOME_DEST"
+cp -u "$HOME/".gitconfig "$HOME_DEST"
+cp -u "$HOME/".gemrc "$HOME_DEST"
+cp -u "$HOME/".npmrc "$HOME_DEST"
+cp -u "$HOME/"ubuntu-tips.md "$HOME_DEST"
+cp -u "$HOME/".zshrc "$HOME_DEST"
+cp -u "$HOME/".vimrc "$HOME_DEST"
 
 # Sublime Text
 cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
 cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
-
-# Visual Studio Code
-echo "Skipping VSCode"
-# cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
-# cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
-# cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
-# cp -u "${VSC_DIR}/"locale.json "$VSC_DEST"
-
 
 # OS specific copy operations
 if [[ "$OS" == "Linux" ]]; then
