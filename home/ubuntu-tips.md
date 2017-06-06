@@ -128,3 +128,9 @@ Start “Tweak Tool”:
     - Choose “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS Windows)”
   - Caps Lock key behavior:
     - Choose “Caps Lock is disabled”
+
+## Disable wallpaper dots on login screen
+
+sudo xhost +SI:localuser:lightdm
+sudo su lightdm -s /bin/bash
+gsettings set com.canonical.unity-greeter draw-grid false

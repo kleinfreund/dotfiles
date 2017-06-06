@@ -85,5 +85,7 @@
         "keys": ["ctrl+alt+down"],
         "command": "select_lines",
         "args": {"forward": true}
-    }
+    },
+    { "keys": ["ctrl+space"], "command": "auto_complete" },
+    { "keys": ["f1"], "command": "dev_docs_search_selection" }
 ]

@@ -1,7 +1,7 @@
 {
 	"always_show_minimap_viewport": true,
-	// "auto_complete_commit_on_tab": true,
-	// "auto_complete_selector": "source, text",
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_selector": "source, text",
 	"auto_complete_with_fields": true,
 	"binary_file_patterns":
 	[
@@ -30,7 +30,7 @@
 		".git",
 		".sass-cache"
 	],
-	"font_size": 12.0,
+	"font_size": 18,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":

@@ -98,6 +98,8 @@ export JAVE_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export PATH="$PATH:/opt/apache-maven/bin"
+
 # Jekyll environment
 export JEKYLL_ENV=development
 
