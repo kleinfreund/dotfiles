@@ -7,15 +7,16 @@ set encoding=utf-8
 
 " Enable syntax highlighting
 syntax on
+color dracula
 " Show matching parens, brackets, etc.
 set showmatch
 " 256 colours please
-set t_Co=256
-let g:solarized_termcolors=256
+"set t_Co=256
+"let g:solarized_termcolors=256
 " Dark background
-set background=dark
+"set background=dark
 " Solarized colour scheme
-colorscheme solarized
+"colorscheme solarized
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic

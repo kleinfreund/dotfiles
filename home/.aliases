@@ -13,6 +13,7 @@ alias rp='cd ${HOME}/dev/repos'
 # SSH into my Uberspace
 alias uber-phl='ssh phl@markab.uberspace.de'
 alias uber-lz='ssh lz@mirfac.uberspace.de'
+alias pi='ssh pi@192.168.2.122'
 alias uber=uber-phl
 
 ### University-related
@@ -33,7 +34,7 @@ alias reader='cd ${HOME}/dev/cvs/web-technology-lab/part-client-technologies-new
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
 lsx() {
-    ls $1 -lhF --color | grep "^d" && ls $1 -lhF --color | grep "^-" && ls $1 -lhF --color | grep "^l" $1
+    ls $* -lhF --color | grep "^d" && ls $* -lhF --color | grep "^-" && ls $* -lhF --color | grep "^l" $*
 }
 
 alias ll=lsx

@@ -87,5 +87,27 @@
         "args": {"forward": true}
     },
     { "keys": ["ctrl+space"], "command": "auto_complete" },
-    { "keys": ["f1"], "command": "dev_docs_search_selection" }
+    { "keys": ["f1"], "command": "dev_docs_search_selection" },
+    // When moving the caret over words with Ctrl-Left/Right, honor subwords
+    // in camelCased words.
+    {
+        "keys": ["ctrl+left"],
+        "command": "move",
+        "args": {"by": "subwords", "forward": false}
+    },
+    {
+        "keys": ["ctrl+right"],
+        "command": "move",
+        "args": {"by": "subword_ends", "forward": true}
+    },
+    {
+        "keys": ["ctrl+shift+left"],
+        "command": "move",
+        "args": {"by": "subwords", "forward": false, "extend": true}
+    },
+    {
+        "keys": ["ctrl+shift+right"],
+        "command": "move",
+        "args": {"by": "subword_ends", "forward": true, "extend": true}
+    }
 ]

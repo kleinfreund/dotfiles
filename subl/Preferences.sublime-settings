@@ -14,7 +14,7 @@
 	"caret_extra_bottom": 2,
 	"caret_extra_top": 2,
 	"caret_style": "solid",
-	"color_scheme": "Packages/Theme - Cobalt2/cobalt2.tmTheme",
+	"color_scheme": "Packages/Dracula Color Scheme/Dracula.tmTheme",
 	"detect_indentation": false,
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
@@ -30,7 +30,7 @@
 		".git",
 		".sass-cache"
 	],
-	"font_size": 18,
+	"font_size": 20,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
