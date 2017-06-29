@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+```
+${1}
+```
+]]></content>
+    <tabTrigger>code</tabTrigger>
+    <scope>text</scope>
+    <description>Fenced Code Block</description>
+</snippet>

@@ -86,6 +86,11 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
+fi
+
 # Make Sublime Text the editor, will you.
 export EDITOR=subl
 
@@ -102,11 +107,6 @@ export PATH="$PATH:/opt/apache-maven/bin"
 
 # Jekyll environment
 export JEKYLL_ENV=development
-
-# Aliases
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
 
 # Based on “My Extravagant Zsh Prompt” by Steve Losh
 # http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/

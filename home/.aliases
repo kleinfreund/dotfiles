@@ -13,7 +13,7 @@ alias rp='cd ${HOME}/dev/repos'
 # SSH into my Uberspace
 alias uber-phl='ssh phl@markab.uberspace.de'
 alias uber-lz='ssh lz@mirfac.uberspace.de'
-alias pi='ssh pi@192.168.2.122'
+alias pi='ssh pi@192.168.178.31'
 alias uber=uber-phl
 
 ### University-related
@@ -26,18 +26,31 @@ alias at='cd ${HOME}/Dropbox/mi/17-ss/at/exercises'
 alias vis='cd ${HOME}/Dropbox/mi/17-ss/vis/exercises'
 
 # Webis
-alias ssh-webis='ssh ranu2619@webisnetwork.uni-weimar.de'
 alias webis='cd ${HOME}/dev/cvs/web-technology-lab'
+alias ssh-webis='ssh ranu2619@webisnetwork.uni-weimar.de'
 alias pdflatex-webis='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
-alias reader='cd ${HOME}/dev/cvs/web-technology-lab/part-client-technologies-new/code/feed-reader-ajax-final'
+
+alias http-server='python3 -m http.server 8000'
 
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
-lsx() {
-    ls $* -lhF --color | grep "^d" && ls $* -lhF --color | grep "^-" && ls $* -lhF --color | grep "^l" $*
+
+# Default ls should always show
+# -l  as a list
+# -h  with human-readable file sizes
+# -F  with indicator (e.g. trailing / for directories)
+alias ls='ls -lhF --color'
+
+list_sorted() {
+    # List directories
+    ls -lhF --color $* | grep "^d" &&
+    # List regular files
+    ls -lhF --color $* | grep "^-" &&
+    # List everything else (e.g. symbolic links)
+    ls -lhF --color $* | grep -v -E "^d|^-|^total"
 }
 
-alias ll=lsx
+alias ll=list_sorted
 
 # Make sure specific python aliases are set for 2.x and 3.x on Windows
 uname=$(uname -s)

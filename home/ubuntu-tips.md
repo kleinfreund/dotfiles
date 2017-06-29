@@ -224,9 +224,9 @@ Alternatively, the [terminal.sexy](https://terminal.sexy) can be used to convert
 - Open [terminal.sexy](https://terminal.sexy)
   - Import > Format: Terminal.app
   - Paste the contents of `Dracula.terminal` into the text box
-  - Click `Import`
+  - Click “Import”
   - Export > Format: Gnome Terminal
-  - Click `Export`
+  - Click “Export”
   - Download the file
   - Add the colors via adding a new profile by running the downloaded file as a script:
 
@@ -270,4 +270,20 @@ Alternatively, the hibernation file can be deleted:
 
 ```
 sudo mount -t "ntfs" -o remove_hiberfile "/dev/sda4" "/media/phil/Boot"
+```
+
+### Simple static HTTP Server
+
+```
+python3 -m http.server 8000
+```
+
+```
+server() {
+  local port="${1:-8080}"
+  # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+  # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
+  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+  xdg-open "http://localhost:${port}/"
+}
 ```
