@@ -43,11 +43,11 @@ alias ls='ls -lhF --color'
 
 list_sorted() {
     # List directories
-    ls -lhF --color $* | grep "^d" &&
+    ls $* | grep "^d";
     # List regular files
-    ls -lhF --color $* | grep "^-" &&
+    ls $* | grep "^-";
     # List everything else (e.g. symbolic links)
-    ls -lhF --color $* | grep -v -E "^d|^-|^total"
+    ls $* | grep -v -E "^d|^-|^total"
 }
 
 alias ll=list_sorted
