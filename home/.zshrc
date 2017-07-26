@@ -65,11 +65,11 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='subl'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -91,21 +91,24 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
-# Make Sublime Text the editor, will you.
-export EDITOR=subl
 
-export PATH="$HOME/.npm-global/bin:$PATH"
-
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Custom NPM packages directory
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# OpenJDK
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+
+# Apache Maven
 export PATH="$PATH:/opt/apache-maven/bin"
 
-# Jekyll environment
+# Jekyll
 export JEKYLL_ENV=development
 
 # Based on “My Extravagant Zsh Prompt” by Steve Losh

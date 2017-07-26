@@ -4,33 +4,31 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# Shortcuts
-alias dp='cd ${HOME}/Dropbox'
+# Directory shortcuts
+alias db='cd ${HOME}/Dropbox'
 alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
 
-# SSH into my Uberspace
-alias uber-phl='ssh phl@markab.uberspace.de'
-alias uber-lz='ssh lz@mirfac.uberspace.de'
-alias pi='ssh pi@192.168.178.31'
-alias uber=uber-phl
+# SSH shortcuts
+alias ssh-uber-phl='ssh phl@markab.uberspace.de'
+alias ssh-uber-lz='ssh lz@mirfac.uberspace.de'
+alias ssh-uber=uber-phl
 
-### University-related
-# cd into exercise directory and show directories
+alias pi='ssh pi@192.168.178.34'
+
+alias http-server='python3 -m http.server 8000'
+
+## University-related
 alias mi='cd ${HOME}/Dropbox/mi'
-alias web='cd ${HOME}/Dropbox/mi/16-ss/web/exercises'
 alias ana='cd ${HOME}/Dropbox/mi/17-ss/ana/exercises'
 alias km='cd ${HOME}/Dropbox/mi/17-ss/km/exercises'
-alias at='cd ${HOME}/Dropbox/mi/17-ss/at/exercises'
-alias vis='cd ${HOME}/Dropbox/mi/17-ss/vis/exercises'
 
 # Webis
 alias webis='cd ${HOME}/dev/cvs/web-technology-lab'
 alias ssh-webis='ssh ranu2619@webisnetwork.uni-weimar.de'
 alias pdflatex-webis='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
 
-alias http-server='python3 -m http.server 8000'
 
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
@@ -51,34 +49,3 @@ list_sorted() {
 }
 
 alias ll=list_sorted
-
-# Make sure specific python aliases are set for 2.x and 3.x on Windows
-uname=$(uname -s)
-case "$uname" in
-    *MINGW32_NT*|*MINGW64_NT* )
-        printf "Setting Python environment for Windows."
-        alias python2='/c/Python27/python'
-        alias pip2='/c/Python27/Scripts/pip'
-
-        alias python3='${HOME}/AppData/Local/Programs/Python/Python35-32/python'
-        alias pip3='${HOME}/AppData/Local/Programs/Python/Python35-32/Scripts/pip3.5'
-        ;;
-esac
-
-# Replace one character in all file and directory names with another one
-# Usage: replace_all _ -
-# Issue: Only replaces characters, could be used to replace string sequences
-replace_all() {
-    if [ "$#" -ne 2 ] || [ ${#1} -gt 1 ] || [ ${#2} -gt 1 ]; then
-        echo "Usage:   ${FUNCNAME[0]} CHAR_TO_REPLACE NEW_CHAR" >&2
-        echo "Example: ${FUNCNAME[0]} _ -" >&2
-        return 1
-    fi
-
-    old_char=$1
-    new_char=$2
-
-    for filename in *"${old_char}"*; do
-        mv -- "$filename" "${filename//${old_char}/${new_char}}"
-    done
-}

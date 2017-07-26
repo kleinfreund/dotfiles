@@ -20,6 +20,13 @@ When something was configured via `gsettings set`, this can be reverted back to 
 gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled-on-external-mouse
 ```
 
+### Disable locking when closing laptop lid
+
+```
+sudo sed -i 's/IgnoreLid=false/IgnoreLid=true/g' /etc/UPower/UPower.conf
+service upower restart
+```
+
 ### Disable tab/application switch on scrolling
 
 I don’t like the Ubuntu behavior of switching applications/tabs when scrolling in some specific areas. Sadly, this can’t be disabled for *Google Chrome* and *Gnome Terminal*.

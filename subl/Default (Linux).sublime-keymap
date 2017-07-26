@@ -1,23 +1,23 @@
 [
     {
-        "keys": ["ctrl+#"],
+        "keys": ["ctrl+/"],
         "command": "toggle_comment",
         "args": { "block": false }
     },
     {
-        "keys": ["ctrl+shift+#"],
+        "keys": ["ctrl+shift+/"],
         "command": "toggle_comment",
         "args": { "block": true }
     },
-    // Add big blocky CSS/Java/C++ comment with Ctrl+Shift+Alt+# (German layout)
+    // Add big blocky CSS/Java/C++ comment with Ctrl+Shift+Alt+/ (German layout)
     {
-        "keys": ["ctrl+shift+alt+#"],
+        "keys": ["ctrl+shift+alt+/"],
         "command": "insert_snippet",
         "args": {"contents": "/*\n* ${0:$SELECTION}\n*/" }
     },
-    // Modify blocky comment for Python: """\n${0}\n"""
+    // Modify blocky comment for Python
     {
-        "keys": ["ctrl+shift+alt+#"],
+        "keys": ["ctrl+shift+alt+/"],
         "command": "insert_snippet",
         "context":
         [
@@ -29,9 +29,9 @@
         ],
         "args": {"contents": "\"\"\"\n${0:$SELECTION}\n\"\"\"" }
     },
-    // Modify blocky comment for Python: """\n${0}\n"""
+    // Modify blocky comment for HTML
     {
-        "keys": ["ctrl+shift+alt+#"],
+        "keys": ["ctrl+shift+alt+/"],
         "command": "insert_snippet",
         "context":
         [
@@ -53,12 +53,7 @@
     { "keys": ["ctrl+pageup"], "command": "prev_view_in_stack" },
     // Adjust "Expand Selection to Quotes" shortcut
     { "keys": ["ctrl+shift+2"], "command": "expand_selection_to_quotes" },
-    // Opens localhost on post 4000 in the default browser
-    {
-        "keys" : ["ctrl+shift+alt+o"],
-        "command" : "open_url",
-        "args" : { "url" : "http://127.0.0.1:4000/" }
-    },
+
     // Oben current HTML file in browser
     {
         "keys": ["alt+b"], "command": "open_in_browser",

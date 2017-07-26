@@ -108,39 +108,39 @@ fi
 
 
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
 
 
+export EDITOR='subl'
+
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# PATHS
 # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# NPM packages
+# Custom NPM packages directory
 export PATH="$HOME/.npm-global/bin:$PATH"
 
+# OpenJDK
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
-export EDITOR=subl
+# Apache Maven
+export PATH="$PATH:/opt/apache-maven/bin"
 
-# Jekyll environment
+# Jekyll
 export JEKYLL_ENV=development
 
+# Uni Weimar: Webis
 export CVS_RSH="/usr/bin/ssh"
 export CVSROOT="ranu2619@webisnetwork.uni-weimar.de:/srv/cvsroot"
 export CVSEDITOR=subl
 
 # Nvidia Cuda
-export CUDA_HOME=/usr/local/cuda-7.5
-export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+# export CUDA_HOME=/usr/local/cuda-7.5
+# export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
 # export PATH="$PATH:${CUDA_HOME}/bin"
