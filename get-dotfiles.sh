@@ -82,7 +82,8 @@ printf "$OS\n"
 
 echo "Copying files ..."
 
-# Copy files from the home directory (Bash, Git, Ruby, Hyper, …)
+# Copy files from the home directory (Bash, Git, Ruby, )
+cp -u "$HOME/"ubuntu-tips.md "$HOME_DEST"
 cp -u "$HOME/".bashrc "$HOME_DEST"
 cp -u "$HOME/".aliases "$HOME_DEST"
 cp -u "$HOME/".eslintrc.json "$HOME_DEST"
@@ -90,7 +91,6 @@ cp -u "$HOME/".gitignore_global "$HOME_DEST"
 cp -u "$HOME/".gitconfig "$HOME_DEST"
 cp -u "$HOME/".gemrc "$HOME_DEST"
 cp -u "$HOME/".npmrc "$HOME_DEST"
-cp -u "$HOME/"ubuntu-tips.md "$HOME_DEST"
 cp -u "$HOME/".zshrc "$HOME_DEST"
 cp -u "$HOME/".vimrc "$HOME_DEST"
 
@@ -107,8 +107,9 @@ cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
 
 # OS specific copy operations
 if [[ "$OS" == "Linux" ]]; then
-    echo "Skipping Hyper"
+    echo "Coying specific Linux files ..."
 elif [[ "$OS" == "Windows" ]]; then
+    echo "Coying specific Windows files ..."
     cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
