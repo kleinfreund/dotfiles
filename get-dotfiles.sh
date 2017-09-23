@@ -74,11 +74,6 @@ elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
     VSC_DIR="$HOME/AppData/Roaming/Code/User"
     CMDER_DIR="/c/cmder"
-elif [[ "$unamestr" == "Darwin" ]]; then
-    OS="macOS"
-
-    ST_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
-    VSC_DIR="$HOME/Library/Application Support/Code/User"
 else
     printf "Could not detect operating system. Aborting."
     exit 2
@@ -86,9 +81,11 @@ fi
 printf "$OS\n"
 
 echo "Copying files ..."
+
 # Copy files from the home directory (Bash, Git, Ruby, Hyper, …)
 cp -u "$HOME/".bashrc "$HOME_DEST"
 cp -u "$HOME/".aliases "$HOME_DEST"
+cp -u "$HOME/".eslintrc.json "$HOME_DEST"
 cp -u "$HOME/".gitignore_global "$HOME_DEST"
 cp -u "$HOME/".gitconfig "$HOME_DEST"
 cp -u "$HOME/".gemrc "$HOME_DEST"
@@ -103,11 +100,15 @@ cp -Ru "${ST_DIR}/snippets/" "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-settings "$ST_DEST"
 cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 
+# Visual Studio Code
+cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
+cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
+cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
+
 # OS specific copy operations
 if [[ "$OS" == "Linux" ]]; then
     echo "Skipping Hyper"
-    # cp -u "$HOME_PATH/".hyper.js "$HOME_DEST"
-elif [[ "$OS" == "Linux Subsystem" || "$OS" == "Windows" ]]; then
+elif [[ "$OS" == "Windows" ]]; then
     cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
     cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
