@@ -1,13 +1,86 @@
-// Place your key bindings in this file to overwrite the defaults
 [
-    {
-        "key": "ctrl+shift+down",
-        "command": "editor.action.moveLinesDownAction",
-        "when": "editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "ctrl+shift+up",
-        "command": "editor.action.moveLinesUpAction",
-        "when": "editorTextFocus && !editorReadonly"
-    }
+  {
+    "key": "ctrl+alt+up",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+alt+down",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+left",
+    "command": "subwordNavigation.cursorSubwordLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "subwordNavigation.cursorSubwordRight",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+left",
+    "command": "subwordNavigation.cursorSubwordLeftSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "subwordNavigation.cursorSubwordRightSelect",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+backspace",
+    "command": "subwordNavigation.deleteSubwordLeft",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+delete",
+    "command": "subwordNavigation.deleteSubwordRight",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+up",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+down",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+f3",
+    "command": "editor.action.selectHighlights",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+k ctrl+u",
+    "command": "editor.action.transformToUppercase",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+k ctrl+l",
+    "command": "editor.action.transformToLowercase",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "projectManager.listProjects"
+  }
 ]
