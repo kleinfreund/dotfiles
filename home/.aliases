@@ -10,10 +10,11 @@ alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
 
+alias untargz='tar zxf'
+
 # SSH shortcuts
 alias ssh-uber-phl='ssh phl@markab.uberspace.de'
-alias ssh-uber-lz='ssh lz@mirfac.uberspace.de'
-alias ssh-uber=uber-phl
+alias ssh-uber=ssh-uber-phl
 
 alias pi='ssh pi@192.168.178.34'
 

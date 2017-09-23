@@ -1,4 +1,5 @@
 {
-    "node_path": "/usr/bin",
-    "node_modules_path": "~/.npm-global/lib/node_modules"
+  "node_path": "/usr/bin",
+  "node_modules_path": "~/.npm-global/lib/node_modules",
+  "config_file": "~/.eslintrc.json"
 }

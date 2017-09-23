@@ -1,4 +1,5 @@
 {
-    "rulers": [100],
-    "wrap_width": 101
+  "tab_size": 2,
+  "rulers": [100],
+  "wrap_width": 101
 }
