@@ -82,5 +82,10 @@
   {
     "key": "ctrl+alt+p",
     "command": "projectManager.listProjects"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "editor.action.smartSelect.grow",
+    "when": "editorTextFocus"
   }
 ]

@@ -10,7 +10,10 @@ alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
 
+# Extract .tar.gz archives
 alias untargz='tar zxf'
+
+alias o=code
 
 # SSH shortcuts
 alias ssh-uber-phl='ssh phl@markab.uberspace.de'
