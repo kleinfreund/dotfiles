@@ -9,7 +9,8 @@
   "editor.formatOnSave": true,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.renderWhitespace": "all",
+  // "editor.renderWhitespace": "boundary",
+  "editor.renderIndentGuides": false,
   "editor.scrollBeyondLastLine": false,
   "editor.tabCompletion": true,
   "editor.tabSize": 2,
@@ -24,19 +25,22 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/node_modules": true,
-    "**/_site": true // Ignore Jekyll output
+    "**/_site": true, // Jekyll output
+    "**/public": true // Hugo output
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/**": true,
-    "**/_site/**": true // Ignore Jekyll output
+    "**/_site": true, // Jekyll output
+    "**/public": true // Hugo output
   },
 
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
-    "**/_site": true
+    "**/_site": true, // Jekyll output
+    "**/public": true // Hugo output
   },
 
   "telemetry.enableTelemetry": false,
@@ -50,8 +54,13 @@
   "css.lint.zeroUnits": "warning",
   "html.format.enable": false,
 
+  "emmet.triggerExpansionOnTab": true,
+
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
 
-  "color-highlight.markRuler": false
+  "csstriggers.showDecoration": false,
+
+  "window.zoomLevel": 0,
+  "extensions.ignoreRecommendations": false
 }

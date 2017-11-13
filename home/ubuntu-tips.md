@@ -138,7 +138,7 @@ gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'non
 
 ```
 wget -qO - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt update
 sudo apt install google-chrome-stable
 ```
@@ -346,4 +346,11 @@ server() {
   python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
   xdg-open "http://localhost:${port}/"
 }
+```
+
+### List available Gnome settings
+
+```
+gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys | sort
+gsettings list-recursively org.gnome.desktop.wm.keybindings | sort
 ```

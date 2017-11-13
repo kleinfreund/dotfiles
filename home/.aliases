@@ -10,13 +10,23 @@ alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
 
-# Extract .tar.gz archives
-alias untargz='tar zxf'
+# Extract .tar.gz archives because I don’t want to remember the required flags
+alias untargz='tar -zxf'
 
+# I finally had enough of typing this out
+alias saud='sudo apt update && apt list --upgradable'
+alias saug='sudo apt upgrade'
+
+# Because everything needs to hard on Ubuntu, alsamixer has no concept of
+# persistent configuration.
+alias alsarestore='alsactl --file ~/.config/asound.state restore'
+
+# Open it
 alias o=code
 
 # SSH shortcuts
 alias ssh-uber-phl='ssh phl@markab.uberspace.de'
+alias ssh-uber-phr='ssh phr@brorsen.uberspace.de'
 alias ssh-uber=ssh-uber-phl
 
 alias pi='ssh pi@192.168.178.34'

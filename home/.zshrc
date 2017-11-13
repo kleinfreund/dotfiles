@@ -110,6 +110,8 @@ export PATH="$PATH:/opt/apache-maven/bin"
 
 # Jekyll
 export JEKYLL_ENV=development
+# Hugo
+export HUGO_ENV=development
 
 # Based on “My Extravagant Zsh Prompt” by Steve Losh
 # http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/

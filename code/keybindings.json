@@ -65,6 +65,16 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "ctrl+alt+x",
+    "command": "editor.action.deleteLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "editor.action.blockComment",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
     "key": "alt+f3",
     "command": "editor.action.selectHighlights",
     "when": "editorTextFocus"
@@ -87,5 +97,23 @@
     "key": "ctrl+shift+m",
     "command": "editor.action.smartSelect.grow",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+'",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "langId": "plaintext",
+      "name": "singlequotes-en"
+    }
+  },
+  {
+    "key": "ctrl+shift+'",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args": {
+      "langId": "plaintext",
+      "name": "doublequotes-en"
+    }
   }
 ]
