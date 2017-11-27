@@ -27,7 +27,7 @@ fi
 
 # Adjust destination paths so the files are separated by OS
 HOME_DEST="${REPO_PATH}/home/"
-ST_DEST="${REPO_PATH}/subl/"
+ST_DEST="${REPO_PATH}/sublime/"
 VSC_DEST="${REPO_PATH}/code/"
 CMDER_DEST="${REPO_PATH}/cmder/"
 
