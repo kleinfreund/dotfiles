@@ -28,24 +28,23 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
-# Based on “My Extravagant Zsh Prompt” by Steve Losh
-# http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
-function prompt_char {
-  git branch >/dev/null 2>/dev/null && echo '±' && return
-  echo '🚀'
-}
-
-function virtualenv_info {
-  [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
-}
-
-PROMPT='%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%} in %{$fg_bold[green]%}${PWD/#$HOME/~}%{$reset_color%}$(git_prompt_info)
-$(virtualenv_info)$(prompt_char) '
+# %n : user name
+user_name="%{$fg[green]%}%n%{$reset_color%}"
+# %m : host
+host_name="%{$fg[green]%}%m%{$reset_color%}"
+# %~ : working directory ($HOME is replaced with ~)
+working_dir="%{$fg_bold[blue]%}%~%{$reset_color%}"
+# BOO!
+prompt_char="%{$fg_bold[blue]%}👻%{$reset_color%}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
-ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+PROMPT='${user_name}@${host_name} in ${working_dir}'
+PROMPT+='$(git_prompt_info)'
+PROMPT+=$'\n'
+PROMPT+='${prompt_char} '
 
 
 
@@ -57,9 +56,9 @@ fi
 
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
+# export LANGUAGE=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
