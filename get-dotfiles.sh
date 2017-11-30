@@ -69,7 +69,6 @@ echo "Copying files ..."
 
 # Copy files from the home directory (Bash, Git, Ruby, )
 cp -u "$HOME/"ubuntu-tips.md "$HOME_DEST"
-cp -u "$HOME/".bashrc "$HOME_DEST"
 cp -u "$HOME/".aliases "$HOME_DEST"
 cp -u "$HOME/".eslintrc.json "$HOME_DEST"
 cp -u "$HOME/".gitignore_global "$HOME_DEST"
