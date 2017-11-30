@@ -1,22 +1,32 @@
 # dotfiles
 
-Copy dotfiles to this git repository.
+Use the deploy script to create symbolic links in `$HOME` to all files in `home/`.
 
 ```bash
-./get-dotfiles.sh
+./deploy.sh
 ```
 
-This repository serves as a backup tool for my configuration and dotfiles.
+Use the collect script to backup configuration files of Sublime Text and Visual Studio Code.
+
+```bash
+./collect.sh
+```
 
 ## Adding a new ZSH plugin as a submodule
 
 ```
 git submodule add https://github.com/zsh-users/zsh-syntax-highlighting zsh/plugins/zsh-syntax-highlighting
 git submodule add https://github.com/zsh-users/zsh-autosuggestions zsh/plugins/zsh-autosuggestions
+git submodule init
 ```
 
+Then, add the plugins to `.zshrc`:
+
 ```
-git submodule init
+plugins=(
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
 ```
 
 ## Update all submodules
