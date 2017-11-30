@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/id_rsa"
 
 # Based on “My Extravagant Zsh Prompt” by Steve Losh
 # http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
