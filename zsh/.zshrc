@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/phil/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_CUSTOM="$HOME/dotfiles/zsh"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
