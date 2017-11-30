@@ -1,28 +1,37 @@
 # Ubuntu Setup Tips
 
-Setting up a newly installed operating system can become frustrating quickly. Especially when it was forced upon ourselves (e.g. the hard drive died again). This is a collection of tips that are part of my backup strategy. Here, I try to document what things I configure with my operating system, what software I install, etc. This is highly opinionated. This setup works for me but might not for you.
+Setting up a newly installed operating system can become frustrating quickly. Especially when it was
+forced upon ourselves (e.g. the hard drive died again). This is a collection of tips that are part
+of my backup strategy. Here, I try to document what things I configure with my operating system,
+what software I install, etc. This is highly opinionated. This setup works for me but might not for
+you.
 
-**Note**: In this document, `o` is an alias for the editor that is used. One can use `gedit` on a new system or alias a custom one with `alias o=vim`.
-
-
+**Note**: In this document, `o` is an alias for the editor that is used. One can use `gedit` on a
+new system or alias a custom one with `alias o=vim`.
 
 ## General Ubuntu Settings
 
-When something was configured via `gsettings set`, this can be reverted back to its original state via `gsettings reset`.
+When something was configured via `gsettings set`, this can be reverted back to its original state
+via `gsettings reset`.
 
 ### Global file associations
 
-Ubuntu uses gedit as its default text editor. To associate files that are opened in gedit with another program, one needs to update the file `/usr/share/applications/defaults.list`. Replace all occurences of `gedit.desktop` with the file name that is being associated with your preferred application. The new file name needs to refer to a file that exists in the same directory, e.g.:
+Ubuntu uses gedit as its default text editor. To associate files that are opened in gedit with
+another program, one needs to update the file `/usr/share/applications/defaults.list`. Replace all
+occurences of `gedit.desktop` with the file name that is being associated with your preferred
+application. The new file name needs to refer to a file that exists in the same directory, e.g.:
 
-- `sublime_text.desktop`
-- `code.desktop`
-- `vim.desktop`
+* `sublime_text.desktop`
+* `code.desktop`
+* `vim.desktop`
 
 ```
 sudo sed -i 's/gedit.desktop/code.desktop/g' /usr/share/applications/defaults.list
 ```
 
-**Note**: One is able to override these global settings by configuring a application for each file type by opening its properties and changing the default application under *Open With*. Changing these can be done via a command-line interface.
+**Note**: One is able to override these global settings by configuring a application for each file
+type by opening its properties and changing the default application under _Open With_. Changing
+these can be done via a command-line interface.
 
 **Prints the current setting**:
 
@@ -51,7 +60,8 @@ service upower restart
 
 ### Disable tab/application switch on scrolling
 
-I don’t like the Ubuntu behavior of switching applications/tabs when scrolling in some specific areas. Sadly, this can’t be disabled for *Google Chrome* and *Gnome Terminal*.
+I don’t like the Ubuntu behavior of switching applications/tabs when scrolling in some specific
+areas. Sadly, this can’t be disabled for _Google Chrome_ and _Gnome Terminal_.
 
 **Sublime Text: User Preferences**:
 
@@ -113,7 +123,9 @@ Exec=bash -c "sleep 3 && alsactl --file ~/.config/asound.state restore"
 
 ### Ctrl-Alt-Up/Down
 
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>ArrowUp</kbd>/<kbd>ArrowDown</kbd> are used to switch workspaces. To be able to use them in other applications (e.g. Sublime Text), you can disable them like this:
+<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>ArrowUp</kbd>/<kbd>ArrowDown</kbd> are used to switch
+workspaces. To be able to use them in other applications (e.g. Sublime Text), you can disable them
+like this:
 
 ```
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['']"
@@ -126,15 +138,11 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
 ```
 
-
-
-
-
 ## Software
 
 ### Google Chrome
 
-- As per answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
+* As per answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
 
 ```
 wget -qO - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -153,7 +161,7 @@ sudo apt-get install git
 
 ### Sublime Text, `subl` (code editor)
 
-- [Sublime Text website](https://www.sublimetext.com)
+* [Sublime Text website](https://www.sublimetext.com)
 
 ```
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -172,17 +180,18 @@ sudo apt install gnome-tweak-tool
 
 #### Disable Caps Lock
 
-- Open “Tweak Tool”
-- Select category “Typing”
-- Select “Caps Lock key behavior”
-- Select “Caps Lock is disabled”
+* Open “Tweak Tool”
+* Select category “Typing”
+* Select “Caps Lock key behavior”
+* Select “Caps Lock is disabled”
 
 #### Enable selecting via Ctrl+Pos1/End
 
-- Open “Tweak Tool”
-- Select category “Typing”
-- Select “Miscellaneous compatibility options”
-- Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS Windows)”
+* Open “Tweak Tool”
+* Select category “Typing”
+* Select “Miscellaneous compatibility options”
+* Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
+  Windows)”
 
 ### CompizConfig Settings Manager
 
@@ -193,20 +202,41 @@ sudo apt install compizconfig-settings-manager
 
 #### Application Switcher
 
-- Next window (All windows): `<Alt>Tab`
-- Prev window (All windows): `<Shift><Alt>Tab`
+* Next window (All windows): `<Alt>Tab`
+* Prev window (All windows): `<Shift><Alt>Tab`
 
 #### Grid
 
-- Map all “Put … Key” actions to numpad
-- Maximize Key: `<Super>Up`
-- Restore: `<Super>Down`
-- Left Maximize: `<Super>Left`
-- Right Maximize: `<Super>Right`
+* Map all “Put … Key” actions to numpad
+* Maximize Key: `<Super>Up`
+* Restore: `<Super>Down`
+* Left Maximize: `<Super>Left`
+* Right Maximize: `<Super>Right`
+
+### Zsh & Oh My Zsh
+
+* [Oh My Zsh website](http://ohmyz.sh/)
+
+```
+sudo apt install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+#### Zsh Plugin: Syntax Highlighting
+
+```
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
+
+#### Zsh Plugin: Auto Suggestions
+
+```
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
 
 ### `ag` (command line search, faster than `ack`)
 
-- [GitHub repository](https://github.com/ggreer/the_silver_searcher)
+* [GitHub repository](https://github.com/ggreer/the_silver_searcher)
 
 ```
 sudo apt install silversearcher-ag
@@ -220,35 +250,31 @@ sudo apt install htop
 htop
 ```
 
+### `tldr`
+
+* [GitHub repository](https://github.com/tldr-pages/tldr)
+
+```
+npm install --global tldr
+tldr tar
+```
+
 ### `mascii`, `telnet mapscii`
 
-- [GitHub repository](https://github.com/rastapasta/mapscii)
-- Usage via telnet: `telnet mapscii.me`
+* [GitHub repository](https://github.com/rastapasta/mapscii)
+* Usage via telnet: `telnet mapscii.me`
 
 ```
-npm install -g mapscii
+npm install --global mapscii
 mapscii
 ```
-
-### Zsh & Oh My Zsh
-
-- [Oh My Zsh website](http://ohmyz.sh/)
-
-```
-sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-
-
-
 
 ## Dracula Theme
 
 ### Sublime Text
 
-- Open “Package Control: Install Package”
-- Install “Dracula Color Scheme”
+* Open “Package Control: Install Package”
+* Install “Dracula Color Scheme”
 
 ### ZSH
 
@@ -265,7 +291,8 @@ plugins=([plugins...] zsh-syntax-highlighting)
 
 ### Gnome Terminal Colors
 
-The [Dracula Theme](https://draculatheme.com/) is available for a variety of applications. Using it in Sublime Text is as easy as installing the package.
+The [Dracula Theme](https://draculatheme.com/) is available for a variety of applications. Using it
+in Sublime Text is as easy as installing the package.
 
 Applying it to Gnome Terminal is done by executing an install as follows:
 
@@ -275,17 +302,19 @@ cd dracula-gnome-terminal
 ./install.sh -s Dracula -p default
 ```
 
-Alternatively, the web tool [terminal.sexy](https://terminal.sexy) can be used to convert the macOS Terminal theme to a Gnome Terminal theme.
+Alternatively, the web tool [terminal.sexy](https://terminal.sexy) can be used to convert the macOS
+Terminal theme to a Gnome Terminal theme.
 
-- Download `Dracula.terminal` from https://github.com/dracula/terminal.app (that’s for the macOS’ Terminal.app)
-- Open [terminal.sexy](https://terminal.sexy)
-  - Import > Format: Terminal.app
-  - Paste the contents of `Dracula.terminal` into the text box
-  - Click “Import”
-  - Export > Format: Gnome Terminal
-  - Click “Export”
-  - Download the file
-  - Add the colors via adding a new profile by running the downloaded file as a script:
+* Download `Dracula.terminal` from https://github.com/dracula/terminal.app (that’s for the macOS’
+  Terminal.app)
+* Open [terminal.sexy](https://terminal.sexy)
+  * Import > Format: Terminal.app
+  * Paste the contents of `Dracula.terminal` into the text box
+  * Click “Import”
+  * Export > Format: Gnome Terminal
+  * Click “Export”
+  * Download the file
+  * Add the colors via adding a new profile by running the downloaded file as a script:
 
 ```
 mv terminal.sexy.txt dracula.sh
@@ -295,16 +324,14 @@ chmod +x dracula.sh
 ./dracula.sh
 ```
 
-- Open Terminal
-- Preferences > Profiles > Profile used when launching a new terminal: `terminal.sexy`
-
-
+* Open Terminal
+* Preferences > Profiles > Profile used when launching a new terminal: `terminal.sexy`
 
 ## Miscellaneous
 
 ### Font: Fira Code
 
-- [GitHub repository](https://github.com/tonsky/FiraCode)
+* [GitHub repository](https://github.com/tonsky/FiraCode)
 
 ### Mount Windows partition:
 
