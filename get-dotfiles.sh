@@ -29,25 +29,20 @@ fi
 HOME_DEST="${REPO_PATH}/home/"
 ST_DEST="${REPO_PATH}/sublime/"
 VSC_DEST="${REPO_PATH}/code/"
-CMDER_DEST="${REPO_PATH}/cmder/"
+ZSH_DEST="${REPO_PATH}/zsh/"
 
 # Put the destination paths inside an array …
 declare -a destinations=(
     "$HOME_DEST"
     "$ST_DEST"
     "$VSC_DEST"
-    "$CMDER_DEST"
+    "$ZSH_DEST"
 )
 
 # … and create the necessary destination directories if they don’t exist already
 for dest in "${destinations[@]}"; do
     mkdir -p "$dest"
 done
-
-# Usually, `$HOME` has the correct path to the users home directory.
-# However on the Linux subsystem for Windows, this is the Linux home
-# (`/home/user`) not the Windows home (`/mnt/c/users/user`).
-# HOME_PATH=$HOME
 
 # Store kernel name in variable:
 unamestr=$(uname -s)
@@ -59,21 +54,11 @@ if [[ "$unamestr" == "Linux" ]]; then
 
     ST_DIR="$HOME/.config/sublime-text-3/Packages/User"
     VSC_DIR="$HOME/.config/Code/User"
-
-    # Weak check if we’re on the Linux subsystem for Windows
-    #if [[ "$PWD" == "/mnt"* ]]; then
-    #    OS="Linux Subsystem"
-    #    HOME_PATH="/mnt/c/Users/Philipp"
-    #    ST_DIR="$HOME_PATH/AppData/Roaming/Sublime Text 3/Packages/User"
-    #    VSC_DIR="$HOME_PATH/AppData/Roaming/Code/User"
-    #    CMDER_DIR="/mnt/c/cmder"
-    #fi
 elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
     OS="Windows"
 
     ST_DIR="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
     VSC_DIR="$HOME/AppData/Roaming/Code/User"
-    CMDER_DIR="/c/cmder"
 else
     printf "Could not detect operating system. Aborting."
     exit 2
@@ -91,8 +76,10 @@ cp -u "$HOME/".gitignore_global "$HOME_DEST"
 cp -u "$HOME/".gitconfig "$HOME_DEST"
 cp -u "$HOME/".gemrc "$HOME_DEST"
 cp -u "$HOME/".npmrc "$HOME_DEST"
-cp -u "$HOME/".zshrc "$HOME_DEST"
 cp -u "$HOME/".vimrc "$HOME_DEST"
+
+# ZSH
+cp -u "$HOME/".zshrc "$ZSH_DEST"
 
 # Sublime Text
 cp -Ru "${ST_DIR}/build-systems/" "$ST_DEST"
@@ -104,17 +91,5 @@ cp -u "${ST_DIR}/"*.sublime-keymap "$ST_DEST"
 cp -Ru "${VSC_DIR}/snippets/" "$VSC_DEST"
 cp -u "${VSC_DIR}/"keybindings.json "$VSC_DEST"
 cp -u "${VSC_DIR}/"settings.json "$VSC_DEST"
-
-# OS specific copy operations
-if [[ "$OS" == "Linux" ]]; then
-    echo "Coying specific Linux files ..."
-elif [[ "$OS" == "Windows" ]]; then
-    echo "Coying specific Windows files ..."
-    cp -u "${CMDER_DIR}/config/"settings "$CMDER_DEST"
-    cp -u "${CMDER_DIR}/config/"user-aliases.cmd "$CMDER_DEST"
-    cp -u "${CMDER_DIR}/config/"user-profile.cmd "$CMDER_DEST"
-    cp -u "${CMDER_DIR}/config/"user-startup.cmd "$CMDER_DEST"
-    cp -u "${CMDER_DIR}/vendor/conemu-maximus5/"ConEmu.xml "$CMDER_DEST"
-fi
 
 echo "Completed."
