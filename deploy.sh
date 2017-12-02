@@ -17,9 +17,9 @@ install_if_needed() {
   printf "Is $1 installed? ";
   # Check whether zsh is installed
   if [ -x "$(command -v $1)" ]; then
-    printf $(green "Good\n");
+    printf $(green "Yes\n");
   else
-    printf $(red "Nope\n");
+    printf $(red "No\n");
     install $1;
   fi
 }
@@ -53,6 +53,18 @@ set_default_shell() {
   else
     echo "Default shell was not changed.";
     exit 0;
+  fi
+}
+
+install_oh_my_zsh() {
+  if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
+    install_if_needed curl;
+
+    if prompt_yes_no "Would you like to install Oh My Zsh?"; then
+      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+    else
+      echo "Oh My Zsh was not installed.";
+    fi
   fi
 }
 
@@ -102,7 +114,8 @@ green() {
 }
 
 install_if_needed zsh;
-
 default_shell_if_needed zsh;
+
+install_oh_my_zsh; exit;
 
 symlink_dotfiles;
