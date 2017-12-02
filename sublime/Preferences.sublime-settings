@@ -36,7 +36,6 @@
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-		"Syntax Highlighting for Sass",
 		"Vintage"
 	],
 	"indent_guide_options":

@@ -1,22 +1,16 @@
 " Trying some settings as per Harry Roberts’ .vimrc
 " https://github.com/csswizardry/dotfiles/blob/master/.vimrc
 
-execute pathogen#infect()
-
 set encoding=utf-8
 
 " Enable syntax highlighting
 syntax on
+
 color dracula
+
 " Show matching parens, brackets, etc.
 set showmatch
-" 256 colours please
-"set t_Co=256
-"let g:solarized_termcolors=256
-" Dark background
-"set background=dark
-" Solarized colour scheme
-"colorscheme solarized
+
 " Italicised comments and attributes
 highlight Comment cterm=italic
 highlight htmlArg cterm=italic
@@ -29,10 +23,12 @@ set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
 set wildignore+=*.pdf,*.psd
 set wildignore+=node_modules/*,_site/*
 
+
+
 " Text management
 
 filetype plugin indent on
-" 2 spaces please
+" Indent by 2 spaces
 set expandtab
 set shiftwidth=2
 set tabstop=2

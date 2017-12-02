@@ -20,8 +20,17 @@ alias moon='curl http://wttr.in/Moon'
 alias untargz='tar -xf'
 
 # I finally had enough of typing this out
-alias saud='sudo apt update && apt list --upgradable'
-alias saug='sudo apt upgrade -y'
+alias aptupdate='sudo apt update \
+  && apt list --upgradable \
+  && sudo apt upgrade -y'
+
+alias update='npm install -g npm; \
+  npm update -g; \
+  gem update; \
+  gem cleanup'
+
+# Echo path, but with each entry on its own line
+alias path='echo -e ${PATH//:/\\n}'
 
 # As everything is hard on Ubuntu, alsamixer has no concept of a persistent
 # configuration and forgets everything you tell as soon as possible.

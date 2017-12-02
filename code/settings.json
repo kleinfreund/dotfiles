@@ -48,7 +48,7 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
 
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 18,
 
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Cobalt2",
