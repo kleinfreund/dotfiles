@@ -6,17 +6,10 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CUSTOM="$HOME/dotfiles/zsh"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
@@ -40,11 +33,12 @@ prompt_char="%{$fg_bold[blue]%}👻%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}!"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-PROMPT='${user_name}@${host_name} in ${working_dir}'
+PROMPT="${user_name}@${host_name} in ${working_dir}"
 PROMPT+='$(git_prompt_info)'
 PROMPT+=$'\n'
-PROMPT+='${prompt_char} '
+PROMPT+="${prompt_char} "
 
 
 
