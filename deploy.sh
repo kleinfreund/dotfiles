@@ -38,10 +38,10 @@ install() {
 # If not, calls the appropriate function to change the default shell to $1.
 default_shell_if_needed() {
   printf "Is $1 the default shell? ";
-  if [ -z "${SHELL##*$1*}" ]; then
-    printf $(green "Yep\n");
+  if [[ -z "${SHELL##*$1*}" ]]; then
+    printf $(green "Yes\n");
   else
-    printf $(red "Yikes\n");
+    printf $(red "No\n");
     set_default_shell $1;
   fi
 }
@@ -60,10 +60,12 @@ install_oh_my_zsh() {
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
     install_if_needed curl;
 
-    if prompt_yes_no "Would you like to install Oh My Zsh?"; then
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
-    else
-      echo "Oh My Zsh was not installed.";
+    if ! [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+      if prompt_yes_no "Would you like to install Oh My Zsh?"; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+      else
+        echo "Oh My Zsh was not installed.";
+      fi
     fi
   fi
 }
@@ -71,16 +73,17 @@ install_oh_my_zsh() {
 # Creates symbolic links to all dotfiles
 symlink_dotfiles() {
   echo "Creating symbolic links for ...";
-  dotfiles=".aliases .bashrc .zshrc .vimrc .npmrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
+  local dotfiles=".aliases .bashrc .zshrc .vimrc .npmrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
 
   # For all entries in $dotfiles
   for file in $dotfiles; do
+    local file_path=$PWD/home/${file}
     # Check if they represent an actual file
-    if [ -f ${dotfiles_dir}/${file} ]; then
-      # Create a symbolic link in $HOME
+    if [ -f ${file_path} ]; then
+      # Create a symbolic link in ~
       # /!\ Overwrites existing files/links
-      ln -sfn ${dotfiles_dir}/${file} $HOME/${file};
-      echo "  ${file} -> ${dotfiles_dir}/${file}";
+      ln -sfn ${file_path} ~/${file};
+      echo "  ~/${file} -> ${file_path}";
     fi
   done
 
@@ -116,6 +119,6 @@ green() {
 install_if_needed zsh;
 default_shell_if_needed zsh;
 
-install_oh_my_zsh; exit;
+install_oh_my_zsh;
 
 symlink_dotfiles;
