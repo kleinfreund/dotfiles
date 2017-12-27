@@ -16,6 +16,9 @@ alias mi='cd ${HOME}/Dropbox/mi'
 alias weather='curl http://wttr.in/Weimar'
 alias moon='curl http://wttr.in/Moon'
 
+# domain-cli (https://www.npmjs.com/package/domain-cli)
+alias whois='domain-cli $1'
+
 # Extract .tar.gz archives because I don’t want to remember the required flags
 alias untargz='tar -xf'
 
@@ -24,10 +27,10 @@ alias aptupdate='sudo apt update \
   && apt list --upgradable \
   && sudo apt upgrade -y'
 
-alias update='npm install -g npm; \
-  npm update -g; \
-  gem update; \
-  gem cleanup'
+alias update='npm install -g npm \
+  && npm update -g; \
+  gem update \
+  && gem cleanup'
 
 # Echo path, but with each entry on its own line
 alias path='echo -e ${PATH//:/\\n}'
@@ -48,7 +51,7 @@ alias ssh-uber=ssh-uber-phl
 alias pi='ssh pi@192.168.178.34'
 
 # Simple web server for static files
-alias http-server='python3 -m http.server 8080'
+alias http-server='python3 -m http.server 8888'
 
 
 

@@ -86,7 +86,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH="$PATH:/opt/apache-maven/bin"
 
 # Custom NPM packages directory
-export PATH="$PATH:$HOME/.npm-global/bin"
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

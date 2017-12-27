@@ -3,8 +3,7 @@
   "editor.dragAndDrop": false,
   "editor.folding": true,
   "editor.fontSize": 18,
-  "editor.fontFamily":
-    "'Fira Code', 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback'",
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
@@ -17,7 +16,6 @@
   "editor.tabCompletion": true,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
-
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "files.exclude": {
@@ -37,32 +35,25 @@
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
-
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
-
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
-
-  "terminal.integrated.fontSize": 18,
-
+  "terminal.integrated.fontSize": 16,
+  "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.colorTheme": "Cobalt2",
-
   "css.lint.zeroUnits": "warning",
   "html.format.enable": false,
-
   "emmet.triggerExpansionOnTab": true,
-
   "prettier.printWidth": 100,
   "prettier.singleQuote": true,
-
+  "prettier.proseWrap": "never",
   "csstriggers.showDecoration": false,
-
   "window.zoomLevel": 0,
   "extensions.ignoreRecommendations": false
 }
