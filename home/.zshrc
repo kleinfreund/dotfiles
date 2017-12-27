@@ -48,7 +48,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 up_widget() {
-  BUFFER="cd .."
+  BUFFER="cd .. && ll"
   zle accept-line
 }
 zle -N up_widget
