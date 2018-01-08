@@ -94,3 +94,5 @@ list_sorted() {
 }
 
 alias ll=list_sorted
+
+alias tree="tree -I '.git|node_modules'"
