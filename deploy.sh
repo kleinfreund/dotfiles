@@ -73,7 +73,7 @@ install_oh_my_zsh() {
 # Creates symbolic links to all dotfiles
 symlink_dotfiles() {
   echo "Creating symbolic links for ...";
-  local dotfiles=".aliases .bashrc .zshrc .vimrc .npmrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
+  local dotfiles=".aliases .bashrc .zshrc .vimrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
 
   # For all entries in $dotfiles
   for file in $dotfiles; do
