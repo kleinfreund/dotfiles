@@ -68,9 +68,6 @@ else
   export EDITOR='code'
 fi
 
-# Jekyll
-export JEKYLL_ENV=development
-
 # Hugo
 export HUGO_ENV=development
 

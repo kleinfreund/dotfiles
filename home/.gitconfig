@@ -2,18 +2,20 @@
 	email = phrudloff@gmail.com
 	name = kleinfreund
 [push]
-	default = simple
+	default = current
 [core]
-	editor = subl -w
+	editor = code -w
 	excludesfile = ~/.gitignore_global
 [alias]
-	co = checkout
 	br = branch
 	ci = commit
+	cm = commit -m
+	co = checkout
+	lg = log --pretty=oneline --abbrev-commit --graph --decorate
 	st = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-[filter "lfs"]
-	required = true
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	# Undo current commits
+	undo = reset --soft HEAD^
+	# Undo git add
+	unadd = reset HEAD
+	# Amend to the most recent commit
+	amend = commit --amend --no-edit
