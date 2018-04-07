@@ -1,23 +1,37 @@
 {
+  "css.lint.zeroUnits": "warning",
   "editor.cursorBlinking": "solid",
   "editor.dragAndDrop": false,
   "editor.folding": true,
-  "editor.fontSize": 18,
-  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "'Fira Code', Consolas, monospace",
   "editor.fontLigatures": true,
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": true,
+  "editor.fontSize": 18,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  // "editor.renderWhitespace": "boundary",
   "editor.renderIndentGuides": false,
+  // "editor.renderWhitespace": "boundary",
+  "editor.rulers": [
+    100
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": true,
   "editor.tabSize": 2,
-  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "editor.wordWrap": "wordWrapColumn",
+  "emmet.triggerExpansionOnTab": true,
   "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  // "html.format.enable": false,
+  "problems.decorations.enabled": false,
+  "projectManager.treeview.visible": false,
+  "telemetry.enableCrashReporter": false,
+  "telemetry.enableTelemetry": false,
+  "terminal.integrated.fontSize": 16,
+  "workbench.colorTheme": "Cobalt2",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.startupEditor": "newUntitledFile",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -41,19 +55,16 @@
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
-  "terminal.integrated.fontSize": 16,
-  "workbench.editor.tabSizing": "shrink",
-  "workbench.startupEditor": "newUntitledFile",
-  "workbench.colorTheme": "Cobalt2",
-  "css.lint.zeroUnits": "warning",
-  "html.format.enable": false,
-  "emmet.triggerExpansionOnTab": true,
-  "prettier.printWidth": 100,
-  "prettier.singleQuote": true,
-  "prettier.proseWrap": "never",
-  "csstriggers.showDecoration": false,
-  "window.zoomLevel": 0,
-  "extensions.ignoreRecommendations": false
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": false,
+  //
+  // Formatter Settings
+  //
+  "editor.formatOnSave": true,
+  // Disable VS Code’s default formatter for Javascript
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true
 }

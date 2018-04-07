@@ -99,20 +99,23 @@
     "when": "editorTextFocus"
   },
   {
+    "key": "ctrl+alt+w",
+    "command": "editor.emmet.action.wrapWithAbbreviation",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
     "key": "ctrl+'",
     "command": "editor.action.insertSnippet",
-    "when": "editorTextFocus",
+    "when": "editorTextFocus && !editorReadonly",
     "args": {
-      "langId": "plaintext",
       "name": "singlequotes-en"
     }
   },
   {
     "key": "ctrl+shift+'",
     "command": "editor.action.insertSnippet",
-    "when": "editorTextFocus",
+    "when": "editorTextFocus && !editorReadonly",
     "args": {
-      "langId": "plaintext",
       "name": "doublequotes-en"
     }
   }

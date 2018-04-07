@@ -45,6 +45,7 @@ alias o=code
 # SSH shortcuts
 alias ssh-uber-phl='ssh phl@markab.uberspace.de'
 alias ssh-uber-phr='ssh phr@brorsen.uberspace.de'
+alias ssh-uber-phrrud='ssh phrrud@whipple.uberspace.de'
 alias ssh-uber=ssh-uber-phl
 
 
