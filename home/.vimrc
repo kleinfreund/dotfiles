@@ -6,8 +6,6 @@ set encoding=utf-8
 " Enable syntax highlighting
 syntax on
 
-color dracula
-
 " Show matching parens, brackets, etc.
 set showmatch
 
