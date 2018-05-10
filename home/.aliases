@@ -43,13 +43,12 @@ alias alsarestore='alsactl --file ~/.config/asound.state restore'
 alias o=code
 
 # SSH shortcuts
-alias ssh-uber-phl='ssh phl@markab.uberspace.de'
 alias ssh-uber-phr='ssh phr@brorsen.uberspace.de'
 alias ssh-uber-phrrud='ssh phrrud@whipple.uberspace.de'
-alias ssh-uber=ssh-uber-phl
+alias ssh-uber-phrbbkv='ssh phrbbkv@gale.uberspace.de'
+alias ssh-uber=ssh-uber-phr
 
 
-alias pi='ssh pi@192.168.178.34'
 
 # Simple web server for static files
 alias http-server='python3 -m http.server 8888'
@@ -85,7 +84,7 @@ alias ls='ls -lhF --color'
 
 list_sorted() {
   # List directories
-  ls $* | grep "^d" | awk '{printf "\033[1;34m🖿\033[0m  " $0 "\n"}';
+  ls $* | grep "^d" | awk '{printf "\033[1;34m📁\033[0m " $0 "\n"}';
   # List regular files
   ls $* | grep "^-" | awk '{print "🗎  " $0}';
   # List links
@@ -97,3 +96,6 @@ list_sorted() {
 alias ll=list_sorted
 
 alias tree="tree -I '.git|node_modules'"
+
+alias python=python3
+alias pip=pip3

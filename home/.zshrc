@@ -71,16 +71,11 @@ fi
 # Hugo
 export HUGO_ENV=development
 
-# Webis CVS
-export CVS_RSH="/usr/bin/ssh"
-export CVSROOT="ranu2619@webisnetwork.uni-weimar.de:/srv/cvsroot"
-export CVSEDITOR=$EDITOR
-
 # OpenJDK
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Apache Maven
-export PATH="$PATH:/opt/apache-maven/bin"
+# export PATH="$PATH:/opt/apache-maven/bin"
 
 # Custom NPM packages directory
 export PATH="$HOME/.npm-global/bin:$PATH"
