@@ -17,7 +17,7 @@ alias weather='curl http://wttr.in/Weimar'
 alias moon='curl http://wttr.in/Moon'
 
 # domain-cli (https://www.npmjs.com/package/domain-cli)
-alias whois='domain-cli $1'
+# alias whois='domain-cli $1'
 
 # Extract .tar.gz archives because I don’t want to remember the required flags
 alias untargz='tar -xf'
@@ -27,26 +27,14 @@ alias aptupdate='sudo apt update \
   && apt list --upgradable \
   && sudo apt upgrade -y'
 
-alias update='npm install -g npm \
-  && npm update -g; \
-  gem update \
-  && gem cleanup'
+alias npmupdate='npm install -g npm \
+  && npm update -g'
 
 # Echo path, but with each entry on its own line
 alias path='echo -e ${PATH//:/\\n}'
 
-# As everything is hard on Ubuntu, alsamixer has no concept of a persistent
-# configuration and forgets everything you tell as soon as possible.
-alias alsarestore='alsactl --file ~/.config/asound.state restore'
-
 # Open files in an editor like code, subl, gedit or vim.
 alias o=code
-
-# SSH shortcuts
-alias ssh-uber-phr='ssh phr@brorsen.uberspace.de'
-alias ssh-uber-phrrud='ssh phrrud@whipple.uberspace.de'
-alias ssh-uber-phrbbkv='ssh phrbbkv@gale.uberspace.de'
-alias ssh-uber=ssh-uber-phr
 
 
 
@@ -56,8 +44,6 @@ alias http-server='python3 -m http.server 8888'
 
 
 # Webis
-alias webis='cd ${HOME}/dev/cvs/web-technology-lab'
-alias ssh-webis='ssh ranu2619@webisnetwork.uni-weimar.de'
 alias pdflatex-webis='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
 
 

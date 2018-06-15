@@ -9,7 +9,6 @@
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderIndentGuides": false,
-  // "editor.renderWhitespace": "boundary",
   "editor.rulers": [
     100
   ],
@@ -17,15 +16,20 @@
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": true,
   "editor.tabSize": 2,
+  "[python]": {
+    "editor.tabSize": 4,
+  },
   "editor.wordWrapColumn": 100,
   "editor.wordWrap": "wordWrapColumn",
   "emmet.triggerExpansionOnTab": true,
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  // "html.format.enable": false,
   "problems.decorations.enabled": false,
   "projectManager.treeview.visible": false,
+  "python.pythonPath": "/usr/bin/python3",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
@@ -55,16 +59,20 @@
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
-  "explorer.confirmDragAndDrop": false,
-  "extensions.ignoreRecommendations": false,
   //
   // Formatter Settings
   //
   "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
   // Disable VS Code’s default formatter for Javascript
   "[javascript]": {
     "editor.formatOnSave": false
   },
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+  "[handlebars]": {
+    "editor.formatOnSave": false
+  }
 }

@@ -42,11 +42,19 @@ PROMPT+="${prompt_char} "
 
 
 
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+
 # Aliases
 if [ -f ~/.aliases ]; then
   . ~/.aliases
 fi
 
+# Ctrl+K to navigate up one level (i.e. cd ..)
 up_widget() {
   BUFFER="cd .. && ll"
   zle accept-line
@@ -56,32 +64,15 @@ bindkey "^k" up_widget
 
 
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-# export LANGUAGE=en_US.UTF-8
-# export LC_ALL=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='code'
-fi
-
 # Hugo
 export HUGO_ENV=development
 
-# OpenJDK
-# export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-# Apache Maven
-# export PATH="$PATH:/opt/apache-maven/bin"
-
-# Custom NPM packages directory
+# Custom NPM packages directory. See:
+# https://docs.npmjs.com/getting-started/fixing-npm-permissions
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
