@@ -32,6 +32,7 @@ if [[ "$unamestr" == "Linux" ]]; then
 
   sublime_dir="$HOME/.config/sublime-text-3/Packages/User"
   vscode_dir="$HOME/.config/Code/User"
+  albert_dir="$HOME/.config/albert"
 elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
   printf "Windows"
 
@@ -57,6 +58,14 @@ mkdir -p "$repo_dir/code"
 for file in $vscode_files; do
   cp -ur "${vscode_dir}"/$file "$repo_dir/code"
   echo "  ${vscode_dir}/$file"
+done
+
+echo "Copying Albert files ..."
+albert_files="org.albert.extension.snippets/ org.albert.extension.websearch/ albert.conf"
+mkdir -p "$repo_dir/albert"
+for file in $albert_files; do
+  cp -ur "${albert_dir}"/$file "$repo_dir/albert"
+  echo "  ${albert_dir}/$file"
 done
 
 echo "Completed."
