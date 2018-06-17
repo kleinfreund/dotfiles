@@ -12,9 +12,45 @@
         "url": "https://github.com/search?utf8=✓&q=%s"
     },
     {
+        "iconPath": ":wikipedia",
+        "name": "Wikipedia",
+        "trigger": "wiki ",
+        "url": "https://en.wikipedia.org/w/index.php?search=%s"
+    },
+    {
         "iconPath": ":wolfram",
         "name": "Wolfram Alpha",
         "trigger": "=",
         "url": "https://www.wolframalpha.com/input/?i=%s"
+    },
+    {
+        "name": "MDN",
+        "trigger": "mdn ",
+        "url": "https://developer.mozilla.org/en-US/search?q=%s&topic=api&topic=css&topic=html&topic=http&topic=js&topic=svg"
+    },
+    {
+        "name": "MDN CSS",
+        "trigger": "css ",
+        "url": "https://developer.mozilla.org/en-US/search?q=%s&topic=css"
+    },
+    {
+        "name": "MDN JS",
+        "trigger": "js ",
+        "url": "https://developer.mozilla.org/en-US/search?q=%s&topic=js"
+    },
+    {
+        "name": "Can I Use ...",
+        "trigger": "can ",
+        "url": "https://caniuse.com/#search=%s"
+    },
+    {
+        "name": "Unicode",
+        "trigger": "unicode ",
+        "url": "https://www.fileformat.info/info/unicode/char/search.htm?q=%s"
+    },
+    {
+        "name": "Unicode",
+        "trigger": "char ",
+        "url": "https://www.fileformat.info/info/unicode/char/search.htm?q=%s"
     }
 ]
