@@ -64,8 +64,9 @@ bindkey "^k" up_widget
 
 
 
-# Hugo
-export HUGO_ENV=development
+# Static Site Generators
+export JEKYLL_ENV=development
+export ELEVENTY_ENV=development
 
 # Custom NPM packages directory. See:
 # https://docs.npmjs.com/getting-started/fixing-npm-permissions

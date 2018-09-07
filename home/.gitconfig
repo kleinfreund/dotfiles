@@ -19,3 +19,5 @@
 	unadd = reset HEAD
 	# Amend to the most recent commit
 	amend = commit --amend --no-edit
+[rebase]
+	autostash = true

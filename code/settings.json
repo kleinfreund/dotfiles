@@ -27,12 +27,15 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "explorer.openEditors.visible": 0,
+  "javascript.implicitProjectConfig.checkJs": true,
   "problems.decorations.enabled": false,
   "projectManager.treeview.visible": false,
   "python.pythonPath": "/usr/bin/python3",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
+  "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Cobalt2",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
@@ -43,6 +46,7 @@
     "**/CVS": true,
     "**/.DS_Store": true,
     "**/node_modules": true,
+    "**/.cache": true, // Parcel output
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
@@ -50,12 +54,16 @@
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/**": true,
+    "**/.cache": true, // Parcel output
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
   "search.exclude": {
     "**/node_modules": true,
+    "**/package-lock.json": true,
     "**/bower_components": true,
+    "**/*.map": true,
+    "**/.cache": true, // Parcel output
     "**/_site": true, // Jekyll output
     "**/public": true // Hugo output
   },
@@ -63,7 +71,7 @@
   // Formatter Settings
   //
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": true,
+  "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
   // Disable VS Code’s default formatter for Javascript
   "[javascript]": {
@@ -74,5 +82,7 @@
   },
   "[handlebars]": {
     "editor.formatOnSave": false
-  }
+  },
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single"
 }

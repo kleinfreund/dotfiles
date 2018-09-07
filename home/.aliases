@@ -39,7 +39,7 @@ alias o=code
 
 
 # Simple web server for static files
-alias http-server='python3 -m http.server 8888'
+# alias http-server='python3 -m http.server 8888'
 
 
 
