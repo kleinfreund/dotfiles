@@ -1,5 +1,12 @@
 # dotfiles
 
+## Usage
+
+```
+git clone --recurse-submodules git@github.com:kleinfreund/dotfiles.git
+cd dotfiles
+```
+
 Use the deploy script to create symbolic links in `$HOME` to all files in `home/`.
 
 ```bash
