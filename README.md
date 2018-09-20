@@ -39,7 +39,7 @@ plugins=(
 ## Update all submodules
 
 ```
-git submodule foreach git pull
+git submodule update --recursive --remote
 ```
 
 ## Removing a submodule
