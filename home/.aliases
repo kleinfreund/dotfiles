@@ -36,6 +36,8 @@ alias path='echo -e ${PATH//:/\\n}'
 # Open files in an editor like code, subl, gedit or vim.
 alias o=code
 
+alias bat=cat
+
 
 
 # Simple web server for static files

@@ -14,29 +14,38 @@
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
-  "editor.tabCompletion": true,
+  "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "[python]": {
     "editor.tabSize": 4,
   },
+  "editor.renderWhitespace": "all",
   "editor.wordWrapColumn": 100,
   "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "indent",
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wrappingIndent": "none"
+  },
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
   "extensions.ignoreRecommendations": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "explorer.openEditors.visible": 0,
+  "html.format.wrapLineLength": 100,
   "javascript.implicitProjectConfig.checkJs": true,
+  "javascript.preferences.quoteStyle": "single",
   "problems.decorations.enabled": false,
   "projectManager.treeview.visible": false,
   "python.pythonPath": "/usr/bin/python3",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
+  "typescript.preferences.quoteStyle": "single",
   "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Cobalt2",
+  "workbench.colorTheme": "Kary Pro Colors － Dark",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
   "files.exclude": {
@@ -82,7 +91,5 @@
   },
   "[handlebars]": {
     "editor.formatOnSave": false
-  },
-  "javascript.preferences.quoteStyle": "single",
-  "typescript.preferences.quoteStyle": "single"
+  }
 }

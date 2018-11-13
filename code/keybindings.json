@@ -1,58 +1,33 @@
 [
   {
-    "key": "ctrl+alt+up",
-    "command": "editor.action.insertCursorAbove",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+alt+down",
-    "command": "editor.action.insertCursorBelow",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+left",
-    "command": "subwordNavigation.cursorSubwordLeft",
-    "when": "editorTextFocus"
+    "command": "cursorWordPartLeft",
+    "when": "textInputFocus"
   },
   {
     "key": "ctrl+right",
-    "command": "subwordNavigation.cursorSubwordRight",
-    "when": "editorTextFocus"
+    "command": "cursorWordPartRight",
+    "when": "textInputFocus"
   },
   {
     "key": "ctrl+shift+left",
-    "command": "subwordNavigation.cursorSubwordLeftSelect",
-    "when": "editorTextFocus"
+    "command": "cursorWordPartLeftSelect",
+    "when": "textInputFocus"
   },
   {
-    "key": "ctrl+shift+right",
-    "command": "subwordNavigation.cursorSubwordRightSelect",
-    "when": "editorTextFocus"
+    "key": "ctrl+shift+alt+right",
+    "command": "cursorWordStartRightSelect",
+    "when": "textInputFocus"
   },
   {
     "key": "ctrl+backspace",
-    "command": "subwordNavigation.deleteSubwordLeft",
-    "when": "editorTextFocus"
+    "command": "deleteWordPartLeft",
+    "when": "textInputFocus"
   },
   {
     "key": "ctrl+delete",
-    "command": "subwordNavigation.deleteSubwordRight",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+shift+up",
-    "command": "editor.action.moveLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+shift+down",
-    "command": "editor.action.moveLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+d",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorTextFocus"
+    "command": "deleteWordPartRight",
+    "when": "textInputFocus && !editorReadonly"
   },
   {
     "key": "ctrl+shift+d",
@@ -60,24 +35,9 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+shift+l",
-    "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-    "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+alt+x",
-    "command": "editor.action.deleteLines",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
     "key": "ctrl+shift+/",
     "command": "editor.action.blockComment",
     "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "alt+f3",
-    "command": "editor.action.selectHighlights",
-    "when": "editorTextFocus"
   },
   {
     "key": "ctrl+k ctrl+u",
@@ -90,18 +50,9 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+alt+p",
-    "command": "projectManager.listProjects"
-  },
-  {
     "key": "ctrl+shift+m",
     "command": "editor.action.smartSelect.grow",
     "when": "editorTextFocus"
-  },
-  {
-    "key": "ctrl+alt+w",
-    "command": "editor.emmet.action.wrapWithAbbreviation",
-    "when": "editorTextFocus && !editorReadonly"
   },
   {
     "key": "ctrl+'",
@@ -118,5 +69,14 @@
     "args": {
       "name": "doublequotes-en"
     }
-  }
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "projectManager.listProjects"
+  },
+  {
+    "key": "ctrl+alt+x",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
 ]

@@ -6,9 +6,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_CUSTOM="$HOME/dotfiles/zsh"
 
-# source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
@@ -26,9 +23,10 @@ user_name="%{$fg[green]%}%n%{$reset_color%}"
 # %m : host
 host_name="%{$fg[green]%}%m%{$reset_color%}"
 # %~ : working directory ($HOME is replaced with ~)
-working_dir="%{$fg_bold[blue]%}%~%{$reset_color%}"
+working_dir="%{$fg_bold[magenta]%}%~%{$reset_color%}"
 # BOO!
-prompt_char="%{$fg_bold[blue]%}👻%{$reset_color%}"
+prompt_char="%{$fg_bold[magenta]%}👻%{$reset_color%}"
+new_line=$'\n'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
@@ -37,8 +35,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 PROMPT="${user_name}@${host_name} in ${working_dir}"
 PROMPT+='$(git_prompt_info)'
-PROMPT+=$'\n'
-PROMPT+="${prompt_char} "
+PROMPT+="${new_line}${prompt_char} "
 
 
 
@@ -67,6 +64,7 @@ bindkey "^k" up_widget
 # Static Site Generators
 export JEKYLL_ENV=development
 export ELEVENTY_ENV=development
+export RAILS_ENV=development
 
 # Custom NPM packages directory. See:
 # https://docs.npmjs.com/getting-started/fixing-npm-permissions
@@ -75,5 +73,9 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Add RVM to PATH for scripting
-# export PATH="$PATH:$HOME/.rvm/bin"
+# Java
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export PATH="$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

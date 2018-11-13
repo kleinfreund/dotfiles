@@ -1,13 +1,12 @@
-.sass-cache
-node_modules
-*.sublime-workspace
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
+node_modules/
 Thumbs.db
 .jekyll-metadata
-.npmrc
+.sass-cache/
 .cache
+
+# Can contain NPM authentication data
+.npmrc
+
+# Editor project settings
+*.sublime-workspace
+.vscode/

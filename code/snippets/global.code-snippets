@@ -78,45 +78,31 @@
 		],
 		"description": "DOWNWARDS ARROW"
 	},
-	"shrug": {
-		"prefix": "shrug",
-		"body": [
-			"¯\\_(ツ)_/¯"
-		],
-		"description": "shrug"
-	},
-	"happy": {
-		"prefix": "happy",
-		"body": [
-			"ᕕ[ ᐛ ]ᕗ"
-		],
-		"description": "happy"
-	},
 	"singlequotes-de": {
 		"prefix": "'",
 		"body": [
-			"‚${TM_SELECTED_TEXT}‘"
+			"‚${TM_SELECTED_TEXT}$1‘"
 		],
 		"description": "German Quotes"
 	},
 	"singlequotes-en": {
 		"prefix": "'",
 		"body": [
-			"‘${TM_SELECTED_TEXT}’"
+			"‘${TM_SELECTED_TEXT}$1’"
 		],
 		"description": "English Quotes"
 	},
 	"doublequotes-de": {
 		"prefix": "\"",
 		"body": [
-			"„${TM_SELECTED_TEXT}“"
+			"„${TM_SELECTED_TEXT}$1“"
 		],
 		"description": "German Quotes"
 	},
 	"doublequotes-en": {
 		"prefix": "\"",
 		"body": [
-			"“${TM_SELECTED_TEXT}”"
+			"“${TM_SELECTED_TEXT}$1”"
 		],
 		"description": "English Quotes"
 	},
