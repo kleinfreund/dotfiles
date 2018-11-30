@@ -91,5 +91,6 @@
   },
   "[handlebars]": {
     "editor.formatOnSave": false
-  }
+  },
+  "window.zoomLevel": 0
 }

@@ -15,8 +15,8 @@
     "when": "textInputFocus"
   },
   {
-    "key": "ctrl+shift+alt+right",
-    "command": "cursorWordStartRightSelect",
+    "key": "ctrl+shift+right",
+    "command": "cursorWordPartRightSelect",
     "when": "textInputFocus"
   },
   {

@@ -7,10 +7,7 @@
 	editor = code -w
 	excludesfile = ~/.gitignore_global
 [alias]
-	br = branch
-	ci = commit
 	cm = commit -m
-	co = checkout
 	lg = log --pretty=oneline --abbrev-commit --graph --decorate
 	st = status
 	# Undo current commits
