@@ -44,8 +44,7 @@
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontSize": 16,
   "typescript.preferences.quoteStyle": "single",
-  "window.titleBarStyle": "custom",
-  "workbench.colorTheme": "Kary Pro Colors － Dark",
+  "workbench.colorTheme": "Shades of Purple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
   "files.exclude": {
