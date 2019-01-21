@@ -84,3 +84,5 @@ alias tree="tree -I '.git|node_modules'"
 
 alias python=python3
 alias pip=pip3
+
+alias please='sudo $(fc -ln -1)'

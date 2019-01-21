@@ -8,7 +8,8 @@
 	excludesfile = ~/.gitignore_global
 [alias]
 	cm = commit -m
-	lg = log --pretty=oneline --abbrev-commit --graph --decorate
+	co = checkout
+	lg = log --oneline --graph
 	st = status
 	# Undo current commits
 	undo = reset --soft HEAD^
