@@ -50,10 +50,12 @@ default_shell_if_needed() {
 set_default_shell() {
   if prompt_yes_no "Should $1 be the default shell?"; then
     chsh -s $(which $1);
+    echo "Please log out of your user session for this to take effect and run this script again."
   else
     echo "Default shell was not changed.";
-    exit 0;
   fi
+
+  exit 0;
 }
 
 install_oh_my_zsh() {
