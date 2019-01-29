@@ -91,5 +91,11 @@
   "[handlebars]": {
     "editor.formatOnSave": false
   },
-  "window.zoomLevel": 0
+  "[latex]": {
+    "editor.wordWrap": "bounded",
+    "editor.wrappingIndent": "same"
+  },
+  "window.zoomLevel": 0,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.bind.enter.key": false
 }

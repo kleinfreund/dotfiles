@@ -1,11 +1,5 @@
 [
     {
-        "iconPath": ":wolfram",
-        "name": "Wolfram Alpha",
-        "trigger": "=",
-        "url": "https://www.wolframalpha.com/input/?i=%s"
-    },
-    {
         "iconPath": "",
         "name": "MDN",
         "trigger": "mdn ",
