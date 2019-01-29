@@ -13,19 +13,16 @@ set -u;
 
 # Checks if $1 is installed.
 # If not, calls the appropriate function to install $1.
-install_if_needed() {
+install_package() {
   printf "Is $1 installed? ";
   # Check whether zsh is installed
   if [ -x "$(command -v $1)" ]; then
     printf $(green "Yes\n");
-  else
-    printf $(red "No\n");
-    install $1;
+    return 0;
   fi
-}
 
-# Installs the program $1 with `apt install`
-install() {
+  printf $(red "No\n");
+
   if prompt_yes_no "Would you like to install $1?"; then
     sudo apt install $1 -y;
   else
@@ -34,20 +31,32 @@ install() {
   fi
 }
 
-# Checks if $1 is the default shell.
-# If not, calls the appropriate function to change the default shell to $1.
-default_shell_if_needed() {
-  printf "Is $1 the default shell? ";
-  if [[ -z "${SHELL##*$1*}" ]]; then
+install_npm_package() {
+  printf "Is $1 installed? ";
+  # Check whether zsh is installed
+  if ! [ `npm list -g | grep -c $1` -eq 0 ]; then
     printf $(green "Yes\n");
+    return 0;
+  fi
+
+  printf $(red "No\n");
+
+  if prompt_yes_no "Would you like to install $1?"; then
+    npm install --global $1;
   else
-    printf $(red "No\n");
-    set_default_shell $1;
+    echo "$1 was not installed.";
   fi
 }
 
-# Sets the default shell to $1 with `chsh -s`
+# Checks if $1 is the default shell.
+# If not, calls the appropriate function to change the default shell to $1.
 set_default_shell() {
+  printf "Is $1 the default shell? ";
+  if [[ -z "${SHELL##*$1*}" ]]; then
+    printf $(green "Yes\n");
+    return 0;
+  fi
+
   if prompt_yes_no "Should $1 be the default shell?"; then
     chsh -s $(which $1);
     echo "Please log out of your user session for this to take effect and run this script again."
@@ -60,7 +69,7 @@ set_default_shell() {
 
 install_oh_my_zsh() {
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
-    install_if_needed curl;
+    install_package curl;
 
     if ! [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
       if prompt_yes_no "Would you like to install Oh My Zsh?"; then
@@ -118,9 +127,19 @@ green() {
   echo "\e[1;32m$1\e[0m";
 }
 
-install_if_needed zsh;
-default_shell_if_needed zsh;
+echo "The script will now ask you for the sudo password.";
+
+sudo apt update;
+
+install_package zsh;
+set_default_shell zsh;
 
 install_oh_my_zsh;
 
 symlink_dotfiles;
+
+install_package htop;
+
+install_npm_package npm-check-updates;
+install_npm_package http-server;
+install_npm_package tldr;
