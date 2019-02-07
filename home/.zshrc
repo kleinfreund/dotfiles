@@ -15,6 +15,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# https://github.com/robbyrussell/oh-my-zsh/issues/31
+unsetopt nomatch
+
 # ssh
 export SSH_KEY_PATH="~/.ssh/id_rsa"
 
@@ -64,7 +67,6 @@ bindkey "^k" up_widget
 # Static Site Generators
 export JEKYLL_ENV=development
 export ELEVENTY_ENV=development
-export RAILS_ENV=development
 
 # Custom NPM packages directory. See:
 # https://docs.npmjs.com/getting-started/fixing-npm-permissions
