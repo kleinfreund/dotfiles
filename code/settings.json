@@ -34,7 +34,7 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
-  "html.format.wrapLineLength": 100,
+  "html.format.wrapLineLength": 0,
   "javascript.implicitProjectConfig.checkJs": true,
   "javascript.preferences.quoteStyle": "single",
   "problems.decorations.enabled": false,
@@ -97,5 +97,6 @@
   },
   "window.zoomLevel": 0,
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.bind.enter.key": false
+  "latex-workshop.bind.enter.key": false,
+  "window.titleBarStyle": "custom"
 }
