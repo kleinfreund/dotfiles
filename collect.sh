@@ -48,7 +48,7 @@ echo "Copying Sublime Text files ..."
 sublime_files="snippets/ *.sublime-settings *.sublime-keymap"
 mkdir -p "$repo_dir/sublime"
 for file in $sublime_files; do
-  [ -f "${sublime_dir}"/$file ] && cp -ur "${sublime_dir}"/$file "$repo_dir/sublime"
+  [ -f "${sublime_dir}/$file" ] && cp -ur "${sublime_dir}/$file" "$repo_dir/sublime"
   echo "  ${sublime_dir}/$file"
 done
 
@@ -56,7 +56,7 @@ echo "Copying Visual Studio Code files ..."
 vscode_files="snippets/ keybindings.json settings.json"
 mkdir -p "$repo_dir/code"
 for file in $vscode_files; do
-  [ -f "${vscode_dir}"/$file ] && cp -ur "${vscode_dir}"/$file "$repo_dir/code"
+  [ -f "${vscode_dir}/$file" ] && cp -ur "${vscode_dir}/$file" "$repo_dir/code"
   echo "  ${vscode_dir}/$file"
 done
 
@@ -64,7 +64,7 @@ echo "Copying Albert files ..."
 albert_files="org.albert.extension.snippets/ org.albert.extension.websearch/ albert.conf"
 mkdir -p "$repo_dir/albert"
 for file in $albert_files; do
-  [ -f "${albert_dir}"/$file ] && cp -ur "${albert_dir}"/$file "$repo_dir/albert"
+  [ -f "${albert_dir}/$file" ] && cp -ur "${albert_dir}/$file" "$repo_dir/albert"
   echo "  ${albert_dir}/$file"
 done
 
