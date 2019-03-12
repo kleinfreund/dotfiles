@@ -21,11 +21,11 @@ another program, one needs to update the file `/usr/share/applications/defaults.
 occurences of `gedit.desktop` with the file name that is being associated with your preferred
 application. The new file name needs to refer to a file that exists in the same directory, e.g.:
 
-* `sublime_text.desktop`
-* `code.desktop`
-* `vim.desktop`
+- `sublime_text.desktop`
+- `code.desktop`
+- `vim.desktop`
 
-```
+```sh
 sudo sed -i 's/gedit.desktop/code.desktop/g' /usr/share/applications/defaults.list
 ```
 
@@ -35,13 +35,13 @@ these can be done via a command-line interface.
 
 **Prints the current setting**:
 
-```
+```sh
 xdg-mime query default text/plain
 ```
 
 **Changes the association**:
 
-```
+```sh
 xdg-mime default code.desktop text/plain
 ```
 
@@ -71,52 +71,14 @@ areas. Sadly, this can’t be disabled for _Google Chrome_ and _Gnome Terminal_.
 
 ### Show date in top bar
 
-```
+```sh
 gsettings set com.canonical.indicator.datetime show-date true
 ```
 
 ### Disable Screenshot Sound
 
-```
+```sh
 sudo mv /usr/share/sounds/freedesktop/stereo/screen-capture.oga /usr/share/sounds/freedesktop/stereo/screen-capture-disabled.oga
-```
-
-### Disable wallpaper dots on login screen
-
-```
-sudo xhost +SI:localuser:lightdm
-sudo su lightdm -s /bin/bash
-gsettings set com.canonical.unity-greeter draw-grid false
-```
-
-### Load default Alsamixer configuration on autostart
-
-Configure volume levels, etc.
-
-```
-alsamixer
-```
-
-Store these settings in a file
-
-```
-alsactl --file ~/.config/asound.state store
-```
-
-Create an autostart entry ...
-
-```
-o ~/.config/autostart/alsa-restore.desktop
-```
-
-with the following content ...
-
-```
-[Desktop Entry]
-Type=Application
-Terminal=false
-Name=alsarestore
-Exec=bash -c "sleep 3 && alsactl --file ~/.config/asound.state restore"
 ```
 
 ## Keybindings
@@ -142,10 +104,10 @@ gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'non
 
 ### Google Chrome
 
-* As per answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
+- As per this answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
 
-```
-wget -qO - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+```sh
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 sudo apt update
 sudo apt install google-chrome-stable
@@ -153,7 +115,7 @@ sudo apt install google-chrome-stable
 
 ### `git`
 
-```
+```sh
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get update
 sudo apt-get install git
@@ -161,7 +123,7 @@ sudo apt-get install git
 
 ### Sublime Text, `subl` (code editor)
 
-* [Sublime Text website](https://www.sublimetext.com)
+- [Sublime Text website](https://www.sublimetext.com)
 
 ```
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -173,174 +135,106 @@ sudo apt install sublime-text
 
 ### `gnome-tweak-tool`
 
-```
+```sh
 sudo apt update
 sudo apt install gnome-tweak-tool
 ```
 
 #### Disable Caps Lock
 
-* Open “Tweak Tool”
-* Select category “Typing”
-* Select “Caps Lock key behavior”
-* Select “Caps Lock is disabled”
+- Open “Tweak Tool”
+- Select category “Typing”
+- Select “Caps Lock key behavior”
+- Select “Caps Lock is disabled”
 
 #### Enable selecting via Ctrl+Pos1/End
 
-* Open “Tweak Tool”
-* Select category “Typing”
-* Select “Miscellaneous compatibility options”
-* Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
+- Open “Tweak Tool”
+- Select category “Typing”
+- Select “Miscellaneous compatibility options”
+- Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
   Windows)”
 
 ### CompizConfig Settings Manager
 
-```
+```sh
 sudo apt update
 sudo apt install compizconfig-settings-manager
 ```
 
 #### Application Switcher
 
-* Next window (All windows): `<Alt>Tab`
-* Prev window (All windows): `<Shift><Alt>Tab`
+- Next window (All windows): `<Alt>Tab`
+- Prev window (All windows): `<Shift><Alt>Tab`
 
 #### Grid
 
-* Map all “Put … Key” actions to numpad
-* Maximize Key: `<Super>Up`
-* Restore: `<Super>Down`
-* Left Maximize: `<Super>Left`
-* Right Maximize: `<Super>Right`
+- Map all “Put … Key” actions to numpad
+- Maximize Key: `<Super>Up`
+- Restore: `<Super>Down`
+- Left Maximize: `<Super>Left`
+- Right Maximize: `<Super>Right`
 
 ### Zsh & Oh My Zsh
 
-* [Oh My Zsh website](http://ohmyz.sh/)
+- [Oh My Zsh website](http://ohmyz.sh/)
 
-```
+```sh
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 #### Zsh Plugin: Syntax Highlighting
 
-```
+```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 #### Zsh Plugin: Auto Suggestions
 
-```
+```sh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 ### `ag` (command line search, faster than `ack`)
 
-* [GitHub repository](https://github.com/ggreer/the_silver_searcher)
+- [GitHub repository](https://github.com/ggreer/the_silver_searcher)
 
-```
+```sh
 sudo apt install silversearcher-ag
 ag "thing to search for" /path/to/search/in
 ```
 
 ### `htop` (command line activity monitor)
 
-```
+```sh
 sudo apt install htop
 htop
 ```
 
 ### `tldr`
 
-* [GitHub repository](https://github.com/tldr-pages/tldr)
+- [GitHub repository](https://github.com/tldr-pages/tldr)
 
-```
+```sh
 npm install --global tldr
 tldr tar
 ```
 
-### `mascii`, `telnet mapscii`
-
-* [GitHub repository](https://github.com/rastapasta/mapscii)
-* Usage via telnet: `telnet mapscii.me`
-
-```
-npm install --global mapscii
-mapscii
-```
-
 ### `bat`
 
-* [GitHub repository](https://github.com/sharkdp/bat)
+- [GitHub repository](https://github.com/sharkdp/bat)
 
+```sh
+wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb
+sudo dpkg -i bat_0.10.0_amd64.deb
 ```
-wget https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb
-sudo dpkg -i bat_0.9.0_amd64.deb
-```
-
-## Dracula Theme
-
-### Sublime Text
-
-* Open “Package Control: Install Package”
-* Install “Dracula Color Scheme”
-
-### ZSH
-
-```
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-o ~/.zshrc
-```
-
-Add the plugin like this:
-
-```
-plugins=([plugins...] zsh-syntax-highlighting)
-```
-
-### Gnome Terminal Colors
-
-The [Dracula Theme](https://draculatheme.com/) is available for a variety of applications. Using it
-in Sublime Text is as easy as installing the package.
-
-Applying it to Gnome Terminal is done by executing an install as follows:
-
-```
-git clone git@github.com:dracula/gnome-terminal.git dracula-gnome-terminal
-cd dracula-gnome-terminal
-./install.sh -s Dracula -p default
-```
-
-Alternatively, the web tool [terminal.sexy](https://terminal.sexy) can be used to convert the macOS
-Terminal theme to a Gnome Terminal theme.
-
-* Download `Dracula.terminal` from https://github.com/dracula/terminal.app (that’s for the macOS’
-  Terminal.app)
-* Open [terminal.sexy](https://terminal.sexy)
-  * Import > Format: Terminal.app
-  * Paste the contents of `Dracula.terminal` into the text box
-  * Click “Import”
-  * Export > Format: Gnome Terminal
-  * Click “Export”
-  * Download the file
-  * Add the colors via adding a new profile by running the downloaded file as a script:
-
-```
-mv terminal.sexy.txt dracula.sh
-sed -i 's/terminal.sexy/Dracula/g' dracula.sh
-sed -i 's/terminal-dot-sexy/Dracula/g' dracula.sh
-chmod +x dracula.sh
-./dracula.sh
-```
-
-* Open Terminal
-* Preferences > Profiles > Profile used when launching a new terminal: `terminal.sexy`
 
 ## Miscellaneous
 
 ### Font: Fira Code
 
-* [GitHub repository](https://github.com/tonsky/FiraCode)
+- [GitHub repository](https://github.com/tonsky/FiraCode)
 
 ### Mount Windows partition:
 
@@ -358,23 +252,23 @@ read-only with the 'ro' mount option.
 
 The `ntfsfix` command can be used to make it mountable if Windows is not in fact hibernated.
 
-```
+```sh
 sudo ntfsfix /dev/sda4
 ```
 
 Alternatively, the hibernation file can be deleted:
 
-```
+```sh
 sudo mount -t "ntfs" -o remove_hiberfile "/dev/sda4" "/media/phil/Boot"
 ```
 
 ### Simple static HTTP Server
 
-```
+```sh
 python3 -m http.server 8000
 ```
 
-```
+```sh
 server() {
   local port="${1:-8080}"
   # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
@@ -386,7 +280,7 @@ server() {
 
 ### List available Gnome settings
 
-```
+```sh
 gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys | sort
 gsettings list-recursively org.gnome.desktop.wm.keybindings | sort
 ```
