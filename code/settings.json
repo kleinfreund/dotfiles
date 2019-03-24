@@ -2,35 +2,27 @@
   "css.lint.zeroUnits": "warning",
   "editor.cursorBlinking": "solid",
   "editor.dragAndDrop": false,
-  "editor.folding": true,
   "editor.fontFamily": "'Fira Code', Consolas, monospace",
   "editor.fontLigatures": true,
   "editor.fontSize": 18,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.renderIndentGuides": false,
   "editor.rulers": [
     100
   ],
   "editor.scrollBeyondLastLine": false,
-  "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
-  "[python]": {
-    "editor.tabSize": 4,
-  },
   "editor.renderWhitespace": "all",
   "editor.wordWrapColumn": 100,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wrappingIndent": "indent",
   "[markdown]": {
-    "editor.wordWrap": "wordWrapColumn",
     "editor.wrappingIndent": "none"
   },
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
-  "extensions.ignoreRecommendations": false,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -39,11 +31,10 @@
   "javascript.preferences.quoteStyle": "single",
   "problems.decorations.enabled": false,
   "projectManager.treeview.visible": false,
-  "python.pythonPath": "/usr/bin/python3",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontSize": 16,
   "typescript.preferences.quoteStyle": "single",
+  "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Shades of Purple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
@@ -56,15 +47,13 @@
     "**/node_modules": true,
     "**/.cache": true, // Parcel output
     "**/_site": true, // Jekyll output
-    "**/public": true // Hugo output
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
     "**/node_modules/**": true,
     "**/.cache": true, // Parcel output
-    "**/_site": true, // Jekyll output
-    "**/public": true // Hugo output
+    "**/_site": true, // Eleventy, Jekyll output
   },
   "search.exclude": {
     "**/node_modules": true,
@@ -72,16 +61,14 @@
     "**/bower_components": true,
     "**/*.map": true,
     "**/.cache": true, // Parcel output
-    "**/_site": true, // Jekyll output
-    "**/public": true // Hugo output
+    "**/_site": true, // Eleventy, Jekyll output
   },
   //
-  // Formatter Settings
+  // Formatter
   //
   "editor.formatOnSave": true,
   "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
-  // Disable VS Code’s default formatter for Javascript
   "[javascript]": {
     "editor.formatOnSave": false
   },
@@ -91,12 +78,13 @@
   "[handlebars]": {
     "editor.formatOnSave": false
   },
+  //
+  // Latex
+  //
   "[latex]": {
     "editor.wordWrap": "bounded",
     "editor.wrappingIndent": "same"
   },
-  "window.zoomLevel": 0,
   "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.bind.enter.key": false,
-  "window.titleBarStyle": "custom"
+  "latex-workshop.bind.enter.key": false
 }
