@@ -102,16 +102,31 @@ gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'non
 
 ## Software
 
-### Google Chrome
-
-- As per this answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
+### Firefox
 
 ```sh
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-sudo apt update
-sudo apt install google-chrome-stable
+sudo snap install firefox
 ```
+
+To switch to beta channel:
+
+```sh
+sudo snap switch --channel=beta firefox
+```
+
+### Visual Studio Code
+
+```sh
+sudo snap install vscode --classic
+```
+
+### Google Chrome
+
+```sh
+sudo snap install chromium
+```
+
+For installing Chrome with `apt` look at this answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
 
 ### `git`
 
