@@ -6,8 +6,7 @@ of my backup strategy. Here, I try to document what things I configure with my o
 what software I install, etc. This is highly opinionated. This setup works for me but might not for
 you.
 
-**Note**: In this document, `o` is an alias for the editor that is used. One can use `gedit` on a
-new system or alias a custom one with `alias o=vim`.
+
 
 ## General Ubuntu Settings
 
@@ -100,6 +99,8 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
 ```
 
+
+
 ## Software
 
 ### Firefox
@@ -108,27 +109,41 @@ gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'non
 sudo snap install firefox
 ```
 
-To switch to beta channel:
+To switch to the beta channel:
 
 ```sh
 sudo snap switch --channel=beta firefox
 ```
 
-### Visual Studio Code
+### Visual Studio Code, `code`
 
 ```sh
 sudo snap install vscode --classic
 ```
 
-### Google Chrome
+### Sublime Text, `subl`
 
 ```sh
-sudo snap install chromium
+sudo snap install sublime-text --classic
 ```
+
+### Google Chrome
 
 For installing Chrome with `apt` look at this answer to [Ask Ubuntu: How to install Google Chrome](https://askubuntu.com/a/510186)
 
-### `git`
+### VLC
+
+```sh
+sudo snap install vlc
+```
+
+### Inkscape
+
+```sh
+sudo snap install inkscape
+```
+
+### git
 
 ```sh
 sudo add-apt-repository ppa:git-core/ppa
@@ -136,16 +151,46 @@ sudo apt-get update
 sudo apt-get install git
 ```
 
-### Sublime Text, `subl` (code editor)
+### htop
 
-- [Sublime Text website](https://www.sublimetext.com)
-
+```sh
+sudo snap install htop
 ```
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update
-sudo apt install sublime-text
+
+### `ag` (command line search, faster than `ack`)
+
+- [GitHub repository](https://github.com/ggreer/the_silver_searcher)
+
+```sh
+sudo apt install silversearcher-ag
+ag "thing to search for" /path/to/search/in
+```
+
+### `bat`
+
+- [GitHub repository](https://github.com/sharkdp/bat)
+
+```sh
+wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb
+sudo dpkg -i bat_0.10.0_amd64.deb
+```
+
+### node
+
+```sh
+sudo snap install node --channel=11/stable --classic
+```
+
+List global packages:
+
+```sh
+npm list -g --depth=0
+```
+
+Install global packages:
+
+```sh
+npm i -g npm-check-updates http-server eslint tldr svgo trash-cli
 ```
 
 ### `gnome-tweak-tool`
@@ -170,88 +215,15 @@ sudo apt install gnome-tweak-tool
 - Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
   Windows)”
 
-### CompizConfig Settings Manager
 
-```sh
-sudo apt update
-sudo apt install compizconfig-settings-manager
-```
-
-#### Application Switcher
-
-- Next window (All windows): `<Alt>Tab`
-- Prev window (All windows): `<Shift><Alt>Tab`
-
-#### Grid
-
-- Map all “Put … Key” actions to numpad
-- Maximize Key: `<Super>Up`
-- Restore: `<Super>Down`
-- Left Maximize: `<Super>Left`
-- Right Maximize: `<Super>Right`
-
-### Zsh & Oh My Zsh
-
-- [Oh My Zsh website](http://ohmyz.sh/)
-
-```sh
-sudo apt install zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-#### Zsh Plugin: Syntax Highlighting
-
-```sh
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-```
-
-#### Zsh Plugin: Auto Suggestions
-
-```sh
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-```
-
-### `ag` (command line search, faster than `ack`)
-
-- [GitHub repository](https://github.com/ggreer/the_silver_searcher)
-
-```sh
-sudo apt install silversearcher-ag
-ag "thing to search for" /path/to/search/in
-```
-
-### `htop` (command line activity monitor)
-
-```sh
-sudo apt install htop
-htop
-```
-
-### `tldr`
-
-- [GitHub repository](https://github.com/tldr-pages/tldr)
-
-```sh
-npm install --global tldr
-tldr tar
-```
-
-### `bat`
-
-- [GitHub repository](https://github.com/sharkdp/bat)
-
-```sh
-wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb
-sudo dpkg -i bat_0.10.0_amd64.deb
-```
 
 ## Miscellaneous
 
-### Font: Fira Code
+### Fira Code
 
 - [GitHub repository](https://github.com/tonsky/FiraCode)
 
-### Mount Windows partition:
+### Mount Windows partition
 
 When mounting the Windows partition, an error like this might appear:
 
@@ -275,22 +247,6 @@ Alternatively, the hibernation file can be deleted:
 
 ```sh
 sudo mount -t "ntfs" -o remove_hiberfile "/dev/sda4" "/media/phil/Boot"
-```
-
-### Simple static HTTP Server
-
-```sh
-python3 -m http.server 8000
-```
-
-```sh
-server() {
-  local port="${1:-8080}"
-  # Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-  # And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
-  xdg-open "http://localhost:${port}/"
-}
 ```
 
 ### List available Gnome settings
