@@ -113,6 +113,7 @@ To switch to the beta channel:
 
 ```sh
 sudo snap switch --channel=beta firefox
+sudo snap refresh
 ```
 
 ### Visual Studio Code, `code`
@@ -219,35 +220,9 @@ sudo apt install gnome-tweak-tool
 
 ## Miscellaneous
 
-### Fira Code
+### Fira Mono
 
-- [GitHub repository](https://github.com/tonsky/FiraCode)
-
-### Mount Windows partition
-
-When mounting the Windows partition, an error like this might appear:
-
-```
-$ sudo mount -t "ntfs" -o remove_hiberfile "/dev/sda4" "/media/phil/Boot"
-The disk contains an unclean file system (0, 0).
-Metadata kept in Windows cache, refused to mount.
-Failed to mount '/dev/sda4': Operation not permitted
-The NTFS partition is in an unsafe state. Please resume and shutdown
-Windows fully (no hibernation or fast restarting), or mount the volume
-read-only with the 'ro' mount option.
-```
-
-The `ntfsfix` command can be used to make it mountable if Windows is not in fact hibernated.
-
-```sh
-sudo ntfsfix /dev/sda4
-```
-
-Alternatively, the hibernation file can be deleted:
-
-```sh
-sudo mount -t "ntfs" -o remove_hiberfile "/dev/sda4" "/media/phil/Boot"
-```
+- [GitHub repository](https://github.com/mozilla/Fira#download-fira)
 
 ### List available Gnome settings
 
