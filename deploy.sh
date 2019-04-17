@@ -71,7 +71,7 @@ install_oh_my_zsh() {
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
     install_package curl;
 
-    if ! [[ -f "$ZSH/oh-my-zsh.sh" ]]; then
+    if ! [[ -f "~/oh-my-zsh.sh" ]]; then
       if prompt_yes_no "Would you like to install Oh My Zsh?"; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
       else
@@ -139,7 +139,3 @@ install_oh_my_zsh;
 symlink_dotfiles;
 
 install_package htop;
-
-install_npm_package npm-check-updates;
-install_npm_package http-server;
-install_npm_package tldr;
