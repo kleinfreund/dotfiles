@@ -25,7 +25,8 @@ alias untargz='tar -xf'
 # I finally had enough of typing this out
 alias aptupdate='sudo apt update \
   && apt list --upgradable \
-  && sudo apt upgrade -y'
+  && sudo apt upgrade -y \
+  && sudo snap refresh'
 
 # Echo path, but with each entry on its own line
 alias path='echo -e ${PATH//:/\\n}'
