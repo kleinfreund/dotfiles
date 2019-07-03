@@ -172,8 +172,8 @@ ag "thing to search for" /path/to/search/in
 - [GitHub repository](https://github.com/sharkdp/bat)
 
 ```sh
-wget https://github.com/sharkdp/bat/releases/download/v0.10.0/bat_0.10.0_amd64.deb
-sudo dpkg -i bat_0.10.0_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb
+sudo dpkg -i bat_0.11.0_amd64.deb
 ```
 
 ### node
