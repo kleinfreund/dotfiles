@@ -13,11 +13,8 @@ alias mi='cd ${HOME}/Dropbox/mi'
 
 # Weather
 # Found in @noopkat’s dotfiles (https://github.com/noopkat/dotfiles)
-alias weather='curl http://wttr.in/Weimar'
+alias weather='curl http://wttr.in/Eindhoven'
 alias moon='curl http://wttr.in/Moon'
-
-# domain-cli (https://www.npmjs.com/package/domain-cli)
-# alias whois='domain-cli $1'
 
 # Extract .tar.gz archives because I don’t want to remember the required flags
 alias untargz='tar -xf'
@@ -34,30 +31,10 @@ alias path='echo -e ${PATH//:/\\n}'
 # Open files in an editor like code, subl, gedit or vim.
 alias o=code
 
+# https://github.com/sharkdp/bat
 alias cat='bat --plain'
 
 
-
-# Simple web server for static files
-# alias http-server='python3 -m http.server 8888'
-
-
-
-# Webis
-alias pdflatex-webis='TEXINPUTS=../../lecturenotes-tex:$TEXINPUTS pdflatex'
-
-
-
-# Create a directory and the change working directory to it
-make_change_dir() {
-  # Create a directory if it doesn’t already exist
-  mkdir -p -- "$1" &&
-  # Change directory to the previously created directory
-  # `$_` refers to the argument used in the last command
-  cd -- "$_"
-}
-
-alias mkcd=make_change_dir
 
 # Enable colored output and sort output by directory first, files second,
 # symlinks third
@@ -85,5 +62,3 @@ alias tree="tree -I '.git|node_modules'"
 
 alias python=python3
 alias pip=pip3
-
-alias please='sudo $(fc -ln -1)'
