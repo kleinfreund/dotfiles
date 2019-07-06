@@ -57,7 +57,8 @@ set_default_shell() {
     return 0;
   fi
 
-  if prompt_yes_no "Should $1 be the default shell?"; then
+  if prompt_yes_no "Do you want to make $1 the default shell?"; then
+    echo "The script will now ask you for your user account’s password again.";
     chsh -s $(which $1);
     echo "Please log out of your user session for this to take effect and run this script again."
   else
@@ -127,7 +128,7 @@ green() {
   echo "\e[1;32m$1\e[0m";
 }
 
-echo "The script will now ask you for the sudo password.";
+echo "The script will now ask you for your user account’s password.";
 
 sudo apt update;
 
@@ -139,3 +140,4 @@ install_oh_my_zsh;
 symlink_dotfiles;
 
 install_package htop;
+install_package tree;
