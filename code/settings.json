@@ -11,6 +11,7 @@
     100
   ],
   "editor.scrollBeyondLastLine": false,
+  "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
@@ -30,7 +31,6 @@
   "javascript.implicitProjectConfig.checkJs": true,
   "javascript.preferences.quoteStyle": "single",
   "problems.decorations.enabled": false,
-  "projectManager.treeview.visible": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "typescript.preferences.quoteStyle": "single",
@@ -75,16 +75,4 @@
   "[html]": {
     "editor.formatOnSave": false
   },
-  "[handlebars]": {
-    "editor.formatOnSave": false
-  },
-  //
-  // Latex
-  //
-  "[latex]": {
-    "editor.wordWrap": "bounded",
-    "editor.wrappingIndent": "same"
-  },
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.bind.enter.key": false
 }

@@ -62,3 +62,5 @@ alias tree="tree -I '.git|node_modules'"
 
 alias python=python3
 alias pip=pip3
+
+alias deploy_kleinfreund='rsync -av --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
