@@ -9,6 +9,7 @@
 [alias]
 	cm = commit -m
 	co = checkout
+	com = checkout master
 	lg = log --oneline --graph
 	st = status
 	# Undo current commits
