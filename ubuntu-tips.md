@@ -191,7 +191,7 @@ npm list -g --depth=0
 Install global packages:
 
 ```sh
-npm i -g npm-check-updates http-server eslint tldr svgo trash-cli
+npm i -g npm-check-updates http-server eslint eslint-plugin-vue tldr svgo trash-cli
 ```
 
 ### `gnome-tweak-tool`

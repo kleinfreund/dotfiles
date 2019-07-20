@@ -67,12 +67,17 @@
   // Formatter
   //
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": false,
-  "eslint.alwaysShowStatus": true,
   "[javascript]": {
     "editor.formatOnSave": false
   },
   "[html]": {
     "editor.formatOnSave": false
   },
+  "eslint.autoFixOnSave": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
 }
