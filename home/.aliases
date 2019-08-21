@@ -1,3 +1,5 @@
+alias please='sudo'
+
 # Quickly navigate up the *great hollow*
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -49,7 +51,7 @@ list_sorted() {
   # List directories
   ls $* | grep "^d" | awk '{printf "\033[1;34m📁\033[0m " $0 "\n"}';
   # List regular files
-  ls $* | grep "^-" | awk '{print "🗎  " $0}';
+  ls $* | grep "^-" | awk '{print "📄 " $0}';
   # List links
   ls $* | grep "^l" | awk '{print "🔗 " $0}';
   # List everything else (e.g. symbolic links)
