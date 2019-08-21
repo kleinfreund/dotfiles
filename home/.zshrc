@@ -9,6 +9,7 @@ ZSH_CUSTOM="$HOME/dotfiles/zsh"
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
+  git
 )
 
 source $ZSH/oh-my-zsh.sh
