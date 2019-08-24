@@ -69,22 +69,41 @@ set_default_shell() {
 }
 
 install_oh_my_zsh() {
+  echo "Installing Oh My Zsh ...";
+
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
     install_package curl;
 
     if ! [[ -f "~/oh-my-zsh.sh" ]]; then
       if prompt_yes_no "Would you like to install Oh My Zsh?"; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+
+        echo "Done. Oh My Zsh was installed.";
       else
-        echo "Oh My Zsh was not installed.";
+        echo "Done. Oh My Zsh was not installed.";
       fi
     fi
   fi
 }
 
+install_oh_my_zsh_plugins() {
+  echo "Installing Z shell plugins ...";
+
+  mkdir -p ~/.oh-my-zsh/custom;
+
+  # https://github.com/zsh-users/zsh-syntax-highlighting/
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
+
+  # https://github.com/zsh-users/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+
+  echo "Done.";
+}
+
 # Creates symbolic links to all dotfiles
 symlink_dotfiles() {
   echo "Creating symbolic links for ...";
+
   local dotfiles=".aliases .bashrc .zshrc .vimrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
 
   # For all entries in $dotfiles
@@ -136,6 +155,12 @@ install_package zsh;
 set_default_shell zsh;
 
 install_oh_my_zsh;
+install_oh_my_zsh_plugins;
+
+# Install latest completion files for git
+mkdir -p ~/.zsh
+curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 
 symlink_dotfiles;
 
