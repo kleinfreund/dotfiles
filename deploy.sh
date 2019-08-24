@@ -69,13 +69,12 @@ set_default_shell() {
 }
 
 install_oh_my_zsh() {
-  echo "Installing Oh My Zsh ...";
-
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
     install_package curl;
 
-    if ! [[ -f "~/oh-my-zsh.sh" ]]; then
-      if prompt_yes_no "Would you like to install Oh My Zsh?"; then
+    if [ -d "~/oh-my-zsh" ]; then
+      if prompt_yes_no "Do you want to install Oh My Zsh?"; then
+        echo "Installing Oh My Zsh ...";
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
 
         echo "Done. Oh My Zsh was installed.";
@@ -87,24 +86,44 @@ install_oh_my_zsh() {
 }
 
 install_oh_my_zsh_plugins() {
-  echo "Installing Z shell plugins ...";
+  if prompt_yes_no "Do you want to install the Zsh plugins?"; then
+    echo "Installing Zsh plugins ...";
 
-  mkdir -p ~/.oh-my-zsh/custom;
+    mkdir -p ~/.oh-my-zsh/custom;
 
-  # https://github.com/zsh-users/zsh-syntax-highlighting/
-  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
+    if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
+      rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
+    fi
 
-  # https://github.com/zsh-users/zsh-autosuggestions
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+    # https://github.com/zsh-users/zsh-syntax-highlighting/
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
 
-  echo "Done.";
+    if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
+      rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+    fi
+
+    # https://github.com/zsh-users/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+
+    echo "Done.";
+  fi
+}
+
+# Install latest completion files for git
+install_git_completion_files() {
+  if prompt_yes_no "Do you want to install the git completion files for Zsh?"; then
+    mkdir -p ~/.zsh
+    rm ~/.zsh/git-completion.bash ~/.zsh/_git
+    curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+    curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+  fi
 }
 
 # Creates symbolic links to all dotfiles
 symlink_dotfiles() {
   echo "Creating symbolic links for ...";
 
-  local dotfiles=".aliases .bashrc .zshrc .vimrc .gemrc .gitconfig .gitignore_global .eslintrc.json";
+  local dotfiles=".aliases .bashrc .zshrc .vimrc .gemrc .gitconfig .gitignore_global .eslintrc.json .extra";
 
   # For all entries in $dotfiles
   for file in $dotfiles; do
@@ -157,10 +176,7 @@ set_default_shell zsh;
 install_oh_my_zsh;
 install_oh_my_zsh_plugins;
 
-# Install latest completion files for git
-mkdir -p ~/.zsh
-curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+install_git_completion_files;
 
 symlink_dotfiles;
 
