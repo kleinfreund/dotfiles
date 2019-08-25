@@ -11,86 +11,93 @@ set -e;
 # Accessing an empty variable will yield an error
 set -u;
 
-# Checks if $1 is installed.
-# If not, calls the appropriate function to install $1.
-install_package() {
-  printf "Is $1 installed? ";
-  # Check whether zsh is installed
+
+
+install_zsh() {
+  install_apt_package zsh;
+  set_default_shell zsh;
+
+  install_oh_my_zsh;
+  install_oh_my_zsh_plugins;
+}
+
+# Installs a package with apt with “sudo apt install $1”.
+install_apt_package() {
   if [ -x "$(command -v $1)" ]; then
-    printf $(green "Yes\n");
     return 0;
   fi
 
-  printf $(red "No\n");
-
-  if prompt_yes_no "Would you like to install $1?"; then
+  if prompt_yes_no "Do you want to install $1?"; then
     sudo apt install $1 -y;
+    echo "✅ $1 was successfully installed.";
   else
-    echo "$1 was not installed.";
     exit 0;
   fi
 }
 
+# Installs an NPM package with “npm install --global $1”
 install_npm_package() {
-  printf "Is $1 installed? ";
-  # Check whether zsh is installed
   if ! [ `npm list -g | grep -c $1` -eq 0 ]; then
-    printf $(green "Yes\n");
     return 0;
   fi
 
-  printf $(red "No\n");
-
-  if prompt_yes_no "Would you like to install $1?"; then
+  if prompt_yes_no "Do you want to install $1?"; then
     npm install --global $1;
-  else
-    echo "$1 was not installed.";
+    echo "✅ $1 was successfully installed.";
   fi
 }
 
-# Checks if $1 is the default shell.
-# If not, calls the appropriate function to change the default shell to $1.
+# Changes the default shell with “chsh -s $(which $1)”.
 set_default_shell() {
-  printf "Is $1 the default shell? ";
+  echo "Checking if $1 is the default shell …";
   if [[ -z "${SHELL##*$1*}" ]]; then
-    printf $(green "Yes\n");
+    echo "✅ $1 is the default shell already. Continuing.";
     return 0;
   fi
 
+  echo "$1 is not the default shell.";
   if prompt_yes_no "Do you want to make $1 the default shell?"; then
     echo "The script will now ask you for your user account’s password again.";
     chsh -s $(which $1);
     echo "Please log out of your user session for this to take effect and run this script again."
-  else
-    echo "Default shell was not changed.";
   fi
 
   exit 0;
 }
 
+# Installs Oh My Zsh
 install_oh_my_zsh() {
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
-    install_package curl;
+    install_apt_package curl;
 
-    if [ -d "~/oh-my-zsh" ]; then
+    echo "Checking if Oh My Zsh is installed …";
+    # Assume that Oh My Zsh is installed if its directory exists.
+    if [ -d "~/.oh-my-zsh" ]; then
+      echo "Oh My Zsh is not installed."
+
       if prompt_yes_no "Do you want to install Oh My Zsh?"; then
-        echo "Installing Oh My Zsh ...";
+        echo "Installing Oh My Zsh …";
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
 
-        echo "Done. Oh My Zsh was installed.";
-      else
-        echo "Done. Oh My Zsh was not installed.";
+        echo "✅ Done. Oh My Zsh was installed.";
       fi
+    else
+      echo "✅ Oh My Zsh is already installed. Continuing."
     fi
+  else
+    echo "❌ zsh is not the default shell. Exiting."
+    exit 1;
   fi
 }
 
+
 install_oh_my_zsh_plugins() {
-  if prompt_yes_no "Do you want to install the Zsh plugins?"; then
-    echo "Installing Zsh plugins ...";
+  if prompt_yes_no "Do you want to install/update the Z shell plugins?"; then
+    echo "Installing Z shell plugins …";
 
     mkdir -p ~/.oh-my-zsh/custom;
 
+    echo "Installing zsh-syntax-highlighting …";
     if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
       rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
     fi
@@ -98,6 +105,7 @@ install_oh_my_zsh_plugins() {
     # https://github.com/zsh-users/zsh-syntax-highlighting/
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting;
 
+    echo "Installing zsh-autosuggestions …";
     if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]; then
       rm -rf ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
     fi
@@ -105,39 +113,48 @@ install_oh_my_zsh_plugins() {
     # https://github.com/zsh-users/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
 
-    echo "Done.";
+    echo "✅ Installed the Z shell plugins.";
   fi
 }
 
-# Install latest completion files for git
+# Installs the latest completion files for git from the official git repository.
+#
+# Source: https://github.com/git/git/tree/master/contrib/completion
 install_git_completion_files() {
   if prompt_yes_no "Do you want to install the git completion files for Zsh?"; then
+    install_apt_package curl;
+
+    echo "Installing git completion files for Z shell …";
     mkdir -p ~/.zsh
     rm ~/.zsh/git-completion.bash ~/.zsh/_git
+
     curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
     curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+
+    echo "✅ Installed the git completion files.";
   fi
 }
 
-# Creates symbolic links to all dotfiles
+# Creates symbolic links to the user’s home directory for all files in dotfiles’ “home” directory.
 symlink_dotfiles() {
-  echo "Creating symbolic links for ...";
+  echo "Setting up symbolic links for …";
 
-  local dotfiles=".aliases .bashrc .zshrc .vimrc .gemrc .gitconfig .gitignore_global .eslintrc.json .extra";
+  # Looping through file system objects in a path also finds hidden files
+  shopt -s dotglob
 
-  # For all entries in $dotfiles
-  for file in $dotfiles; do
-    local file_path=$PWD/home/${file}
+  for absolute_file_path in $PWD/home/*; do
+    local file_name="$(basename "$absolute_file_path")"
     # Check if they represent an actual file
-    if [ -f ${file_path} ]; then
+    if [ -f ${absolute_file_path} ]; then
       # Create a symbolic link in ~
       # /!\ Overwrites existing files/links
-      ln -sfn ${file_path} ~/${file};
-      echo "  ~/${file} -> ${file_path}";
+      ln -sfn ${absolute_file_path} ~/${file_name};
+      echo "  ~/${file_name} → ${absolute_file_path}";
     fi
   done
+  unset absolute_file_path;
 
-  echo "Done.";
+  echo "✅ Done setting up symbolic links.";
 }
 
 # Asks for user confirmation. Returns a zero exit code to signal that the function
@@ -156,29 +173,16 @@ prompt_yes_no() {
   done
 }
 
-# Print argument in bold red
-red() {
-  echo "\e[1;31m$1\e[0m";
-}
-
-# Print argument in bold green
-green() {
-  echo "\e[1;32m$1\e[0m";
-}
-
 echo "The script will now ask you for your user account’s password.";
 
 sudo apt update;
 
-install_package zsh;
-set_default_shell zsh;
-
-install_oh_my_zsh;
-install_oh_my_zsh_plugins;
+install_zsh;
 
 install_git_completion_files;
 
 symlink_dotfiles;
 
-install_package htop;
-install_package tree;
+install_apt_package htop;
+install_apt_package tree;
+install_apt_package fd-find;
