@@ -1,25 +1,30 @@
+# Be nice to the machine.
 alias please='sudo'
 
-# Quickly navigate up the *great hollow*
+# Quickly navigate up the great hollow.
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # Directory shortcuts
-alias db='cd ${HOME}/Dropbox'
 alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
-alias mi='cd ${HOME}/Dropbox/mi'
+
+
 
 # Weather
 # Found in @noopkat’s dotfiles (https://github.com/noopkat/dotfiles)
 alias weather='curl http://wttr.in/Eindhoven'
 alias moon='curl http://wttr.in/Moon'
 
-# Extract .tar.gz archives because I don’t want to remember the required flags
-alias untargz='tar -xf'
+
+
+# Extract .tar/.tar.gz/.tar.bz archives because who has time to remember this awful interface.
+alias untar='tar -xf'
+alias untargz='tar -xzf'
+alias untarbz='tar -xjf'
 
 # I finally had enough of typing this out
 alias aptupdate='sudo apt update \
@@ -33,22 +38,26 @@ alias path='echo -e ${PATH//:/\\n}'
 # Open files in an editor like code, subl, gedit or vim.
 alias o=code
 
+# Cat replacement.
 # https://github.com/sharkdp/bat
 alias cat='bat --plain'
 
+# Find replacement.
 # https://github.com/sharkdp/fd
 alias fd='fdfind'
 
 
 
-# Enable colored output and sort output by directory first, files second,
-# symlinks third
-
-# Default ls should always show
+# Default “ls” should always show
 # -l  as a list
 # -h  with human-readable file sizes
 # -F  with indicator (e.g. trailing / for directories)
 alias ls='ls -lhF --color'
+
+# Better directory listing.
+#
+# Enable colored output and sort output in the following order:
+# directory, regular files, symbolic links
 
 list_sorted() {
   # List directories
@@ -63,9 +72,13 @@ list_sorted() {
 
 alias ll=list_sorted
 
+
+# Tree-like directory listing.
 alias tree="tree -I '.git|node_modules'"
 
+# Make sure “python” defaults to version 3
 alias python=python3
 alias pip=pip3
 
+# Deploy my website via rsync.
 alias deploy_kleinfreund='rsync -av --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
