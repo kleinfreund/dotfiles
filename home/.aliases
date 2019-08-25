@@ -74,7 +74,7 @@ alias ll=list_sorted
 
 
 # Tree-like directory listing.
-alias tree="tree -I '.git|node_modules'"
+alias tree="tree --dirsfirst -F -I '.git|node_modules'"
 
 # Make sure “python” defaults to version 3
 alias python=python3
