@@ -1,8 +1,0 @@
-<snippet>
-    <content><![CDATA[
-\( ${1} \)
-]]></content>
-    <tabTrigger>inlinemath</tabTrigger>
-    <scope>text.tex.latex, text.html</scope>
-    <description>Inline (LaTeX)</description>
-</snippet>

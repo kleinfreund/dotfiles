@@ -30,27 +30,17 @@ printf "Detecting OS: "
 if [[ "$unamestr" == "Linux" ]]; then
   printf "Linux"
 
-  sublime_dir="$HOME/.config/sublime-text-3/Packages/User"
   vscode_dir="$HOME/.config/Code/User"
   albert_dir="$HOME/.config/albert"
 elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
   printf "Windows"
 
-  sublime_dir="$HOME/AppData/Roaming/Sublime Text 3/Packages/User"
   vscode_dir="$HOME/AppData/Roaming/Code/User"
 else
   echo "Could not detect operating system. Aborting."
   exit 2
 fi
 echo
-
-echo "Copying Sublime Text files ..."
-sublime_files="snippets/ *.sublime-settings *.sublime-keymap"
-mkdir -p "$repo_dir/sublime"
-for file in $sublime_files; do
-  [ -f "${sublime_dir}/$file" ] && cp -ur "${sublime_dir}/$file" "$repo_dir/sublime"
-  echo "  ${sublime_dir}/$file"
-done
 
 echo "Copying Visual Studio Code files ..."
 vscode_files="snippets/ keybindings.json settings.json"

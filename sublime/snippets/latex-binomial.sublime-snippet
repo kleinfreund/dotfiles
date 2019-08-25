@@ -1,8 +1,0 @@
-<snippet>
-    <content><![CDATA[
-\binom\{ ${1} \}\{ ${2} \}
-]]></content>
-    <tabTrigger>binom</tabTrigger>
-    <scope>text.html</scope>
-    <description>Binomial (LaTeX)</description>
-</snippet>
