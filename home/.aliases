@@ -36,6 +36,9 @@ alias o=code
 # https://github.com/sharkdp/bat
 alias cat='bat --plain'
 
+# https://github.com/sharkdp/fd
+alias fd='fdfind'
+
 
 
 # Enable colored output and sort output by directory first, files second,
