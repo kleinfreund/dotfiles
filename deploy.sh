@@ -126,9 +126,18 @@ install_git_completion_files() {
 
     echo "Installing git completion files for Z shell …";
     mkdir -p ~/.zsh
-    rm ~/.zsh/git-completion.bash ~/.zsh/_git
+
+    if [ -f ~/.zsh/git-completion.bash ]; then
+      rm ~/.zsh/git-completion.bash
+    fi
 
     curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
+
+    if [ -f ~/.zsh/_git ]; then
+      rm ~/.zsh/_git
+    fi
+
     curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 
     echo "✅ Installed the git completion files.";
