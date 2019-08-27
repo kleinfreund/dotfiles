@@ -11,7 +11,10 @@
 	co = checkout
 	com = checkout master
 	lg = log --oneline --graph
+	re = restore
 	st = status
+	sw = switch
+	swm = switch master
 	# Undo current commits
 	undo = reset --soft HEAD^
 	# Undo git add
