@@ -44,36 +44,6 @@ xdg-mime query default text/plain
 xdg-mime default code.desktop text/plain
 ```
 
-### Disable touchpad when mouse is connected
-
-```
-gsettings set org.gnome.desktop.peripherals.touchpad send-events disabled-on-external-mouse
-```
-
-### Disable locking when closing laptop lid
-
-```
-sudo sed -i 's/IgnoreLid=false/IgnoreLid=true/g' /etc/UPower/UPower.conf
-service upower restart
-```
-
-### Disable tab/application switch on scrolling
-
-I don’t like the Ubuntu behavior of switching applications/tabs when scrolling in some specific
-areas. Sadly, this can’t be disabled for _Google Chrome_ and _Gnome Terminal_.
-
-**Sublime Text: User Preferences**:
-
-```
-"mouse_wheel_switches_tabs": false
-```
-
-### Show date in top bar
-
-```sh
-gsettings set com.canonical.indicator.datetime show-date true
-```
-
 ### Disable Screenshot Sound
 
 ```sh
@@ -191,7 +161,7 @@ npm list -g --depth=0
 Install global packages:
 
 ```sh
-npm i -g npm-check-updates http-server eslint eslint-plugin-vue tldr svgo trash-cli
+npm i -g eslint http-server npm-check-updates svgo tldr
 ```
 
 ### `gnome-tweak-tool`
@@ -220,13 +190,4 @@ sudo apt install gnome-tweak-tool
 
 ## Miscellaneous
 
-### Fira Mono
-
-- [GitHub repository](https://github.com/mozilla/Fira#download-fira)
-
-### List available Gnome settings
-
-```sh
-gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys | sort
-gsettings list-recursively org.gnome.desktop.wm.keybindings | sort
-```
+- Typeface Fira: [github.com/mozilla/Fira/releases/latest](https://github.com/mozilla/Fira/releases/latest)
