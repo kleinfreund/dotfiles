@@ -117,33 +117,6 @@ install_oh_my_zsh_plugins() {
   fi
 }
 
-# Installs the latest completion files for git from the official git repository.
-#
-# Source: https://github.com/git/git/tree/master/contrib/completion
-install_git_completion_files() {
-  if prompt_yes_no "Do you want to install the git completion files for Zsh?"; then
-    install_apt_package curl;
-
-    echo "Installing git completion files for Z shell …";
-    mkdir -p ~/.zsh
-
-    if [ -f ~/.zsh/git-completion.bash ]; then
-      rm ~/.zsh/git-completion.bash
-    fi
-
-    curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-
-
-    if [ -f ~/.zsh/_git ]; then
-      rm ~/.zsh/_git
-    fi
-
-    curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
-
-    echo "✅ Installed the git completion files.";
-  fi
-}
-
 # Creates symbolic links to the user’s home directory for all files in dotfiles’ “home” directory.
 symlink_dotfiles() {
   echo "Setting up symbolic links for …";
@@ -187,8 +160,6 @@ echo "The script will now ask you for your user account’s password.";
 sudo apt update;
 
 install_zsh;
-
-install_git_completion_files;
 
 symlink_dotfiles;
 

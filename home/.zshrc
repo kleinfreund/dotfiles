@@ -10,14 +10,10 @@ plugins=(
 
   # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git
   git
-)
 
-# Load completion files for git
-# Work around for branch completion not working for “git switch”
-# Issue: https://github.com/robbyrussell/oh-my-zsh/issues/8105
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh $fpath)
-autoload -Uz compinit && compinit
+  # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/gitfast
+  gitfast
+)
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
