@@ -12,6 +12,8 @@ alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias rp='cd ${HOME}/dev/repos'
 
+alias gswm='git switch master'
+
 
 
 # Weather
@@ -82,3 +84,4 @@ alias pip=pip3
 
 # Deploy my website via rsync.
 alias deploy_kleinfreund='rsync -av --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
+alias deploy_bbkv='rsync -av --delete ${HOME}/dev/repos/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
