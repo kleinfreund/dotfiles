@@ -74,6 +74,9 @@
   "[html]": {
     "editor.formatOnSave": false
   },
+  "[python]": {
+    "editor.tabSize": 4,
+  },
   "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
