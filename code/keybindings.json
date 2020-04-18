@@ -79,4 +79,8 @@
     "command": "editor.action.deleteLines",
     "when": "textInputFocus && !editorReadonly"
   },
+  {
+    "key": "ctrl+g ctrl+u",
+    "command": "git.undoCommit"
+  },
 ]

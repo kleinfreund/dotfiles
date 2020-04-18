@@ -10,3 +10,9 @@ Thumbs.db
 # Editor project settings
 *.sublime-workspace
 .vscode/
+
+env/
+
+# local env files
+.env.local
+.env.*.local

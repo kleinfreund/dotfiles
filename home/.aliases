@@ -1,18 +1,16 @@
 # Be nice to the machine.
 alias please='sudo'
 
-# Quickly navigate up the great hollow.
+# Directories
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-
-# Directory shortcuts
 alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
-alias rp='cd ${HOME}/dev/repos'
+alias dev='cd ${HOME}/dev'
 
+# Git
 alias gswm='git switch master'
+alias branches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
+alias grcbcm="git for-each-ref --sort=committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - (%(color:blue)%(authorname)%(color:reset)) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
 
 
@@ -83,5 +81,16 @@ alias python=python3
 alias pip=pip3
 
 # Deploy my website via rsync.
-alias deploy_kleinfreund='rsync -av --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
-alias deploy_bbkv='rsync -av --delete ${HOME}/dev/repos/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
+alias deploy_kleinfreund='rsync -av -e ssh --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
+alias deploy_bbkv='rsync -av -e ssh --delete ${HOME}/dev/repos/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
+alias deploy_artrudloff='rsync -av -e ssh --delete ${HOME}/dev/repos/artrudloff.de/_site/ phrrud@whipple.uberspace.de:/var/www/virtual/phrrud/artrudloff.de'
+
+
+
+# Work
+alias mb='make build'
+alias mdst='make docker-start'
+alias mdsp='make docker-setup'
+alias mdrs='make docker-runserver'
+alias mdrc='make docker-runcelery-debug'
+alias mdrd='make docker-rundramatiq'

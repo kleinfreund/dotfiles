@@ -1,5 +1,6 @@
 {
   "css.lint.zeroUnits": "warning",
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorBlinking": "solid",
   "editor.dragAndDrop": false,
   "editor.fontFamily": "'Fira Code', 'Ubuntu Mono', Consolas, monospace",
@@ -8,22 +9,25 @@
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.rulers": [
-    100
+    120,
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’_",
   "editor.wordWrapColumn": 100,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wrappingIndent": "indent",
   "[markdown]": {
-    "editor.wrappingIndent": "none"
+    "editor.wrappingIndent": "same",
+    "editor.foldingStrategy": "indentation",
   },
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
+  "extensions.ignoreRecommendations": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -39,6 +43,7 @@
   "workbench.colorTheme": "Shades of Purple",
   "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.tree.renderIndentGuides": "always",
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -48,6 +53,9 @@
     "**/node_modules": true,
     "**/.cache": true, // Parcel output
     "**/_site": true, // Jekyll output
+    "**/*.bundle.js": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true,
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -55,33 +63,60 @@
     "**/node_modules/**": true,
     "**/.cache": true, // Parcel output
     "**/_site": true, // Eleventy, Jekyll output
+    "**/*.bundle.js": true,
+    "**/*.tf": true,
   },
   "search.exclude": {
     "**/node_modules": true,
     "**/package-lock.json": true,
-    "**/bower_components": true,
     "**/*.map": true,
     "**/.cache": true, // Parcel output
     "**/_site": true, // Eleventy, Jekyll output
+    "**/*.bundle.js": true,
+    "**/*.tf": true,
   },
   //
   // Formatter
   //
   "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.formatOnSave": false
+  "vetur.format.defaultFormatter.html": "none",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
   },
-  "[html]": {
-    "editor.formatOnSave": false
-  },
-  "[python]": {
-    "editor.tabSize": 4,
-  },
-  "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
+  "eslint.probe": [
+    "javascript",
+    "typescript",
+    "html",
+    "vue",
+  ],
   "eslint.validate": [
     "javascript",
-    "javascriptreact",
-    "vue"
-  ]
+    "vue",
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.tabSize": 4,
+    "editor.rulers": [
+      100
+    ],
+    "editor.wordWrapColumn": 100,
+  },
 }
