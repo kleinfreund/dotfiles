@@ -46,6 +46,9 @@ alias cat='bat --plain'
 # https://github.com/sharkdp/fd
 alias fd='fdfind'
 
+# Workaround for peek not being able to capture the mouse cursor.
+alias peek='peek -b ffmpeg'
+
 
 
 # Default “ls” should always show
