@@ -6,8 +6,6 @@ of my backup strategy. Here, I try to document what things I configure with my o
 what software I install, etc. This is highly opinionated. This setup works for me but might not for
 you.
 
-
-
 ## General Ubuntu Settings
 
 When something was configured via `gsettings set`, this can be reverted back to its original state
@@ -69,8 +67,6 @@ gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['']"
 gsettings set org.gnome.desktop.wm.preferences action-middle-click-titlebar 'none'
 ```
 
-
-
 ## Software
 
 ### Firefox
@@ -118,8 +114,7 @@ sudo snap install inkscape
 
 ```sh
 sudo add-apt-repository ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install git
+sudo apt-get update && sudo apt-get install git
 ```
 
 ### htop
@@ -149,7 +144,7 @@ sudo dpkg -i bat_0.11.0_amd64.deb
 ### node
 
 ```sh
-sudo snap install node --channel=11/stable --classic
+sudo snap install node --channel=14/stable --classic
 ```
 
 List global packages:
@@ -185,8 +180,6 @@ sudo apt install gnome-tweak-tool
 - Select “Miscellaneous compatibility options”
 - Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
   Windows)”
-
-
 
 ## Miscellaneous
 
