@@ -1,14 +1,10 @@
-# Ubuntu Setup Tips
+# Ubuntu setup tips
 
-Setting up a newly installed operating system can become frustrating quickly. Especially when it was
-forced upon ourselves (e.g. the hard drive died again). This is a collection of tips that are part
-of my backup strategy. Here, I try to document what things I configure with my operating system,
-what software I install, etc. This is highly opinionated. This setup works for me but might not for
-you.
+This document contains a collection of tips for setting up certain things on a newly installed copy of Ubuntu that I might forget about.
 
-## General Ubuntu Settings
+## General settings
 
-When something was configured via `gsettings set`, this can be reverted back to its original state
+**Tip**: When something was configured via `gsettings set`, this can be reverted back to its original state
 via `gsettings reset`.
 
 ### Global file associations
@@ -26,33 +22,33 @@ application. The new file name needs to refer to a file that exists in the same 
 sudo sed -i 's/gedit.desktop/code.desktop/g' /usr/share/applications/defaults.list
 ```
 
-**Note**: One is able to override these global settings by configuring a application for each file
-type by opening its properties and changing the default application under _Open With_. Changing
+**Note**: One is able to override these global settings by configuring an application for each file
+type. This is done by opening its properties and changing the default application under _Open With_. Changing
 these can be done via a command-line interface.
 
-**Prints the current setting**:
+**Print the current setting for a certain content type**:
 
 ```sh
 xdg-mime query default text/plain
 ```
 
-**Changes the association**:
+**Changes the default association for a certain content type**:
 
 ```sh
 xdg-mime default code.desktop text/plain
 ```
 
-### Disable Screenshot Sound
+### Disable screenshot sound
 
 ```sh
 sudo mv /usr/share/sounds/freedesktop/stereo/screen-capture.oga /usr/share/sounds/freedesktop/stereo/screen-capture-disabled.oga
 ```
 
-## Keybindings
+## Keyboard shortcuts
 
 ### Ctrl-Alt-Up/Down
 
-<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>ArrowUp</kbd>/<kbd>ArrowDown</kbd> are used to switch
+<kbd>Ctrl</kbd>-<kbd>Alt</kbd>-<kbd>ArrowUp</kbd>/<kbd>ArrowDown</kbd> are used to switch
 workspaces. To be able to use them in other applications (e.g. Sublime Text), you can disable them
 like this:
 
@@ -82,13 +78,13 @@ sudo snap switch --channel=beta firefox
 sudo snap refresh
 ```
 
-### Visual Studio Code, `code`
+### Visual Studio Code
 
 ```sh
 sudo snap install vscode --classic
 ```
 
-### Sublime Text, `subl`
+### Sublime Text
 
 ```sh
 sudo snap install sublime-text --classic
@@ -123,7 +119,7 @@ sudo apt-get update && sudo apt-get install git
 sudo snap install htop
 ```
 
-### `ag` (command line search, faster than `ack`)
+### ag (command line search, faster than `ack`)
 
 - [GitHub repository](https://github.com/ggreer/the_silver_searcher)
 
@@ -132,12 +128,12 @@ sudo apt install silversearcher-ag
 ag "thing to search for" /path/to/search/in
 ```
 
-### `bat`
+### bat
 
 - [GitHub repository](https://github.com/sharkdp/bat)
 
 ```sh
-wget https://github.com/sharkdp/bat/releases/download/v0.11.0/bat_0.11.0_amd64.deb
+wget https://github.com/sharkdp/bat/releases/download/v0.15.0/bat_0.15.0_amd64.deb
 sudo dpkg -i bat_0.11.0_amd64.deb
 ```
 
@@ -159,11 +155,30 @@ Install global packages:
 npm i -g eslint http-server npm-check-updates svgo tldr
 ```
 
-### `gnome-tweak-tool`
+### gnome-tweak-tool
 
 ```sh
 sudo apt update
 sudo apt install gnome-tweak-tool
+```
+
+### Flameshot
+
+- [GitHub repository](https://github.com/lupoDharkael/flameshot)
+
+```sh
+sudo apt update
+sudo apt install flameshot
+```
+
+### Peek
+
+- [GitHub repository](https://github.com/phw/peek)
+
+```sh
+sudo add-apt-repository ppa:peek-developers/stable
+sudo apt update
+sudo apt install peek
 ```
 
 #### Disable Caps Lock
@@ -173,14 +188,10 @@ sudo apt install gnome-tweak-tool
 - Select “Caps Lock key behavior”
 - Select “Caps Lock is disabled”
 
-#### Enable selecting via Ctrl+Pos1/End
+#### Enable selecting via Ctrl-Pos1/End
 
 - Open “Tweak Tool”
 - Select category “Typing”
 - Select “Miscellaneous compatibility options”
 - Select “Numlock on: digits, shift switches to arrow keys, Numlock off: always arrow keys (as in MS
   Windows)”
-
-## Miscellaneous
-
-- Typeface Fira: [github.com/mozilla/Fira/releases/latest](https://github.com/mozilla/Fira/releases/latest)

@@ -8,21 +8,19 @@
   "editor.fontSize": 18,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [
-    120,
-  ],
+  "editor.rulers": [120],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’_",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’",
   "editor.wordWrapColumn": 100,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wrappingIndent": "indent",
   "[markdown]": {
     "editor.wrappingIndent": "same",
-    "editor.foldingStrategy": "indentation",
+    "editor.foldingStrategy": "indentation"
   },
   "emmet.triggerExpansionOnTab": true,
   "explorer.confirmDragAndDrop": false,
@@ -55,7 +53,7 @@
     "**/_site": true, // Jekyll output
     "**/*.bundle.js": true,
     "**/.pytest_cache": true,
-    "**/__pycache__": true,
+    "**/__pycache__": true
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
@@ -64,59 +62,51 @@
     "**/.cache": true, // Parcel output
     "**/_site": true, // Eleventy, Jekyll output
     "**/*.bundle.js": true,
-    "**/*.tf": true,
+    "**/*.tf": true
   },
   "search.exclude": {
     "**/node_modules": true,
+    "**/coverage": true,
     "**/package-lock.json": true,
     "**/*.map": true,
     "**/.cache": true, // Parcel output
     "**/_site": true, // Eleventy, Jekyll output
     "**/*.bundle.js": true,
-    "**/*.tf": true,
+    "**/*.tf": true
   },
   //
   // Formatter
   //
+  "javascript.validate.enable": true,
   "editor.formatOnSave": true,
   "vetur.format.defaultFormatter.html": "none",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.stylelint": true
   },
   "eslint.alwaysShowStatus": true,
-  "eslint.probe": [
-    "javascript",
-    "typescript",
-    "html",
-    "vue",
-  ],
-  "eslint.validate": [
-    "javascript",
-    "vue",
-  ],
+  "eslint.probe": ["javascript", "typescript", "html", "vue"],
+  "eslint.validate": ["javascript", "vue"],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false
   },
   "[python]": {
     "editor.formatOnSave": true,
     "editor.tabSize": 4,
-    "editor.rulers": [
-      100
-    ],
-    "editor.wordWrapColumn": 100,
-  },
+    "editor.rulers": [100],
+    "editor.wordWrapColumn": 100
+  }
 }
