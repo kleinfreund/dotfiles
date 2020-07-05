@@ -84,9 +84,9 @@ alias python=python3
 alias pip=pip3
 
 # Deploy my website via rsync.
-alias deploy_kleinfreund='rsync -av -e ssh --delete ${HOME}/dev/repos/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
-alias deploy_bbkv='rsync -av -e ssh --delete ${HOME}/dev/repos/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
-alias deploy_artrudloff='rsync -av -e ssh --delete ${HOME}/dev/repos/artrudloff.de/_site/ phrrud@whipple.uberspace.de:/var/www/virtual/phrrud/artrudloff.de'
+alias deploy_kleinfreund='rsync -av -e ssh --delete ${HOME}/dev/sites/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
+alias deploy_bbkv='rsync -av -e ssh --delete ${HOME}/dev/sites/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
+alias deploy_artrudloff='rsync -av -e ssh --delete ${HOME}/dev/sites/artrudloff.de/_site/ phrrud@whipple.uberspace.de:/var/www/virtual/phrrud/artrudloff.de'
 
 
 
