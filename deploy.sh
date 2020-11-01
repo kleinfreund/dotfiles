@@ -163,6 +163,6 @@ install_zsh;
 
 symlink_dotfiles;
 
+install_apt_package vim;
 install_apt_package htop;
 install_apt_package tree;
-install_apt_package fd-find;
