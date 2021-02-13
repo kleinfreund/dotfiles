@@ -50,22 +50,6 @@ PROMPT+="${new_line}${prompt_char} "
 
 
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='code'
-fi
-
-
-
-# Aliases
-if [ -f ~/.aliases ]; then
-  . ~/.aliases
-fi
-
-
-
 # Ctrl+K to navigate up one level (i.e. cd ..)
 up_widget() {
   BUFFER="cd .. && ll"
@@ -74,22 +58,30 @@ up_widget() {
 zle -N up_widget
 bindkey "^k" up_widget
 
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
 
+# Load aliases
+if [ -f ~/.aliases ]; then
+  . ~/.aliases
+fi
 
-# ssh
+# Set path to my ssh key
 export SSH_KEY_PATH="~/.ssh/id_rsa"
-
-# Static Site Generators
-export ELEVENTY_ENV=development
 
 # Custom NPM packages directory. See:
 # https://docs.npmjs.com/getting-started/fixing-npm-permissions
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Make global yarn packages available on the PATH
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

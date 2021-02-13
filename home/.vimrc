@@ -1,12 +1,9 @@
-" Trying some settings as per Harry Roberts’ .vimrc
-" https://github.com/csswizardry/dotfiles/blob/master/.vimrc
-
 set encoding=utf-8
 
 " Enable syntax highlighting
 syntax on
 
-" Show matching parens, brackets, etc.
+" Show matching parenthesis, brackets, etc.
 set showmatch
 
 " Italicised comments and attributes

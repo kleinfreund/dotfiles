@@ -14,13 +14,10 @@
 	re = restore
 	st = status
 	sw = switch
-	swm = switch master
 	# Undo current commits
 	undo = reset --soft HEAD^
 	# Undo git add
 	unadd = reset HEAD
-	# Amend to the most recent commit
-	amend = commit --amend --no-edit
 [rebase]
 	autostash = true
 [pull]

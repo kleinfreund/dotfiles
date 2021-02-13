@@ -1,18 +1,19 @@
+# npm package directory
 node_modules/
-Thumbs.db
-.jekyll-metadata
-.sass-cache/
-.cache
 
 # Can contain NPM authentication data
 .npmrc
+
+# local env files
+.env.local
+.env.*.local
+
+# Windows junk files
+Thumbs.db
 
 # Editor project settings
 *.sublime-workspace
 .vscode/
 
-env/
-
-# local env files
-.env.local
-.env.*.local
+# Sass cache
+.sass-cache/
