@@ -11,54 +11,68 @@ set -e;
 # Accessing an empty variable will yield an error
 set -u;
 
+auto_confirm_dialogs="no"
+if [[ "$*" == "-y" || "$*" == "--auto-confirm-dialogs" ]]; then
+  auto_confirm_dialogs="yes"
+fi
+
 
 
 install_zsh() {
   install_apt_package zsh;
   set_default_shell zsh;
-
   install_oh_my_zsh;
   install_oh_my_zsh_plugins;
 }
 
-# Installs a package with apt with “sudo apt install $1”.
+# Installs a package with “sudo apt install” after confirmation.
 install_apt_package() {
-  if [ -x "$(command -v $1)" ]; then
+  # Argument 1: Name of the package to install.
+  local package_name="$1"
+
+  if [ -x "$(command -v $package_name)" ]; then
     return 0;
   fi
 
-  if prompt_yes_no "Do you want to install $1?"; then
-    sudo apt install $1 -y;
-    echo "✅ $1 was successfully installed.";
+  if prompt_yes_no "Do you want to install $package_name?"; then
+    sudo apt install $package_name -y;
+    echo "✅ $package_name was successfully installed.";
   else
     exit 0;
   fi
 }
 
-# Installs an NPM package with “npm install --global $1”
+# Installs an npm package with “npm install --global”
 install_npm_package() {
-  if ! [ `npm list -g | grep -c $1` -eq 0 ]; then
+  # Argument 1: Name of the package to install.
+  local package_name="$1"
+
+  if ! [ `npm list -g | grep -c $package_name` -eq 0 ]; then
     return 0;
   fi
 
-  if prompt_yes_no "Do you want to install $1?"; then
-    npm install --global $1;
-    echo "✅ $1 was successfully installed.";
+  if prompt_yes_no "Do you want to install $package_name?"; then
+    npm install --global $package_name;
+    echo "✅ $package_name was successfully installed.";
   fi
 }
 
-# Changes the default shell with “chsh -s $(which $1)”.
+# Changes the default shell with “chsh -s $(which $shell_command)”.
 set_default_shell() {
-  echo "Checking if $1 is the default shell …";
-  if [[ -z "${SHELL##*$1*}" ]]; then
-    echo "✅ $1 is the default shell already. Continuing.";
+  # Argument 1: Name of the shell command to make the default.
+  local shell_command="$1"
+
+  echo;
+  echo "Checking if $shell_command is the default shell …";
+  if [[ -z "${SHELL##*$shell_command*}" ]]; then
+    echo "✅ $shell_command is the default shell already. Continuing.";
     return 0;
   fi
 
-  echo "$1 is not the default shell.";
-  if prompt_yes_no "Do you want to make $1 the default shell?"; then
+  echo "$shell_command is not the default shell.";
+  if prompt_yes_no "Do you want to make $shell_command the default shell?"; then
     echo "The script will now ask you for your user account’s password again.";
-    chsh -s $(which $1);
+    chsh -s $(which $shell_command);
     echo "Please log out of your user session for this to take effect and run this script again."
   fi
 
@@ -67,6 +81,7 @@ set_default_shell() {
 
 # Installs Oh My Zsh
 install_oh_my_zsh() {
+  echo;
   if [[ ${SHELL#/usr/bin/} == "zsh" ]]; then
     install_apt_package curl;
 
@@ -90,8 +105,9 @@ install_oh_my_zsh() {
   fi
 }
 
-
+# Installs some Z shell plugins.
 install_oh_my_zsh_plugins() {
+  echo;
   if prompt_yes_no "Do you want to install/update the Z shell plugins?"; then
     echo "Installing Z shell plugins …";
 
@@ -111,14 +127,17 @@ install_oh_my_zsh_plugins() {
     fi
 
     # https://github.com/zsh-users/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions;
 
     echo "✅ Installed the Z shell plugins.";
+  else
+    echo "⏭ Did not install the Z shell plugins."
   fi
 }
 
-# Creates symbolic links to the user’s home directory for all files in dotfiles’ “home” directory.
+# Creates symbolic links in the user’s home directory for all files in the dotfiles’ “home” directory.
 symlink_dotfiles() {
+  echo;
   echo "Setting up symbolic links for …";
 
   # Looping through file system objects in a path also finds hidden files
@@ -131,7 +150,7 @@ symlink_dotfiles() {
       # Create a symbolic link in ~
       # /!\ Overwrites existing files/links
       ln -sfn ${absolute_file_path} ~/${file_name};
-      echo "  ~/${file_name} → ${absolute_file_path}";
+      echo " • ~/${file_name} → ${absolute_file_path}";
     fi
   done
   unset absolute_file_path;
@@ -142,12 +161,19 @@ symlink_dotfiles() {
 # Asks for user confirmation. Returns a zero exit code to signal that the function
 # was executed successfully; otherwise a non-zero exit code is returned.
 prompt_yes_no() {
+  if [[ "$auto_confirm_dialogs" == "yes" ]]; then
+    return 0;
+  fi
+
+  local question="$1"
+
   while true; do
-    read -p "$1 [yN] " answer;
+    read -p "$question [yN] " answer;
     case $answer in
       [Yy]|[Yy]es )
         return 0;
         ;;
+
       * )
         return 1;
         ;;
@@ -156,7 +182,6 @@ prompt_yes_no() {
 }
 
 echo "The script will now ask you for your user account’s password.";
-
 sudo apt update;
 
 install_zsh;

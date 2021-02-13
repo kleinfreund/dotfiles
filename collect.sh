@@ -23,14 +23,14 @@ is_file_or_directory() {
 }
 
 # Copies a list of files.
-# Argument 1: Source path directory to copy files from.
-# Argument 2: Target path directory to copy files to.
-# Argument 3–n: List of file or directory names to copy from source directory.
 copy_files() {
+  # Argument 1: Source path directory to copy files from.
   local source_dir_path="$1"; # Store argument 1 in variable
+  # Argument 2: Target path directory to copy files to.
   local target_dir_path="$2"; # Store argument 1 in variable
   shift # Shift arguments to delete argument 1
   shift # Shift arguments to delete argument 2
+  # Argument 3–n: List of file or directory names to copy from source directory.
   local file_names=("$@"); # Create list from all the remaining arguments
 
   mkdir -p $target_dir_path;
@@ -67,7 +67,7 @@ detect_os() {
   esac
 }
 
-detect_os
+detect_os;
 
 printf "Detecting OS: ";
 if [[ $os == "linux" ]]; then
