@@ -16,9 +16,6 @@ set -u;
 
 
 
-# Store kernel name in variable:
-unamestr=$(uname -s);
-
 # Checks whether a argument 1 is either a regular file or a directory.
 # Argument 1: The path to check.
 is_file_or_directory() {
@@ -49,29 +46,67 @@ copy_files() {
   done
 }
 
-# Detect OS (Linux or Windows)
+# Detects the operating system (Linux, Windows, or macOS).
+detect_os() {
+  case "$(uname -s)" in
+    Darwin)
+      os="macos";
+      ;;
+
+    Linux)
+      os="linux";
+      ;;
+
+    CYGWIN*|MINGW32*|MSYS*|MINGW*)
+      os="windows";
+      ;;
+
+    *)
+      os="unknown";
+      ;;
+  esac
+}
+
+detect_os
+
 printf "Detecting OS: ";
-if [[ "$unamestr" == "Linux" ]]; then
+if [[ $os == "linux" ]]; then
   printf "Linux";
 
   vscode_dir="$HOME/.config/Code/User";
   albert_dir="$HOME/.config/albert";
-elif [[ "$unamestr" == "MINGW32_NT"* || "$unamestr" == "MINGW64_NT"* ]]; then
+elif [[ $os == "windows" ]]; then
   printf "Windows";
 
   vscode_dir="$HOME/AppData/Roaming/Code/User";
+elif [[ $os == "macos" ]]; then
+  printf "macOS";
+
+  # TODO: Update VS Code user directory path:
+  # vscode_dir="$HOME/.config/Code/User";
 else
   echo "Could not detect operating system. Aborting.";
   exit 2;
 fi
 echo;
 
-echo "Copying VS Code files …";
-copy_files ${vscode_dir} "$dotfiles_dir/code" "${vscode_files[@]}"
+if [ ! -z ${vscode_dir+x} ]; then
+  echo;
+  echo "Copying VS Code files …";
+  copy_files ${vscode_dir} "$dotfiles_dir/code" "${vscode_files[@]}"
+else
+  echo "Not copying VS Code files because the directory isn’t set-up.";
+fi
 
-echo "Copying Albert files …";
-copy_files ${albert_dir} "$dotfiles_dir/albert" "${albert_files[@]}"
+if [ ! -z ${albert_dir+x} ]; then
+  echo;
+  echo "Copying Albert files …";
+  copy_files ${albert_dir} "$dotfiles_dir/albert" "${albert_files[@]}"
+else
+  echo "Not copying Albert files because the directory isn’t set-up.";
+fi
 
 unset dotfiles_dir;
 
+echo;
 echo "Completed.";
