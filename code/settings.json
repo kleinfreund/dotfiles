@@ -1,28 +1,49 @@
 {
   "css.lint.zeroUnits": "warning",
+  "css.lint.emptyRules": "ignore",
   "diffEditor.ignoreTrimWhitespace": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
   "editor.cursorBlinking": "solid",
+  "editor.detectIndentation": true,
   "editor.dragAndDrop": false,
   "editor.fontFamily": "'Fira Code', 'Ubuntu Mono', Consolas, monospace",
-  "editor.fontLigatures": true,
   "editor.fontSize": 18,
+  "editor.formatOnSave": true,
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
-  "editor.rulers": [120],
+  "editor.rulers": [
+    100
+  ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
-  "editor.tabCompletion": "on",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
-  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’",
-  "editor.wordWrapColumn": 100,
-  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’", // Added quotation mark characters
   "editor.wrappingIndent": "indent",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 100,
   "[markdown]": {
     "editor.wrappingIndent": "same",
+    "editor.wordWrap": "wordWrapColumn",
     "editor.foldingStrategy": "indentation"
   },
-  "emmet.triggerExpansionOnTab": true,
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.probe": [
+    "javascript",
+    "typescript",
+    "html",
+    "vue"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "vue"
+  ],
   "explorer.confirmDragAndDrop": false,
   "explorer.openEditors.visible": 0,
   "extensions.ignoreRecommendations": true,
@@ -30,16 +51,15 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "html.format.wrapLineLength": 0,
-  "javascript.implicitProjectConfig.checkJs": true,
-  "javascript.preferences.quoteStyle": "single",
+  "javascript.validate.enable": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
   "problems.decorations.enabled": false,
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "typescript.preferences.quoteStyle": "single",
+  "vetur.format.defaultFormatter.html": "none",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 1,
   "workbench.colorTheme": "Shades of Purple",
-  "workbench.editor.tabSizing": "shrink",
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tree.renderIndentGuides": "always",
   "files.exclude": {
@@ -47,66 +67,27 @@
     "**/.svn": true,
     "**/.hg": true,
     "**/CVS": true,
-    "**/.DS_Store": true,
-    "**/node_modules": true,
-    "**/.cache": true, // Parcel output
-    "**/_site": true, // Jekyll output
-    "**/*.bundle.js": true,
-    "**/.pytest_cache": true,
-    "**/__pycache__": true
+    "**/.DS_Store": true, // macOS junk file
+    "**/node_modules": true, // npm packages
+    "**/_site": true, // Eleventy build directory
+    "**/*.bundle.js": true // JavaScript bundles
   },
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true,
-    "**/.cache": true, // Parcel output
-    "**/_site": true, // Eleventy, Jekyll output
-    "**/*.bundle.js": true,
-    "**/*.tf": true
+    "**/node_modules/**": true, // npm packages
+    "**/_site": true, // Eleventy build directory
+    "**/*.bundle.js": true, // JavaScript bundles
+    "**/*.tf": true // Terraform files
   },
   "search.exclude": {
-    "**/node_modules": true,
-    "**/coverage": true,
-    "**/package-lock.json": true,
-    "**/*.map": true,
-    "**/.cache": true, // Parcel output
-    "**/_site": true, // Eleventy, Jekyll output
-    "**/*.bundle.js": true,
-    "**/*.tf": true
-  },
-  //
-  // Formatter
-  //
-  "javascript.validate.enable": true,
-  "editor.formatOnSave": true,
-  "vetur.format.defaultFormatter.html": "none",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-  },
-  "eslint.alwaysShowStatus": true,
-  "eslint.probe": ["javascript", "typescript", "html", "vue"],
-  "eslint.validate": ["javascript", "vue"],
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": false
-  },
-  "[python]": {
-    "editor.formatOnSave": true,
-    "editor.tabSize": 4,
-    "editor.rulers": [100],
-    "editor.wordWrapColumn": 100
+    "**/node_modules": true, // npm packages
+    "**/coverage": true, // Jest test coverage files
+    "**/package-lock.json": true, // npm lock file
+    "**/yarn.json": true, // yarn lock file
+    "**/*.map": true, // source maps
+    "**/_site": true, // Eleventy build directory
+    "**/*.bundle.js": true, // JavaScript bundles
+    "**/*.tf": true // Terraform files
   }
 }

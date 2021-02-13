@@ -82,5 +82,5 @@
   {
     "key": "ctrl+g ctrl+u",
     "command": "git.undoCommit"
-  },
+  }
 ]
