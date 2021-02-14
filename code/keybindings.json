@@ -20,9 +20,14 @@
     "when": "textInputFocus"
   },
   {
+    "key": "ctrl+shift+m",
+    "command": "editor.action.smartSelect.grow",
+    "when": "editorTextFocus"
+  },
+  {
     "key": "ctrl+backspace",
     "command": "deleteWordPartLeft",
-    "when": "textInputFocus"
+    "when": "textInputFocus && !editorReadonly"
   },
   {
     "key": "ctrl+delete",
@@ -50,11 +55,6 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+shift+m",
-    "command": "editor.action.smartSelect.grow",
-    "when": "editorTextFocus"
-  },
-  {
     "key": "ctrl+'",
     "command": "editor.action.insertSnippet",
     "when": "editorTextFocus && !editorReadonly",
@@ -71,13 +71,13 @@
     }
   },
   {
-    "key": "ctrl+alt+p",
-    "command": "projectManager.listProjects"
-  },
-  {
     "key": "ctrl+alt+x",
     "command": "editor.action.deleteLines",
     "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "projectManager.listProjects"
   },
   {
     "key": "ctrl+g ctrl+u",
