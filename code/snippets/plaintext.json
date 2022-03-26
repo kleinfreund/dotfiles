@@ -5,77 +5,114 @@
   // same ids are connected.
   "en dash": {
     "prefix": "endash",
-    "body": ["–"],
+    "body": [
+      "–"
+    ],
     "description": "EN DASH"
   },
   "en dash 2": {
     "prefix": "--",
-    "body": ["–"],
+    "body": [
+      "–"
+    ],
     "description": "EN DASH"
   },
   "em dash": {
     "prefix": "emdash",
-    "body": ["—"],
+    "body": [
+      "—"
+    ],
     "description": "EM DASH"
   },
   "em dash 2": {
     "prefix": "---",
-    "body": ["—"],
+    "body": [
+      "—"
+    ],
     "description": "EM DASH"
   },
   "ellipsis": {
     "prefix": "ellipsis",
-    "body": ["…"],
+    "body": [
+      "…"
+    ],
     "description": "HORIZONTAL ELLIPSIS"
+  },
+  "times": {
+    "prefix": "times",
+    "body": [
+      "×"
+    ],
+    "description": "MULTIPLICATION SIGN"
   },
   "arrowLeft": {
     "prefix": "left",
-    "body": ["←"],
+    "body": [
+      "←"
+    ],
     "description": "LEFTWARDS ARROW"
   },
   "arrowRight": {
     "prefix": "right",
-    "body": ["→"],
+    "body": [
+      "→"
+    ],
     "description": "RIGHTWARDS ARROW"
   },
   "arrowUp": {
     "prefix": "up",
-    "body": ["↑"],
+    "body": [
+      "↑"
+    ],
     "description": "UPWARDS ARROW"
   },
   "arrowDown": {
     "prefix": "down",
-    "body": ["↓"],
+    "body": [
+      "↓"
+    ],
     "description": "DOWNWARDS ARROW"
   },
   "shrug": {
     "prefix": "shrug",
-    "body": ["¯\\_(ツ)_/¯"],
+    "body": [
+      "¯\\_(ツ)_/¯"
+    ],
     "description": "shrug"
   },
   "happy": {
     "prefix": "happy",
-    "body": ["ᕕ[ ᐛ ]ᕗ"],
+    "body": [
+      "ᕕ[ ᐛ ]ᕗ"
+    ],
     "description": "happy"
   },
   "singlequotes-de": {
     "prefix": "'",
-    "body": ["‚${TM_SELECTED_TEXT}‘"],
+    "body": [
+      "‚${TM_SELECTED_TEXT}‘"
+    ],
     "description": "German Quotes"
   },
   "singlequotes-en": {
     "prefix": "'",
-    "body": ["‘${TM_SELECTED_TEXT}’"],
+    "body": [
+      "‘${TM_SELECTED_TEXT}’"
+    ],
     "description": "English Quotes"
   },
   "doublequotes-de": {
     "prefix": "\"",
-    "body": ["„${TM_SELECTED_TEXT}“"],
+    "body": [
+      "„${TM_SELECTED_TEXT}“"
+    ],
     "description": "German Quotes"
   },
   "doublequotes-en": {
     "prefix": "\"",
-    "body": ["“${TM_SELECTED_TEXT}”"],
+    "body": [
+      "“${TM_SELECTED_TEXT}”"
+    ],
     "description": "English Quotes"
   }
 }

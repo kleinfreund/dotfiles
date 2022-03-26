@@ -1,17 +1,25 @@
 {
   "css.lint.zeroUnits": "warning",
   "css.lint.emptyRules": "ignore",
+  "bookmarks.navigateThroughAllFiles": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
   "editor.detectIndentation": true,
   "editor.dragAndDrop": false,
   "editor.fontFamily": "'Fira Code', 'Ubuntu Mono', Consolas, monospace",
   "editor.fontSize": 18,
   "editor.formatOnSave": true,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.rulers": [
@@ -21,6 +29,9 @@
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true
+  },
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’", // Added quotation mark characters
   "editor.wrappingIndent": "indent",
   "editor.wordWrap": "wordWrapColumn",
@@ -32,6 +43,9 @@
   },
   "[python]": {
     "editor.tabSize": 4
+  },
+  "emmet.includeLanguages": {
+    "liquid": "html"
   },
   "eslint.alwaysShowStatus": true,
   "eslint.probe": [
@@ -54,14 +68,24 @@
   "javascript.validate.enable": true,
   "js/ts.implicitProjectConfig.checkJs": true,
   "problems.decorations.enabled": false,
+  "references.preferredLocation": "view",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "vetur.format.defaultFormatter.html": "none",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "workbench.colorTheme": "Shades of Purple",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.revealIfOpen": true,
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.enableExperiments": false,
   "workbench.startupEditor": "newUntitledFile",
+  "workbench.tips.enabled": false,
   "workbench.tree.renderIndentGuides": "always",
+  "files.associations": {
+    "*.env.development": "env",
+    "*.env.production": "env"
+  },
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,

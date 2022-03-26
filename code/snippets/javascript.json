@@ -7,28 +7,28 @@
   "console: log": {
     "prefix": "log",
     "body": [
-      "console.log($1);$0"
+      "console.log($1)$0"
     ],
     "description": "Output to console.log"
   },
   "console: warn": {
     "prefix": "warn",
     "body": [
-      "console.warn($1);$0"
+      "console.warn($1)$0"
     ],
     "description": "Output to console.warn"
   },
   "console: error": {
     "prefix": "error",
     "body": [
-      "console.error($1);$0"
+      "console.error($1)$0"
     ],
     "description": "Output to console.error"
   },
   "console: info": {
     "prefix": "info",
     "body": [
-      "console.info($1);$0"
+      "console.info($1)$0"
     ],
     "description": "Output to console.info"
   }
