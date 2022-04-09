@@ -15,6 +15,18 @@ plugins=(
   gitfast
 )
 
+# Fix slow pasting when using Z shell (see https://github.com/zsh-users/zsh-autosuggestions/issues/276).
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need .url-quote-magic?
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+# Fix end.
+
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 

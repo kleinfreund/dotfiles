@@ -9,7 +9,12 @@ alias dev='cd ${HOME}/dev'
 alias oss='cd ${HOME}/dev/open-source'
 
 # Git
+alias gs='git status'
+alias gsw='git checkout'
 alias gswm='git switch $(git_main_branch)'
+alias grbbeta='git rebase beta $(current_branch)'
+alias grbalpha='git rebase alpha $(current_branch)'
+alias grbnext='git rebase next $(current_branch)'
 alias branches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
 
@@ -94,12 +99,3 @@ alias pip=pip3
 alias deploy_kleinfreund='rsync -av -e ssh --delete ${HOME}/dev/sites/kleinfreund.de/_site/ phr@brorsen.uberspace.de:/var/www/virtual/phr/kleinfreund.de'
 alias deploy_bbkv='rsync -av -e ssh --delete ${HOME}/dev/sites/bbk-vogtland.de/_site/ phrbbkv@gale.uberspace.de:/var/www/virtual/phrbbkv/bbk-vogtland.de'
 alias deploy_artrudloff='rsync -av -e ssh --delete ${HOME}/dev/sites/artrudloff.de/_site/ phrrud@whipple.uberspace.de:/var/www/virtual/phrrud/artrudloff.de'
-
-
-
-# Work
-alias mb='make build'
-alias mdst='make docker-start'
-alias mdsp='make docker-setup'
-alias mdrs='make docker-runserver'
-alias mdrd='make docker-rundramatiq'
