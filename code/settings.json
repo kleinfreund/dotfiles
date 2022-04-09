@@ -1,7 +1,7 @@
 {
+  "bookmarks.navigateThroughAllFiles": false,
   "css.lint.zeroUnits": "warning",
   "css.lint.emptyRules": "ignore",
-  "bookmarks.navigateThroughAllFiles": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
@@ -22,15 +22,19 @@
   "editor.gotoLocation.multipleReferences": "goto",
   "editor.minimap.renderCharacters": false,
   "editor.multiCursorModifier": "ctrlCmd",
+  "editor.renderWhitespace": "all",
   "editor.rulers": [
     100
   ],
   "editor.scrollBeyondLastLine": false,
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
-  "editor.renderWhitespace": "all",
   "editor.unicodeHighlight.allowedCharacters": {
-    "’": true
+    "’": true,
+    "€": true,
+    "–": true,
+    "“": true,
+    "”": true
   },
   "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?“”‘’", // Added quotation mark characters
   "editor.wrappingIndent": "indent",
@@ -66,22 +70,23 @@
   "files.trimTrailingWhitespace": true,
   "html.format.wrapLineLength": 0,
   "javascript.validate.enable": true,
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
   "js/ts.implicitProjectConfig.checkJs": true,
   "problems.decorations.enabled": false,
   "references.preferredLocation": "view",
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "vetur.format.defaultFormatter.html": "none",
   "window.titleBarStyle": "custom",
-  "window.zoomLevel": 2,
   "workbench.colorTheme": "Shades of Purple",
-  "workbench.editor.tabSizing": "shrink",
   "workbench.editor.revealIfOpen": true,
+  "workbench.editor.tabSizing": "shrink",
   "workbench.editor.untitled.hint": "hidden",
   "workbench.enableExperiments": false,
   "workbench.startupEditor": "newUntitledFile",
   "workbench.tips.enabled": false,
   "workbench.tree.renderIndentGuides": "always",
+  "window.zoomLevel": 2,
   "files.associations": {
     "*.env.development": "env",
     "*.env.production": "env"
