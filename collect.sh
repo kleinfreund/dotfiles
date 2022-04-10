@@ -2,6 +2,7 @@
 
 vscode_files=( snippets/ keybindings.json settings.json );
 albert_files=( org.albert.extension.snippets/ org.albert.extension.websearch/ albert.conf );
+flameshot_files=( flameshot.ini );
 
 # Change directory to the location of this script.
 # This way, it can be executed from an arbitrary location.
@@ -75,6 +76,7 @@ if [[ $os == "linux" ]]; then
 
   vscode_dir="$HOME/.config/Code/User";
   albert_dir="$HOME/.config/albert";
+  flameshot_dir="$HOME/.config/flameshot";
 elif [[ $os == "windows" ]]; then
   printf "Windows";
 
@@ -104,6 +106,14 @@ if [ ! -z ${albert_dir+x} ]; then
   copy_files ${albert_dir} "$dotfiles_dir/albert" "${albert_files[@]}"
 else
   echo "Not copying Albert files because the directory isn’t set-up.";
+fi
+
+if [ ! -z ${flameshot_dir+x} ]; then
+  echo;
+  echo "Copying Flameshot files …";
+  copy_files ${flameshot_dir} "$dotfiles_dir/flameshot" "${flameshot_files[@]}"
+else
+  echo "Not copying Flameshot files because the directory isn’t set-up.";
 fi
 
 unset dotfiles_dir;
