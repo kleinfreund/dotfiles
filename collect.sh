@@ -14,20 +14,22 @@ set -u;
 
 
 # Checks whether a argument 1 is either a regular file or a directory.
+#
 # Argument 1: The path to check.
 is_file_or_directory() {
   [[ -f $1 || -d $1 ]]
 }
 
 # Copies a list of files.
+#
+# Argument 1: Target path directory to copy files to.
+# Argument 2–n: List of file or directory paths to copy from source directory.
 copy_files() {
-  # Argument 1: Target path directory to copy files to.
   local target_dir_path="$1";
 
-  # Shift arguments to delete argument 1
+  # Shifts arguments to delete argument 1 so that the next command can grab all remaining ones.
   shift
 
-  # Argument 2–n: List of file or directory names to copy from source directory.
   local source_file_paths=("$@");
 
   mkdir -p $target_dir_path;

@@ -11,9 +11,9 @@ set -e;
 # Accessing an empty variable will yield an error
 set -u;
 
-auto_confirm_dialogs="no"
+auto_confirm_dialogs="no";
 if [[ "$*" == "-y" || "$*" == "--auto-confirm-dialogs" ]]; then
-  auto_confirm_dialogs="yes"
+  auto_confirm_dialogs="yes";
 fi
 
 
@@ -26,9 +26,10 @@ install_zsh() {
 }
 
 # Installs a package with “sudo apt install” after confirmation.
+#
+# Argument 1: Name of the package to install.
 install_apt_package() {
-  # Argument 1: Name of the package to install.
-  local package_name="$1"
+  local package_name="$1";
 
   if [ -x "$(command -v $package_name)" ]; then
     return 0;
@@ -43,11 +44,12 @@ install_apt_package() {
 }
 
 # Installs an npm package with “npm install --global”
+#
+# Argument 1: Name of the package to install.
 install_npm_package() {
-  # Argument 1: Name of the package to install.
-  local package_name="$1"
+  local package_name="$1";
 
-  if ! [ `npm list -g | grep -c $package_name` -eq 0 ]; then
+  if ! [ `npm list --global | grep --count $package_name` -eq 0 ]; then
     return 0;
   fi
 
@@ -58,9 +60,10 @@ install_npm_package() {
 }
 
 # Changes the default shell with “chsh -s $(which $shell_command)”.
+#
+# Argument 1: Name of the shell command to make the default.
 set_default_shell() {
-  # Argument 1: Name of the shell command to make the default.
-  local shell_command="$1"
+  local shell_command="$1";
 
   echo;
   echo "Checking if $shell_command is the default shell …";
@@ -72,8 +75,8 @@ set_default_shell() {
   echo "$shell_command is not the default shell.";
   if prompt_yes_no "Do you want to make $shell_command the default shell?"; then
     echo "The script will now ask you for your user account’s password again.";
-    chsh -s $(which $shell_command);
-    echo "Please log out of your user session for this to take effect and run this script again."
+    chsh --shell $(which $shell_command);
+    echo "Please log out of your user session for this to take effect and run this script again.";
   fi
 
   exit 0;
@@ -88,7 +91,7 @@ install_oh_my_zsh() {
     echo "Checking if Oh My Zsh is installed …";
     # Assume that Oh My Zsh is installed if its directory exists.
     if [ -d "~/.oh-my-zsh" ]; then
-      echo "Oh My Zsh is not installed."
+      echo "Oh My Zsh is not installed.";
 
       if prompt_yes_no "Do you want to install Oh My Zsh?"; then
         echo "Installing Oh My Zsh …";
@@ -97,10 +100,10 @@ install_oh_my_zsh() {
         echo "✅ Done. Oh My Zsh was installed.";
       fi
     else
-      echo "✅ Oh My Zsh is already installed. Continuing."
+      echo "✅ Oh My Zsh is already installed. Continuing.";
     fi
   else
-    echo "❌ zsh is not the default shell. Exiting."
+    echo "❌ zsh is not the default shell. Exiting.";
     exit 1;
   fi
 }
@@ -111,7 +114,7 @@ install_oh_my_zsh_plugins() {
   if prompt_yes_no "Do you want to install/update the Z shell plugins?"; then
     echo "Installing Z shell plugins …";
 
-    mkdir -p ~/.oh-my-zsh/custom;
+    mkdir --parents ~/.oh-my-zsh/custom;
 
     echo "Installing zsh-syntax-highlighting …";
     if [ -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]; then
@@ -131,7 +134,7 @@ install_oh_my_zsh_plugins() {
 
     echo "✅ Installed the Z shell plugins.";
   else
-    echo "⏭ Did not install the Z shell plugins."
+    echo "⏭ Did not install the Z shell plugins.";
   fi
 }
 
@@ -144,7 +147,8 @@ symlink_dotfiles() {
   shopt -s dotglob
 
   for absolute_file_path in $PWD/home/*; do
-    local file_name="$(basename "$absolute_file_path")"
+    local file_name="$(basename "$absolute_file_path")";
+
     # Check if they represent an actual file
     if [ -f ${absolute_file_path} ]; then
       # Create a symbolic link in ~
@@ -165,16 +169,17 @@ prompt_yes_no() {
     return 0;
   fi
 
-  local question="$1"
+  local question="$1";
 
   while true; do
     read -p "$question [yN] " answer;
+
     case $answer in
-      [Yy]|[Yy]es )
+      [Yy]|[Yy]es)
         return 0;
         ;;
 
-      * )
+      *)
         return 1;
         ;;
     esac
