@@ -3,6 +3,7 @@
 vscode_files=( snippets/ keybindings.json settings.json );
 albert_files=( org.albert.extension.snippets/ org.albert.extension.websearch/ albert.conf );
 flameshot_files=( flameshot.ini );
+htop_files=( htoprc );
 
 # Change directory to the location of this script.
 # This way, it can be executed from an arbitrary location.
@@ -70,13 +71,14 @@ detect_os() {
 
 detect_os;
 
-printf "Detecting OS: ";
+printf "OS: ";
 if [[ $os == "linux" ]]; then
   printf "Linux";
 
   vscode_dir="$HOME/.config/Code/User";
   albert_dir="$HOME/.config/albert";
   flameshot_dir="$HOME/.config/flameshot";
+  htop_dir="$HOME/.config/htop";
 elif [[ $os == "windows" ]]; then
   printf "Windows";
 
@@ -114,6 +116,14 @@ if [ ! -z ${flameshot_dir+x} ]; then
   copy_files ${flameshot_dir} "$dotfiles_dir/flameshot" "${flameshot_files[@]}"
 else
   echo "Not copying Flameshot files because the directory isn’t set-up.";
+fi
+
+if [ ! -z ${htop_dir+x} ]; then
+  echo;
+  echo "Copying htop files …";
+  copy_files ${htop_dir} "$dotfiles_dir/htop" "${htop_files[@]}"
+else
+  echo "Not copying htop files because the directory isn’t set-up.";
 fi
 
 unset dotfiles_dir;
