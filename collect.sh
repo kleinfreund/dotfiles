@@ -1,10 +1,5 @@
 #!/bin/bash
 
-vscode_files=( snippets/ keybindings.json settings.json );
-albert_files=( org.albert.extension.snippets/ org.albert.extension.websearch/ albert.conf );
-flameshot_files=( flameshot.ini );
-htop_files=( htoprc );
-
 # Change directory to the location of this script.
 # This way, it can be executed from an arbitrary location.
 dotfiles_dir="$(dirname "${BASH_SOURCE}")";
@@ -26,19 +21,17 @@ is_file_or_directory() {
 
 # Copies a list of files.
 copy_files() {
-  # Argument 1: Source path directory to copy files from.
-  local source_dir_path="$1"; # Store argument 1 in variable
-  # Argument 2: Target path directory to copy files to.
-  local target_dir_path="$2"; # Store argument 1 in variable
-  shift # Shift arguments to delete argument 1
-  shift # Shift arguments to delete argument 2
-  # Argument 3–n: List of file or directory names to copy from source directory.
-  local file_names=("$@"); # Create list from all the remaining arguments
+  # Argument 1: Target path directory to copy files to.
+  local target_dir_path="$1";
+
+  # Shift arguments to delete argument 1
+  shift
+
+  # Argument 2–n: List of file or directory names to copy from source directory.
+  local source_file_paths=("$@");
 
   mkdir -p $target_dir_path;
-  for file in "${file_names[@]}"; do
-    local source_file_path="$source_dir_path/$file";
-
+  for source_file_path in "${source_file_paths[@]}"; do
     if is_file_or_directory "$source_file_path"; then
       cp -ur "$source_file_path" $target_dir_path;
       echo " • $source_file_path ✔";
@@ -76,18 +69,32 @@ if [[ $os == "linux" ]]; then
   printf "Linux";
 
   vscode_dir="$HOME/.config/Code/User";
+  vscode_files=(
+    "${vscode_dir}/snippets/"
+    "${vscode_dir}/keybindings.json"
+    "${vscode_dir}/settings.json"
+  );
+
   albert_dir="$HOME/.config/albert";
+  albert_files=(
+    "${albert_dir}/org.albert.extension.snippets/"
+    "${albert_dir}/org.albert.extension.websearch/"
+    "${albert_dir}/albert.conf"
+  );
+
   flameshot_dir="$HOME/.config/flameshot";
+  flameshot_files=(
+    "${flameshot_dir}/flameshot.ini"
+  );
+
   htop_dir="$HOME/.config/htop";
+  htop_files=(
+    "${htop_dir}/htoprc"
+  );
 elif [[ $os == "windows" ]]; then
   printf "Windows";
-
-  vscode_dir="$HOME/AppData/Roaming/Code/User";
 elif [[ $os == "macos" ]]; then
   printf "macOS";
-
-  # TODO: Update VS Code user directory path:
-  # vscode_dir="$HOME/.config/Code/User";
 else
   echo "Could not detect operating system. Aborting.";
   exit 2;
@@ -97,7 +104,7 @@ echo;
 if [ ! -z ${vscode_dir+x} ]; then
   echo;
   echo "Copying VS Code files …";
-  copy_files ${vscode_dir} "$dotfiles_dir/code" "${vscode_files[@]}"
+  copy_files "$dotfiles_dir/code" "${vscode_files[@]}"
 else
   echo "Not copying VS Code files because the directory isn’t set-up.";
 fi
@@ -105,7 +112,7 @@ fi
 if [ ! -z ${albert_dir+x} ]; then
   echo;
   echo "Copying Albert files …";
-  copy_files ${albert_dir} "$dotfiles_dir/albert" "${albert_files[@]}"
+  copy_files "$dotfiles_dir/albert" "${albert_files[@]}"
 else
   echo "Not copying Albert files because the directory isn’t set-up.";
 fi
@@ -113,7 +120,7 @@ fi
 if [ ! -z ${flameshot_dir+x} ]; then
   echo;
   echo "Copying Flameshot files …";
-  copy_files ${flameshot_dir} "$dotfiles_dir/flameshot" "${flameshot_files[@]}"
+  copy_files "$dotfiles_dir/flameshot" "${flameshot_files[@]}"
 else
   echo "Not copying Flameshot files because the directory isn’t set-up.";
 fi
@@ -121,7 +128,7 @@ fi
 if [ ! -z ${htop_dir+x} ]; then
   echo;
   echo "Copying htop files …";
-  copy_files ${htop_dir} "$dotfiles_dir/htop" "${htop_files[@]}"
+  copy_files "$dotfiles_dir/htop" "${htop_files[@]}"
 else
   echo "Not copying htop files because the directory isn’t set-up.";
 fi
