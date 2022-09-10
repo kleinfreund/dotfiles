@@ -2,13 +2,13 @@
   "bookmarks.navigateThroughAllFiles": false,
   "css.lint.zeroUnits": "warning",
   "css.lint.emptyRules": "ignore",
+  "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
   "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.codeLens": false,
   "editor.cursorBlinking": "solid",
   "editor.detectIndentation": true,
   "editor.dragAndDrop": false,
@@ -40,6 +40,9 @@
   "editor.wrappingIndent": "indent",
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 100,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
   "[markdown]": {
     "editor.wrappingIndent": "same",
     "editor.wordWrap": "wordWrapColumn",
@@ -68,6 +71,8 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
+  "git.mergeEditor": false,
+  "html.autoClosingTags": false,
   "html.format.wrapLineLength": 0,
   "javascript.validate.enable": true,
   "javascript.preferences.importModuleSpecifierEnding": "js",
@@ -76,7 +81,6 @@
   "problems.decorations.enabled": false,
   "references.preferredLocation": "view",
   "telemetry.telemetryLevel": "off",
-  "vetur.format.defaultFormatter.html": "none",
   "window.titleBarStyle": "custom",
   "workbench.colorTheme": "Shades of Purple",
   "workbench.editor.revealIfOpen": true,
@@ -113,7 +117,7 @@
     "**/node_modules": true, // npm packages
     "**/coverage": true, // Jest test coverage files
     "**/package-lock.json": true, // npm lock file
-    "**/yarn.json": true, // yarn lock file
+    "**/yarn.lock": true, // yarn lock file
     "**/*.map": true, // source maps
     "**/_site": true, // Eleventy build directory
     "**/*.bundle.js": true, // JavaScript bundles

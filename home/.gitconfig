@@ -26,3 +26,5 @@
 	defaultBranch = main
 [format]
 	pretty = format:%C(yellow)commit %H%nAuthor: %an <%ae>%nDate:   %ad%n%n%C(green)%B
+[gpg]
+	format = ssh

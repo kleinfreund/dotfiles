@@ -47,7 +47,7 @@ alias o=code
 
 # Cat replacement.
 # https://github.com/sharkdp/bat
-alias cat='bat --plain'
+alias cat='batcat --plain'
 
 # Find replacement.
 # https://github.com/sharkdp/fd
