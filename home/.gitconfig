@@ -1,30 +1,36 @@
-[user]
-	email = philipprudloff@fastmail.com
-	name = kleinfreund
-[push]
-	default = current
-[core]
-	editor = code -w
-	excludesfile = ~/.gitignore_global
+[include]
+	# Allows you to keep you user.name, user.email, user.signingKey in a separate file so you can commit this to your safety dotfiles repository.
+	path = .gitconfig_user
 [alias]
-	cm = commit -m
-	co = checkout
-	com = checkout master
+	cm = commit --signoff --gpg-sign --message
 	lg = log --oneline --graph
-	re = restore
+	rs = restore
 	st = status
 	sw = switch
-	# Undo current commits
+	swc = switch --create
+	swm = switch main
+	# Undo current commit
 	undo = reset --soft HEAD^
 	# Undo git add
 	unadd = reset HEAD
-[rebase]
-	autostash = true
-[pull]
-	rebase = false
-[init]
-	defaultBranch = main
+[commit]
+	gpgsign = true
+[core]
+	editor = code --wait
+	excludesfile = ~/.gitignore_global
 [format]
 	pretty = format:%C(yellow)commit %H%nAuthor: %an <%ae>%nDate:   %ad%n%n%C(green)%B
 [gpg]
 	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.gitconfig_allowed_signers
+[init]
+	defaultBranch = main
+[log]
+	showSignature = true
+[pull]
+	rebase = false
+[push]
+	default = current
+[rebase]
+	autostash = true

@@ -6,15 +6,11 @@ alias ..='cd ..'
 alias dl='cd ${HOME}/Downloads'
 alias dt='cd ${HOME}/Desktop'
 alias dev='cd ${HOME}/dev'
-alias oss='cd ${HOME}/dev/open-source'
 
 # Git
 alias gs='git status'
 alias gsw='git checkout'
 alias gswm='git switch $(git_main_branch)'
-alias grbbeta='git rebase beta $(current_branch)'
-alias grbalpha='git rebase alpha $(current_branch)'
-alias grbnext='git rebase next $(current_branch)'
 alias branches="git for-each-ref --sort=-committerdate refs/heads/ --format='%(authordate:short) %(color:red)%(objectname:short) %(color:yellow)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
 

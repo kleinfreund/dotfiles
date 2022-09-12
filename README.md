@@ -7,8 +7,7 @@ This is a collection of dotfiles and configuration files that I use in my develo
 ### Setup a new machine
 
 1. Fork this repository.
-2. **Important**: Change the username and email address in `home/.gitconfig` so that you don’t accidentally commit under my name.
-3. Run the deploy script.
+2. Run the deploy script.
 
    ```sh
    ./deploy.sh

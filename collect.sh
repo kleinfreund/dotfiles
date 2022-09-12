@@ -95,6 +95,13 @@ if [[ $os == "linux" ]]; then
   );
 elif [[ $os == "windows" ]]; then
   printf "Windows";
+
+  vscode_dir="$HOME/AppData/Roaming/Code/User";
+  vscode_files=(
+    "${vscode_dir}/snippets/"
+    "${vscode_dir}/keybindings.json"
+    "${vscode_dir}/settings.json"
+  );
 elif [[ $os == "macos" ]]; then
   printf "macOS";
 else
